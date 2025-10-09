@@ -88,15 +88,15 @@
 /* --- Fondo container --- */
 .container {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--navbar-height));
   background-color: #0c1015;
   background-image:
     /* radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 1px, transparent 0), */
     /* linear-gradient(rgba(218, 27, 27, 0.02) 1px, transparent 0),
     linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 0); */
     radial-gradient(circle at 50% 50%, rgba(8, 126, 126, 0.3) 1px, transparent 0),
-    /* turquesa más visible */ linear-gradient(rgba(138, 43, 226, 0.15) 1px, transparent 0),
-    /* morado más fuerte */ linear-gradient(90deg, rgba(29, 78, 216, 0.15) 1px, transparent 0); /* azul más fuerte */
+    linear-gradient(rgba(138, 43, 226, 0.15) 1px, transparent 0),
+    linear-gradient(90deg, rgba(29, 78, 216, 0.15) 1px, transparent 0); /* azul más fuerte */
   background-size:
     40px 40px,
     20px 20px,
@@ -105,7 +105,7 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding-top: 6rem;
   box-sizing: border-box;
 }
@@ -122,7 +122,7 @@
     rgba(255, 255, 255, 0.02) 20px
   );
   z-index: 1;
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
 .container::after {
@@ -143,13 +143,14 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  background-color: transparent; /* total transparencia */
+  background-color: transparent;
   border-radius: 16px;
   padding: 2.5rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 100%;
   box-sizing: border-box;
   margin: 0 auto;
+  margin-top: 3rem;
 }
 
 /* --- Card content --- */
@@ -187,6 +188,7 @@
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #ffffff;
+  font-size: 2.75rem;
 }
 
 .highlight {
@@ -200,6 +202,7 @@
   font-size: 1.25rem;
   font-weight: 500;
   color: #9ca3af;
+  font-size: 1.3rem;
 }
 
 .description {
