@@ -1,98 +1,139 @@
 <template>
+  <!-- 🧭 Navbar principal fija en la parte superior -->
   <header class="navbar">
-    <div class="logo">Ainhoa</div>
-    <nav class="input">
-      <router-link to="/" class="value">Inicio</router-link>
-      <router-link to="/about" class="value">Sobre mí</router-link>
-      <router-link to="/projects" class="value">Proyectos</router-link>
-      <router-link to="/contact" class="value">Contacto</router-link>
-    </nav>
+    <div class="navbar-content">
+      <!-- 🔷 Logotipo / Nombre -->
+      <div class="logo">Ainhoa</div>
+
+      <!-- 📱 Botón hamburguesa visible solo en móvil -->
+      <button class="menu-toggle" @click="isMenuOpen = !isMenuOpen">☰</button>
+
+      <!-- 🌐 Menú de navegación -->
+      <!-- Se muestra u oculta según el estado 'isMenuOpen' -->
+      <nav class="menu" :class="{ open: isMenuOpen }">
+        <router-link to="/" class="link" @click="isMenuOpen = false">Inicio</router-link>
+        <router-link to="/about" class="link" @click="isMenuOpen = false">Sobre mí</router-link>
+        <router-link to="/projects" class="link" @click="isMenuOpen = false">Proyectos</router-link>
+        <router-link to="/contact" class="link" @click="isMenuOpen = false">Contacto</router-link>
+      </nav>
+    </div>
   </header>
 </template>
 
 <script setup>
-// Nada especial aquí
+/*
+  🧩 Estado reactivo:
+  - 'isMenuOpen' controla la visibilidad del menú en pantallas pequeñas.
+  - Cambia de true/false al hacer clic en el botón hamburguesa.
+*/
+import { ref } from 'vue'
+const isMenuOpen = ref(false)
 </script>
 
 <style scoped>
-/* Navbar principal */
+/* --- 🎨 Estilos base --- */
 .navbar {
-  position: sticky;
+  position: sticky; /* permanece visible al hacer scroll */
   top: 0;
-  left: 0;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
+  width: 100%;
   background-color: #0d1117;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  z-index: 1000; /* asegura que quede por encima del contenido */
 }
 
-/* Menú de enlaces */
-.input {
+.navbar-content {
+  max-width: 1200px; /* limita el ancho en pantallas grandes */
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
-}
-
-.value {
-  background-color: transparent;
-  border: none;
-  padding: 10px 15px;
-  color: white;
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  font-weight: 500;
+  padding: 0.75rem 1rem;
 }
 
-.value:not(:active):hover,
-.value:focus {
+/* --- 🔷 Logo con degradado y tamaño fluido --- */
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.6rem); /* ajusta según ancho de pantalla */
+  font-weight: 790;
+  letter-spacing: 1px;
+  background: linear-gradient(to bottom, #60a5fa, #1e3a8a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- 🌐 Menú de navegación --- */
+.menu {
+  display: flex;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+/* Efecto hover */
+.link:hover {
   background-color: #21262c;
 }
 
-.value:focus,
-.value:active {
-  background-color: #1a1f24;
-  outline: none;
-}
-
-.value::before {
+/* Línea inferior activa en el link actual */
+.link.router-link-exact-active::before {
   content: '';
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 3px;
   background-color: #2f81f7;
-  border-radius: 5px;
-  opacity: 0;
-  transition: opacity 0.2s;
 }
 
-.value.router-link-exact-active::before {
-  opacity: 1;
+/* --- 📱 Botón menú móvil (hamburguesa) --- */
+.menu-toggle {
+  display: none; /* oculto en escritorio */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
-/* Logo con tipografía más ancha y moderna */
-.logo {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 790;
-  letter-spacing: 1px;
-  margin-right: 2rem;
+/* --- 📏 Responsividad --- */
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-wrap: wrap;
+    align-items: center;
+  }
 
-  /* Degradado azul vertical */
-  background: linear-gradient(to bottom, #60a5fa, #1e3a8a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* Mostrar botón en pantallas pequeñas */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Ocultar menú por defecto en móvil */
+  .menu {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  /* Mostrar menú cuando está abierto */
+  .menu.open {
+    display: flex;
+  }
+
+  /* Enlaces ocupan todo el ancho en móvil */
+  .link {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+  }
 }
 </style>
