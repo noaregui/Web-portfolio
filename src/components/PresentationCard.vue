@@ -1,24 +1,22 @@
 <template>
   <div class="card">
     <div class="card-content">
-      <!-- Contenedor horizontal para imagen + h1 -->
+      <!-- 🖼️ Contenedor horizontal: imagen a la izquierda y texto a la derecha -->
       <div class="header-content">
         <div class="image-placeholder"></div>
-
         <div class="text-header">
           <h1>Hola, soy <span class="highlight">Ainhoa</span>✨</h1>
           <p class="subtitle">Desarrolladora Full Stack</p>
         </div>
       </div>
 
-      <!-- Párrafo descriptivo debajo -->
+      <!-- 📝 Descripción personal -->
       <p class="description">
-        Apasionada por crear soluciones web eficientes y experiencias digitales intuitivas. Combino
-        frontend y backend para construir proyectos completos, desde la planificación hasta la
-        implementación.
+        Me gusta transformar ideas en soluciones web eficientes y en experiencias digitales
+        intuitivas, combinando frontend y backend de manera sencilla y efectiva.
       </p>
 
-      <!-- Redes sociales -->
+      <!-- 🌐 Redes sociales -->
       <div class="social-card">
         <!-- GitHub -->
         <a
@@ -82,37 +80,35 @@
 </template>
 
 <script setup>
-// Aquí puedes añadir props si quieres parametrizar el contenido
+// 🧩 Aquí se podrían añadir props para parametrizar contenido (nombre, título, redes)
 </script>
 
 <style scoped>
+/* --- 🎨 Card base full-width --- */
 .card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  background-color: #0d1116;
+  background-color: #0c1015;
   border-radius: 16px;
   padding: 2.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   width: 100%;
-  max-width: none;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-}
-
-.card-content {
+#0C1016 #0B0F14 .card-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1.5rem;
   width: 100%;
+}
+
+/* --- 🖼️ Header imagen + texto --- */
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .image-placeholder {
@@ -121,6 +117,13 @@
   border-radius: 50%;
   background: linear-gradient(135deg, #2f81f7, #1e40af);
   opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.text-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .text-header h1 {
@@ -131,6 +134,7 @@
 
 .highlight {
   background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -139,7 +143,6 @@
   font-size: 1.25rem;
   font-weight: 500;
   color: #9ca3af;
-  margin-bottom: 1rem;
 }
 
 .description {
@@ -148,17 +151,19 @@
   color: #d1d5db;
 }
 
-/* Redes sociales */
+/* --- Redes sociales --- */
 .social-card {
   display: flex;
   align-items: center;
   gap: 20px;
   padding-top: 20px;
+  flex-wrap: wrap;
 }
 
 .socialContainer {
   width: 35px;
   height: 35px;
+  flex-shrink: 0;
   border-radius: 50%;
   background-color: rgb(44, 44, 44);
   display: flex;
@@ -177,7 +182,7 @@
   background-color: #5865f2;
 }
 .containerFour:hover {
-  background-color: #d14836;
+  background-color: #7b2626;
 }
 
 .socialSvg {
@@ -201,6 +206,42 @@
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+/* --- 📱 Responsividad --- */
+@media (max-width: 768px) {
+  .card-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+
+  .text-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .social-card {
+    justify-content: center;
+    gap: 15px;
   }
 }
 </style>
