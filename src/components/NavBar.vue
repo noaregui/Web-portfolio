@@ -57,6 +57,8 @@ const isMenuOpen = ref(false)
   font-weight: 790;
   letter-spacing: 1px;
   background: linear-gradient(to bottom, #60a5fa, #1e3a8a);
+  /* Compatibilidad con navegadores modernos */
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
