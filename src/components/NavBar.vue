@@ -39,6 +39,11 @@ const isMenuOpen = ref(false)
   background-color: #0d1117;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
   z-index: 1000; /* asegura que quede por encima del contenido */
+  height: var(--navbar-height);
+}
+
+:root {
+  --navbar-height: 60px;
 }
 
 .navbar-content {
