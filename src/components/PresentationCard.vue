@@ -108,15 +108,22 @@ import audioFile from '@/assets/audio.mp3'
 import { ref } from 'vue'
 
 const loaderRef = ref(null)
+const isPlaying = ref(false)
+const audio = new Audio(audioFile)
 
 const playAudioAndAnimate = () => {
-  const audio = new Audio(audioFile)
+  if (isPlaying.value) return // si ya está reproduciéndose, no hacer nada
+
+  isPlaying.value = true
   audio.play()
 
   if (loaderRef.value) {
     loaderRef.value.classList.add('playing')
+  }
 
-    audio.onended = () => {
+  audio.onended = () => {
+    isPlaying.value = false
+    if (loaderRef.value) {
       loaderRef.value.classList.remove('playing')
     }
   }
