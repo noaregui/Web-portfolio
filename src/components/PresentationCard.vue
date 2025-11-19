@@ -1,25 +1,46 @@
 <template>
-  <!-- Fondo oscuro estilizado -->
+  <!-- Card ocupando todo el container -->
   <div class="container">
-    <!-- Card centrada -->
     <div class="card">
       <div class="card-content">
-        <!-- 🖼️ Header: imagen a la izquierda y texto a la derecha -->
+        <!-- Header imagen + texto -->
         <div class="header-content">
-          <div class="image-placeholder"></div>
+          <div class="image-placeholder">
+            <img src="@/assets/Avatar_web_sin_fondo.jpg" alt="AvatarPrueba" />
+          </div>
           <div class="text-header">
-            <h1>Hola, soy <span class="highlight">Ainhoa</span>✨</h1>
-            <p class="subtitle">Desarrolladora Full Stack</p>
+            <h1>Hi, I'm <span class="highlight">Ainhoa</span>✨</h1>
+            <p class="subtitle">Full Stack Developer</p>
+            <div class="animation" @click="playAudioAndAnimate">
+              <div class="loader" ref="loaderRef">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                  <defs>
+                    <mask id="clipping">
+                      <polygon points="0,0 100,0 100,100 0,100" fill="black"></polygon>
+                      <polygon points="25,25 75,25 50,75" fill="white"></polygon>
+                      <polygon points="50,25 75,75 25,75" fill="white"></polygon>
+                      <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+                      <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+                      <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+                      <polygon points="35,35 65,35 50,65" fill="white"></polygon>
+                    </mask>
+                  </defs>
+                </svg>
+                <div class="box"></div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- 📝 Descripción personal -->
+        <!-- Descripción personal -->
         <p class="description">
-          Me gusta transformar ideas en soluciones web eficientes y en experiencias digitales
-          intuitivas, combinando frontend y backend de manera sencilla y efectiva.
+          I enjoy turning ideas into efficient web solutions and creating intuitive digital
+          experiences, combining frontend and backend in a simple and effective way.
+          <!-- Me gusta transformar ideas en soluciones web eficientes y en experiencias digitales
+          intuitivas, combinando frontend y backend de manera sencilla y efectiva. -->
         </p>
 
-        <!-- 🌐 Redes sociales -->
+        <!-- Redes sociales -->
         <div class="social-card">
           <!-- GitHub -->
           <a
@@ -64,8 +85,10 @@
           <!-- Gmail -->
           <a
             class="socialContainer containerFour"
-            href="mailto:noareguileon@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=noareguileon@gmail.com"
+            target="_blank"
             aria-label="Gmail"
+            style="position: relative; z-index: 10"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="socialSvg">
               <path
@@ -81,140 +104,120 @@
 </template>
 
 <script setup>
-// 🧩 Props podrían añadirse aquí si deseas parametrizar contenido
+import audioFile from '@/assets/audio.mp3'
+import { ref } from 'vue'
+
+const loaderRef = ref(null)
+
+const playAudioAndAnimate = () => {
+  const audio = new Audio(audioFile)
+  audio.play()
+
+  if (loaderRef.value) {
+    loaderRef.value.classList.add('playing')
+
+    audio.onended = () => {
+      loaderRef.value.classList.remove('playing')
+    }
+  }
+}
+
+// props opcionales
 </script>
 
 <style scoped>
-/* --- Fondo container --- */
 .container {
   width: 100%;
-  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 100%;
+  min-height: 500px;
+  height: auto;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #0c1015;
   background-image:
-    /* radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 1px, transparent 0), */
-    /* linear-gradient(rgba(218, 27, 27, 0.02) 1px, transparent 0),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 0); */
     radial-gradient(circle at 50% 50%, rgba(8, 126, 126, 0.3) 1px, transparent 0),
     linear-gradient(rgba(138, 43, 226, 0.15) 1px, transparent 0),
-    linear-gradient(90deg, rgba(29, 78, 216, 0.15) 1px, transparent 0); /* azul más fuerte */
+    linear-gradient(90deg, rgba(29, 78, 216, 0.15) 1px, transparent 0);
   background-size:
     40px 40px,
     20px 20px,
     20px 20px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 6rem;
+  background-repeat: repeat;
   box-sizing: border-box;
 }
 
-.container::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(255, 255, 255, 0.02) 10px,
-    rgba(255, 255, 255, 0.02) 20px
-  );
-  z-index: 1;
-  opacity: 0.4;
-}
-
-.container::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 60px 60px;
-  z-index: 2;
-  opacity: 0.5;
-}
-
-/* --- Card transparente --- */
-.card {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  background-color: transparent;
-  border-radius: 16px;
-  padding: 2.5rem;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin: 0 auto;
-  margin-top: 3rem;
-}
-
-/* --- Card content --- */
 .card-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* --- Header imagen + texto --- */
 .header-content {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
 }
 
 .image-placeholder {
-  width: 120px;
-  height: 120px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0666db, #1c1c1c);
-  opacity: 0.8;
-  flex-shrink: 0;
+  overflow: hidden;
+  border: 3px solid #0e1217;
 }
 
-.text-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .text-header h1 {
-  font-size: 2rem;
+  font-size: 2.75rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #ffffff;
-  font-size: 2.75rem;
 }
 
 .highlight {
   background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  background-color: #4d3ee6;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-  font-size: 1.25rem;
+  text-align: center;
+  font-size: 1.6rem;
   font-weight: 500;
   color: #9ca3af;
-  font-size: 1.3rem;
 }
 
 .description {
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.6;
   color: #d1d5db;
-  margin-top: 1rem;
+  text-align: center;
 }
 
-/* --- Redes sociales --- */
 .social-card {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
@@ -223,7 +226,6 @@
 .socialContainer {
   width: 35px;
   height: 35px;
-  flex-shrink: 0;
   border-radius: 50%;
   background-color: #1c1c1c;
   display: flex;
@@ -242,7 +244,7 @@
   background-color: #535fee;
 }
 .containerFour:hover {
-  background-color: #bf211c;
+  background-color: #bf1f1f;
 }
 
 .socialSvg {
@@ -252,6 +254,7 @@
 .socialSvg path {
   fill: #fff;
 }
+
 .socialContainer:hover .socialSvg {
   animation: slide-in-top 0.3s both;
 }
@@ -267,14 +270,16 @@
   }
 }
 
-/* --- Responsividad --- */
-@media (max-width: 768px) {
-  .container {
-    padding-top: 3rem;
+/* Responsive */
+@media (max-width: 1024px) {
+  .card {
+    padding: 1.5rem;
   }
+}
+
+@media (max-width: 768px) {
   .card {
     padding: 2rem;
-    margin-top: 2rem;
     align-items: center;
     text-align: center;
   }
@@ -283,22 +288,210 @@
     align-items: center;
     text-align: center;
   }
-  .image-placeholder {
-    width: 100px;
-    height: 100px;
-  }
   .text-header h1 {
     font-size: 1.75rem;
-  }
-  .subtitle {
-    font-size: 1.1rem;
   }
   .description {
     font-size: 0.95rem;
   }
-  .social-card {
-    justify-content: center;
-    gap: 15px;
+}
+
+.animation {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+}
+
+.loader {
+  --time-animation: 4s;
+  --size: 0.45;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(var(--size));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  animation: color-phases 9s ease-in-out infinite;
+  box-shadow:
+    0 0 25px 0 var(--color-three),
+    0 0px 50px 0 var(--color-four);
+  transition: all 0.3s ease-in-out;
+}
+
+.loader::before {
+  content: '';
+  position: relative;
+  inset: 0;
+  border-radius: 50%;
+  border-top: solid 1px var(--color-one);
+  border-bottom: solid 1px var(--color-two);
+  background: linear-gradient(180deg, var(--color-five), var(--color-four));
+  box-shadow:
+    inset 0 10px 10px 0 var(--color-three),
+    inset 0 -10px 10px 0 var(--color-four);
+  width: 170px;
+  height: 170px;
+}
+
+.loader .box {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(180deg, var(--color-one) 30%, var(--color-two) 70%);
+  mask: url(#clipping);
+  -webkit-mask: url(#clipping);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.loader svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader svg #clipping {
+  filter: contrast(15);
+  animation: roundness calc(var(--time-animation) / 2) linear infinite;
+}
+
+.loader svg #clipping polygon {
+  filter: blur(7px);
+}
+
+.loader svg #clipping polygon:nth-child(1) {
+  transform-origin: 75% 25%;
+  transform: rotate(90deg);
+}
+
+.loader svg #clipping polygon:nth-child(2) {
+  transform-origin: 50% 50%;
+  animation: rotation var(--time-animation) linear infinite reverse;
+}
+
+.loader svg #clipping polygon:nth-child(3) {
+  transform-origin: 50% 60%;
+  animation: rotation var(--time-animation) linear infinite;
+  animation-delay: calc(var(--time-animation) / -3);
+}
+
+.loader svg #clipping polygon:nth-child(4) {
+  transform-origin: 40% 40%;
+  animation: rotation var(--time-animation) linear infinite reverse;
+}
+
+.loader svg #clipping polygon:nth-child(5) {
+  transform-origin: 40% 40%;
+  animation: rotation var(--time-animation) linear infinite reverse;
+  animation-delay: calc(var(--time-animation) / -2);
+}
+
+.loader svg #clipping polygon:nth-child(6) {
+  transform-origin: 60% 40%;
+  animation: rotation var(--time-animation) linear infinite;
+}
+
+.loader svg #clipping polygon:nth-child(7) {
+  transform-origin: 60% 40%;
+  animation: rotation var(--time-animation) linear infinite;
+  animation-delay: calc(var(--time-animation) / -1.5);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes roundness {
+  0% {
+    filter: contrast(15);
+  }
+  20% {
+    filter: contrast(3);
+  }
+  40% {
+    filter: contrast(3);
+  }
+  60% {
+    filter: contrast(15);
+  }
+  100% {
+    filter: contrast(15);
+  }
+}
+
+/* 🔹 Animación de fases de color controladas */
+@keyframes color-phases {
+  0%,
+  100% {
+    --color-one: #f8960c;
+    --color-two: #f7940b;
+    --color-three: #fea05b;
+    --color-four: #fec22a;
+    --color-five: #ffd262;
+  }
+}
+.loader:hover {
+  transform: translate(-50%, -50%) scale(calc(var(--size) * 1.1)); /* 10% más grande */
+  box-shadow:
+    0 0 35px 0 var(--color-three),
+    0 0 70px 0 var(--color-four);
+  cursor: pointer;
+}
+
+/* Para suavizar la transición de colores */
+.loader,
+.loader.playing {
+  transition: all 0.3s ease-in-out;
+}
+
+.loader.playing {
+  animation: talking-color 2s ease-in-out infinite alternate;
+}
+
+/* Mientras se está reproduciendo */
+.loader.playing {
+  --color-one: #f8a024;
+  --color-two: #f8a024;
+  --color-three: #fea05b;
+  --color-four: #ffd262;
+  --color-five: #ffd262;
+
+  /* Animación tipo “pulse” */
+  animation: pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(calc(var(--size) * 1));
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(calc(var(--size) * 1.1)); /* 10% más grande */
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(calc(var(--size) * 1));
+  }
+}
+
+@keyframes talking-color {
+  0%,
+  100% {
+    --color-one: #f8a024;
+    --color-two: #f8a024;
+    --color-three: #fea05b;
+    --color-four: #ffd262;
+    --color-five: #ffd262;
   }
 }
 </style>
