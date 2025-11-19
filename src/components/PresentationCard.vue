@@ -194,10 +194,12 @@ const playAudioAndAnimate = () => {
 }
 
 .text-header h1 {
-  font-size: 2.75rem;
+  font-size: clamp(1.5rem, 4vw, 2.75rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #ffffff;
+  text-align: center;
+  line-height: 1.2;
 }
 
 .highlight {
