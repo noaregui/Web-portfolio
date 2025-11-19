@@ -1,74 +1,61 @@
 <template>
-  <!-- 🧭 Navbar principal fija en la parte superior -->
   <header class="navbar">
     <div class="navbar-content">
-      <!-- 🔷 Logotipo / Nombre -->
-      <div class="logo">Ainhoa</div>
-
-      <!-- 📱 Botón hamburguesa visible solo en móvil -->
       <button class="menu-toggle" @click="isMenuOpen = !isMenuOpen">☰</button>
 
-      <!-- 🌐 Menú de navegación -->
-      <!-- Se muestra u oculta según el estado 'isMenuOpen' -->
       <nav class="menu" :class="{ open: isMenuOpen }">
-        <router-link to="/" class="link" @click="isMenuOpen = false">Inicio</router-link>
-        <router-link to="/about" class="link" @click="isMenuOpen = false">Sobre mí</router-link>
-        <router-link to="/projects" class="link" @click="isMenuOpen = false">Proyectos</router-link>
-        <router-link to="/contact" class="link" @click="isMenuOpen = false">Contacto</router-link>
+        <router-link to="/" class="link" @click="isMenuOpen = false">Home</router-link>
+        <router-link to="/about" class="link" @click="isMenuOpen = false">About me</router-link>
+        <router-link to="/projects" class="link" @click="isMenuOpen = false">Projects</router-link>
+        <router-link to="/contact" class="link" @click="isMenuOpen = false">Contact</router-link>
       </nav>
     </div>
   </header>
 </template>
 
 <script setup>
-/*
-  🧩 Estado reactivo:
-  - 'isMenuOpen' controla la visibilidad del menú en pantallas pequeñas.
-  - Cambia de true/false al hacer clic en el botón hamburguesa.
-*/
 import { ref } from 'vue'
 const isMenuOpen = ref(false)
 </script>
 
-<style scoped>
-/* --- 🎨 Estilos base --- */
+<style>
+:root {
+  --navbar-height: 80px;
+}
+
 .navbar {
-  position: sticky; /* permanece visible al hacer scroll */
-  top: 0;
-  width: 100%;
+  width: 100%; /* ocupa todo el ancho del wrapper */
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
   background-color: #0d1117;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-  z-index: 1000; /* asegura que quede por encima del contenido */
-  height: var(--navbar-height);
 }
 
-:root {
-  --navbar-height: 60px;
-}
-
+/* Contenedor interno del navbar */
 .navbar-content {
-  max-width: 1200px; /* limita el ancho en pantallas grandes */
-  margin: 0 auto;
+  width: 100%;
+
+  margin: 0 auto; /* centrado */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1rem;
+  padding: 0 1rem;
 }
 
-/* --- 🔷 Logo con degradado y tamaño fluido --- */
+/* Logo */
 .logo {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.3rem, 2vw, 1.6rem); /* ajusta según ancho de pantalla */
-  font-weight: 790;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 700;
   letter-spacing: 1px;
   background: linear-gradient(to bottom, #60a5fa, #1e3a8a);
-  /* Compatibilidad con navegadores modernos */
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* --- 🌐 Menú de navegación --- */
+/* Menú */
 .menu {
   display: flex;
   gap: 1rem;
@@ -84,12 +71,10 @@ const isMenuOpen = ref(false)
   transition: background 0.2s ease;
 }
 
-/* Efecto hover */
 .link:hover {
   background-color: #21262c;
 }
 
-/* Línea inferior activa en el link actual */
 .link.router-link-exact-active::before {
   content: '';
   position: absolute;
@@ -97,12 +82,11 @@ const isMenuOpen = ref(false)
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #2f81f7;
 }
 
-/* --- 📱 Botón menú móvil (hamburguesa) --- */
+/* Botón menú móvil */
 .menu-toggle {
-  display: none; /* oculto en escritorio */
+  display: none;
   background: none;
   border: none;
   color: white;
@@ -110,19 +94,17 @@ const isMenuOpen = ref(false)
   cursor: pointer;
 }
 
-/* --- 📏 Responsividad --- */
+/* Responsividad */
 @media (max-width: 768px) {
   .navbar-content {
     flex-wrap: wrap;
     align-items: center;
   }
 
-  /* Mostrar botón en pantallas pequeñas */
   .menu-toggle {
     display: block;
   }
 
-  /* Ocultar menú por defecto en móvil */
   .menu {
     flex-direction: column;
     width: 100%;
@@ -131,12 +113,10 @@ const isMenuOpen = ref(false)
     margin-top: 0.5rem;
   }
 
-  /* Mostrar menú cuando está abierto */
   .menu.open {
     display: flex;
   }
 
-  /* Enlaces ocupan todo el ancho en móvil */
   .link {
     width: 100%;
     text-align: left;
