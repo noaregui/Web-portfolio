@@ -9,11 +9,13 @@
             <span class="title-purple"> Background</span>
           </h3>
           <p>
-            I've always been curious about <span class="highlight">programming</span>, but my first
-            path took me to psychology. I completed my degree in 4 years and then pursued a master's
-            in social <span class="highlight">psychology</span>. After working for 5 years as a
-            social psychologist, I decided to follow my passion for tech and switched careers to
-            study programming.
+            I’ve always been curious about technology, even though my career initially led me into
+            <span class="highlight">psychology</span>. After completing my degree and a master’s in
+            social psychology, I worked for five years in the field. Over time, my interest in
+            <span class="highlight">programming</span> kept growing, so I made a meaningful career
+            shift and started studying software development. Today, I bring the insights and
+            problem-solving skills I developed into my work as a developer, creating digital
+            solutions that are both practical and user-friendly.
           </p>
         </div>
 
@@ -23,10 +25,10 @@
             <span class="title-purple"> Approach</span>
           </h3>
           <p>
-            I combine <span class="highlight">frontend</span> and
-            <span class="highlight">backend</span> skills with a strong focus on user experience and
-            operational efficiency. I work well in agile, cross-functional teams, managing projects
-            autonomously from planning to final delivery.
+            I enjoy combining <span class="highlight">frontend</span> and
+            <span class="highlight">backend</span> skills to create smooth, user-friendly
+            experiences. I’m comfortable working in agile, cross-functional teams, collaborating
+            closely with others, and seeing projects through from start to finish.
           </p>
         </div>
 
@@ -37,9 +39,11 @@
           </h3>
           <p>
             I enjoy learning new technologies and exploring innovative solutions. My background in
-            psychology gives me a unique perspective on user experience,
-            <span class="highlight">team dynamics</span>, and
-            <span class="highlight">problem-solving</span>.
+            psychology gives me a fresh perspective on
+            <span class="highlight">user experience</span>,
+            <span class="highlight">communication</span>, and how
+            <span class="highlight">teams</span>
+            work together.
           </p>
         </div>
 
@@ -49,15 +53,15 @@
             <span class="title-purple"> I Build</span>
           </h3>
           <p>
-            I enjoy creating efficient and scalable solutions across both frontend and backend. My
-            experience includes developing internal and
-            <span class="highlight">external APIs</span>, workflow automations, and integrations
-            between platforms using <span class="highlight">Node.js</span>,
-            <span class="highlight">Express</span>, <span class="highlight">Flask</span>, and
-            <span class="highlight">MySQL</span>. I've also built conversational bots, WhatsApp
-            automations, and real-estate tools that streamline internal operations. I focus on clean
-            architecture, clarity in requirements, and delivering solutions that genuinely improve
-            how teams work.
+            I enjoy building reliable, scalable applications across the
+            <span class="highlight">full stack</span>. On the frontend, I work with JavaScript,
+            TypeScript, React, and Vue to create clean interfaces and smooth user experiences. On
+            the backend, I focus on developing <span class="highlight">REST APIs</span>, workflow
+            logic, and <span class="highlight">platform integrations</span>
+            using Node.js, Express, Flask, and MySQL. I have experience connecting systems,
+            automating processes, and designing data structures that support real business needs. My
+            approach is centered on clean architecture, clear communication, and delivering
+            solutions that help teams work more efficiently.
           </p>
         </div>
       </div>
@@ -135,7 +139,7 @@
 
 p {
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 2;
 }
 
 /* Imagen fija */
@@ -153,13 +157,15 @@ p {
 }
 
 .highlight {
-  font-weight: 800; /* negrita más fuerte */
-  font-size: 1.5rem; /* un poco más grande que el texto normal */
-  color: #aba6a6; /* color del texto */
-  text-decoration: underline; /* subrayado */
-  text-decoration-color: #6b46c1; /* color del subrayado morado */
-  text-decoration-thickness: 5px; /* grosor del subrayado */
-  text-underline-offset: 4px; /* separación del subrayado del texto */
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-color: #6b46c1;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 4px;
+  line-height: 1.33; /* = 1.5rem / 1.1rem aprox */
+  vertical-align: baseline; /* asegura que no empuja la línea */
 }
 
 /* Responsive */
