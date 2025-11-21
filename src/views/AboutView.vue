@@ -1,8 +1,7 @@
 <template>
   <section class="about">
     <div class="about-wrapper">
-      <!-- Texto con scroll (sin mostrar barra) -->
-      <div class="about-text no-scrollbar">
+      <div class="about-text no-scrollbar" ref="aboutText">
         <div class="about-section">
           <h3 class="about-subtitle">
             <span class="title-white">My</span>
@@ -13,9 +12,7 @@
             <span class="highlight">psychology</span>. After completing my degree and a master’s in
             social psychology, I worked for five years in the field. Over time, my interest in
             <span class="highlight">programming</span> kept growing, so I made a meaningful career
-            shift and started studying software development. Today, I bring the insights and
-            problem-solving skills I developed into my work as a developer, creating digital
-            solutions that are both practical and user-friendly.
+            shift and started studying software development.
           </p>
         </div>
 
@@ -26,9 +23,9 @@
           </h3>
           <p>
             I enjoy combining <span class="highlight">frontend</span> and
-            <span class="highlight">backend</span> skills to create smooth, user-friendly
-            experiences. I’m comfortable working in agile, cross-functional teams, collaborating
-            closely with others, and seeing projects through from start to finish.
+            <span class="highlight">backend</span> skills to create smooth experiences. I’m
+            comfortable working in agile, cross-functional teams, collaborating closely with others,
+            and seeing projects through from start to finish.
           </p>
         </div>
 
@@ -38,12 +35,9 @@
             <span class="title-purple"> Work</span>
           </h3>
           <p>
-            I enjoy learning new technologies and exploring innovative solutions. My background in
-            psychology gives me a fresh perspective on
-            <span class="highlight">user experience</span>,
-            <span class="highlight">communication</span>, and how
-            <span class="highlight">teams</span>
-            work together.
+            I enjoy learning <span class="highlight">new technologies</span> and exploring
+            innovative solutions. My background in psychology gives me a fresh perspective on user
+            experience, <span class="highlight">communication</span>, and how teams work together.
           </p>
         </div>
 
@@ -53,20 +47,17 @@
             <span class="title-purple"> I Build</span>
           </h3>
           <p>
-            I enjoy building reliable, scalable applications across the
-            <span class="highlight">full stack</span>. On the frontend, I work with JavaScript,
-            TypeScript, React, and Vue to create clean interfaces and smooth user experiences. On
-            the backend, I focus on developing <span class="highlight">REST APIs</span>, workflow
-            logic, and <span class="highlight">platform integrations</span>
+            I enjoy building reliable, scalable applications across the full stack. On the frontend,
+            I work with JavaScript, TypeScript, React, and Vue to create clean interfaces and smooth
+            user experiences. On the backend, I focus on developing
+            <span class="highlight">REST APIs</span>, workflow logic, and
+            <span class="highlight">platform integrations</span>
             using Node.js, Express, Flask, and MySQL. I have experience connecting systems,
-            automating processes, and designing data structures that support real business needs. My
-            approach is centered on clean architecture, clear communication, and delivering
-            solutions that help teams work more efficiently.
+            automating processes, and designing data structures that support real business needs.
           </p>
         </div>
       </div>
 
-      <!-- Imagen fija -->
       <div class="about-image">
         <img src="@/assets/Avatar_programming_sin_fondo.jpg" alt="Ainhoa Avatar" />
       </div>
@@ -74,7 +65,41 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const aboutText = ref(null)
+let inactivityTimer = null
+let autoScrollInterval = null
+
+onMounted(() => {
+  const container = aboutText.value
+  if (!container) return
+
+  const resetTimer = () => {
+    clearTimeout(inactivityTimer)
+    clearInterval(autoScrollInterval)
+    inactivityTimer = setTimeout(startAutoScroll, 4000)
+  }
+
+  const startAutoScroll = () => {
+    autoScrollInterval = setInterval(() => {
+      const bottom = container.scrollHeight - container.clientHeight
+
+      // Si ha llegado al final → volver arriba
+      if (container.scrollTop >= bottom) {
+        container.scrollTo({ top: 0, behavior: 'smooth' })
+        return
+      }
+
+      // Desplazamiento normal
+      container.scrollBy({ top: 3, behavior: 'smooth' })
+    }, 30)
+  }
+  container.addEventListener('scroll', resetTimer)
+  resetTimer()
+})
+</script>
 
 <style scoped>
 .about {
@@ -89,7 +114,6 @@
   align-items: flex-start;
 }
 
-/* TEXTO CON SCROLL SIN MOSTRAR BARRA */
 .about-text {
   flex: 1;
   height: 100vh;
@@ -98,16 +122,14 @@
   padding-right: 1rem;
 }
 
-/* Ocultar scroll en todos los navegadores */
 .no-scrollbar {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE / Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .no-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 
-/* Cada sección ocupa el alto completo */
 .about-section {
   scroll-snap-align: start;
   min-height: 100vh;
@@ -124,7 +146,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Fuerza negrita total también en los spans */
 .about-subtitle span {
   font-weight: 700 !important;
 }
@@ -142,7 +163,6 @@ p {
   line-height: 2;
 }
 
-/* Imagen fija */
 .about-image {
   flex: 0 0 400px;
   position: sticky;
@@ -164,11 +184,10 @@ p {
   text-decoration-color: #6b46c1;
   text-decoration-thickness: 5px;
   text-underline-offset: 4px;
-  line-height: 1.33; /* = 1.5rem / 1.1rem aprox */
-  vertical-align: baseline; /* asegura que no empuja la línea */
+  line-height: 1.33;
+  vertical-align: baseline;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .about-wrapper {
     flex-direction: column;
