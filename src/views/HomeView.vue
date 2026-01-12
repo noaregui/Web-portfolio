@@ -5,7 +5,7 @@
       <SkillsSection />
       <ToolsCard />
       <ContactCard />
-      <TestimonialsCard />
+      <!-- <TestimonialsCard /> -->
     </div>
   </section>
 </template>
@@ -15,7 +15,7 @@ import PresentationCard from '@/components/PresentationCard.vue'
 import SkillsSection from '@/components/SkillsSection.vue'
 import ToolsCard from '@/components/ToolsCard.vue'
 import ContactCard from '@/components/ContactCard.vue'
-import TestimonialsCard from '@/components/TestimonialsCard.vue'
+// import TestimonialsCard from '@/components/TestimonialsCard.vue'
 </script>
 
 <style scoped>
