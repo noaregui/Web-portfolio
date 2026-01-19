@@ -188,7 +188,7 @@ const technologies = [
 /* ===== Hero ===== */
 .hero {
   text-align: center;
-  padding: 3rem 2rem 3rem; /* reducido de 5rem a 3rem */
+  padding: 3rem 2rem 3rem;
 }
 
 .hero-title {
@@ -316,11 +316,11 @@ const technologies = [
 .feature-list {
   padding-left: 1.2rem;
   margin-top: 0.5rem;
-  margin-bottom: 1.5rem; /* más margen entre li */
+  margin-bottom: 1.5rem;
   list-style-type: disc;
   color: #e0e0e0;
   font-size: 1rem;
-  line-height: 2rem; /* más espacio entre líneas */
+  line-height: 2rem;
 }
 
 .feature-list li {
@@ -331,7 +331,7 @@ const technologies = [
 .highlight {
   color: #fff;
   font-weight: 700;
-  font-size: 1.2rem; /* más grande como VAPI */
+  font-size: 1.2rem;
   text-decoration: underline;
   text-decoration-color: #6b46c1;
   text-decoration-thickness: 4px;
