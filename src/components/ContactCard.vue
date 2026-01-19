@@ -9,39 +9,43 @@
         <p class="contact-subtitle">
           If you have an idea, project, or just want to say hi, fill out the form and I’ll get back
           to you as soon as possible.
-          <!-- Si tienes una idea, proyecto o simplemente quieres saludar, completa el formulario y te
-          responderé lo antes posible. -->
         </p>
       </div>
 
       <form class="contact-form" @submit.prevent="sendMessage">
         <div class="form-group">
-          <label for="name">Nombre</label>
-          <input type="text" id="name" v-model="form.name" required placeholder="Tu nombre" />
+          <label for="name">Name</label>
+          <input type="text" id="name" v-model="form.name" required placeholder="Your name" />
         </div>
 
         <div class="form-group">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" v-model="form.email" required placeholder="tu@email.com" />
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            v-model="form.email"
+            required
+            placeholder="you@email.com"
+          />
         </div>
 
         <div class="form-group">
-          <label for="message">Mensaje</label>
+          <label for="message">Message</label>
           <textarea
             id="message"
             v-model="form.message"
             rows="4"
             required
-            placeholder="Escribe tu mensaje aquí..."
+            placeholder="Tell me about your idea, project or just say hi 🙂"
           ></textarea>
         </div>
 
         <button type="submit" class="send-btn" :disabled="sending">
-          {{ sending ? 'Enviando...' : 'Enviar mensaje' }}
+          {{ sending ? 'Sending...' : 'Send message' }}
         </button>
 
-        <p v-if="sent" class="success-msg">✅ ¡Mensaje enviado con éxito!</p>
-        <p v-if="error" class="error-msg">❌ Ocurrió un error. Inténtalo de nuevo.</p>
+        <p v-if="sent" class="success-msg">✅ Message sent successfully!</p>
+        <p v-if="error" class="error-msg">❌ Something went wrong. Please try again.</p>
       </form>
     </div>
   </div>
