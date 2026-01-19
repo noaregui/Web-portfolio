@@ -8,49 +8,77 @@
       <button @click="scrollToContent">View project details</button>
     </header>
 
-    <!-- ===== Image Carousel ===== -->
-    <section class="carousel">
+    <!-- ===== Carousel ===== -->
+    <section class="carousel" ref="carouselRef">
       <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
         <div class="carousel-slide" v-for="(image, index) in carouselImages" :key="index">
-          <img :src="image" alt="VAPI slide" />
+          <img :src="image" alt="VAPI slide" :ref="(el) => (slideImages[index] = el)" />
         </div>
+      </div>
+      <button class="carousel-btn prev" @click="prevSlide">&#10094;</button>
+      <button class="carousel-btn next" @click="nextSlide">&#10095;</button>
+      <div class="carousel-dots">
+        <span
+          v-for="(image, index) in carouselImages"
+          :key="index"
+          :class="{ active: index === currentSlide }"
+          @click="goToSlide(index)"
+        ></span>
       </div>
     </section>
 
     <!-- ===== Project Description ===== -->
     <section class="project-description" ref="contentRef">
-      <!-- What is -->
-      <div class="description-block">
-        <h2>What is VAPI?</h2>
-        <p>
-          VAPI is an AI-powered voice assistant designed to automate phone call handling, allowing a
-          virtual assistant to answer calls.
-        </p>
+      <div class="description-block alternate">
+        <div class="text">
+          <h2>What is VAPI?</h2>
+          <p>
+            VAPI is an AI-powered voice assistant designed to
+            <span class="highlight">automate phone call handling</span> and
+            <span class="highlight">streamline customer interactions</span>. It allows a virtual
+            assistant to answer calls, understand caller intent, and interact naturally in
+            <span class="highlight">real time</span>, significantly reducing the need for manual
+            intervention.
+          </p>
+          <ul class="feature-list">
+            <li>📞 Handles incoming calls automatically</li>
+            <li>🤖 Recognizes user intent using AI</li>
+            <li>📊 Provides accurate information instantly</li>
+          </ul>
+        </div>
       </div>
 
       <!-- Development -->
-      <div class="description-block">
-        <h2>Development</h2>
-        <p>
-          The voice assistant answered incoming calls, understood the user’s intent, and interacted
-          naturally using AI. When a caller asked about a property, the assistant queried the
-          internal database to identify the property and provided key information such as price,
-          location, and general details.
-        </p>
-        <p>
-          During the call, it also collected the caller’s contact information and marked them as an
-          interested lead in the company’s internal application, allowing the sales team to follow
-          up without needing to handle the initial call.
-        </p>
+      <div class="description-block alternate reverse">
+        <div class="text">
+          <h2>Development</h2>
+          <p>
+            In this project, I implemented VAPI to handle incoming calls from potential property
+            clients. The assistant was capable of
+            <span class="highlight">querying the internal database in real time</span> to locate
+            properties and check availability for visits.
+          </p>
+          <p>
+            It could also <span class="highlight">schedule appointments automatically</span>,
+            <span class="highlight">log caller information and responses</span> in the database, and
+            <span class="highlight">integrate with internal sales applications</span> to streamline
+            operations.
+          </p>
+          <ul class="feature-list">
+            <li>✅ Answered incoming calls efficiently</li>
+            <li>🗂️ Maintained accurate records of client interactions</li>
+            <li>⚡ Reduced manual workload and increased efficiency</li>
+          </ul>
+        </div>
       </div>
 
       <!-- Technologies Used -->
-      <div class="description-block">
+      <div class="description-block tech-section">
         <h2>Technologies Used</h2>
         <div class="tech-cards">
-          <span class="tech-card" v-for="(tech, index) in technologies" :key="index">{{
-            tech
-          }}</span>
+          <span class="tech-card" v-for="(tech, index) in technologies" :key="index">
+            {{ tech }}
+          </span>
         </div>
       </div>
     </section>
@@ -58,28 +86,56 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 
 import VAPI1 from '@/assets/VAPI 1.jpg'
 import VAPI2 from '@/assets/VAPI 2.jpg'
 import VAPI3 from '@/assets/VAPI 3.jpg'
 import VAPI4 from '@/assets/VAPI 4.jpg'
 
+/* ===== Refs ===== */
 const contentRef = ref(null)
+const carouselRef = ref(null)
+const slideImages = ref([])
 
 /* ===== Carousel ===== */
 const carouselImages = [VAPI1, VAPI2, VAPI3, VAPI4]
 const currentSlide = ref(0)
 let interval = null
 
+const updateCarouselHeight = () => {
+  nextTick(() => {
+    const img = slideImages.value[currentSlide.value]
+    if (img && carouselRef.value) {
+      carouselRef.value.style.height = img.offsetHeight + 'px'
+    }
+  })
+}
+
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % carouselImages.length
+  updateCarouselHeight()
+}
+
+const prevSlide = () => {
+  currentSlide.value = (currentSlide.value - 1 + carouselImages.length) % carouselImages.length
+  updateCarouselHeight()
+}
+
+const goToSlide = (index) => {
+  currentSlide.value = index
+  updateCarouselHeight()
+}
+
 onMounted(() => {
-  interval = setInterval(() => {
-    currentSlide.value = (currentSlide.value + 1) % carouselImages.length
-  }, 3000)
+  updateCarouselHeight()
+  interval = setInterval(nextSlide, 4000)
+  window.addEventListener('resize', updateCarouselHeight)
 })
 
 onUnmounted(() => {
   clearInterval(interval)
+  window.removeEventListener('resize', updateCarouselHeight)
 })
 
 /* ===== Scroll ===== */
@@ -92,7 +148,7 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
 </script>
 
 <style scoped>
-/* ===== Remove global scroll ===== */
+/* ===== Reset ===== */
 :global(html),
 :global(body) {
   margin: 0;
@@ -107,6 +163,7 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
   color: white;
   overflow-x: hidden;
   padding-bottom: 4rem;
+  background: #0c1016;
 }
 
 /* ===== Hero ===== */
@@ -122,14 +179,9 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
   margin-bottom: 2rem;
 }
 
-.hero-title span {
-  display: inline-block;
-}
-
 .title-white {
   color: #ffffff;
 }
-
 .title-purple {
   color: #6b46c1;
 }
@@ -151,10 +203,12 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
 .carousel {
   width: 100%;
   max-width: 900px;
-  margin: 0 auto 3rem;
+  margin: 2rem auto 4rem;
   overflow: hidden;
+  position: relative;
   border-radius: 16px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  height: auto;
 }
 
 .carousel-track {
@@ -164,13 +218,77 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
 
 .carousel-slide {
   min-width: 100%;
+  height: auto;
 }
 
 .carousel-slide img {
   width: 100%;
-  height: 350px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border-radius: 16px;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.carousel-slide img:hover {
+  transform: scale(1.03);
+}
+
+/* ===== Buttons ===== */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(107, 70, 193, 0.7);
+  border: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.9rem;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: rgba(107, 70, 193, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+  left: 1rem;
+}
+.next {
+  right: 1rem;
+}
+
+/* ===== Dots sobre la imagen ===== */
+.carousel-dots {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 5;
+}
+
+.carousel-dots span {
+  width: 12px;
+  height: 12px;
+  background: #555;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.carousel-dots span.active {
+  background: #6b46c1;
+  transform: scale(1.3);
 }
 
 /* ===== Project Description ===== */
@@ -178,31 +296,73 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .description-block {
-  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .description-block h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
+  color: #fff;
 }
 
 .description-block p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #e0e0e0;
+  color: #ffffff;
   text-align: justify;
   text-justify: inter-word;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-/* ===== Technologies Cards ===== */
+/* ===== Highlighted words ===== */
+.highlight {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  text-decoration-color: #6b46c1;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 3px;
+  transition: transform 0.3s;
+}
+
+.highlight:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Feature list ===== */
+.feature-list {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  color: #e0e0e0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.feature-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Tech Cards ===== */
+.tech-section {
+  text-align: center;
+}
+
 .tech-cards {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
   margin-top: 1rem;
 }
 
@@ -218,7 +378,8 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
 
 .tech-card:hover {
   background: #7b5fd3;
-  transform: translateY(-3px);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(107, 70, 193, 0.5);
 }
 
 /* ===== Responsive ===== */
@@ -226,15 +387,12 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
   .carousel-slide img {
     height: 220px;
   }
-
   .description-block h2 {
     font-size: 1.5rem;
   }
-
   .description-block p {
     font-size: 0.95rem;
   }
-
   .hero-title {
     font-size: clamp(2.5rem, 7vw, 4rem);
   }
