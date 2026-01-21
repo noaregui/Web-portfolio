@@ -3,6 +3,10 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import ProjectsView from '@/views/ProjectsView.vue'
 import ContactView from '@/views/ContactView.vue'
+import VapiView from '@/views/VapiView.vue'
+import MetaView from '@/views/MetaView.vue'
+import ChatGPTView from '@/views/ChatGPTView.vue'
+import BotpressView from '@/views/BotpressView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +30,26 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: ContactView,
+    },
+    {
+      path: '/vapi',
+      name: 'vapi',
+      component: VapiView,
+    },
+    {
+      path: '/meta',
+      name: 'meta',
+      component: MetaView,
+    },
+    {
+      path: '/chatgpt',
+      name: 'chatgpt',
+      component: ChatGPTView,
+    },
+    {
+      path: '/botpress',
+      name: 'botpress',
+      component: BotpressView,
     },
   ],
 })
