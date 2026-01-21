@@ -111,7 +111,7 @@ onMounted(() => {
 .about-wrapper {
   display: flex;
   gap: 2rem;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .about-text {
@@ -165,9 +165,9 @@ p {
 
 .about-image {
   flex: 0 0 400px;
-  position: sticky;
-  top: 2rem;
-  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-image img {
