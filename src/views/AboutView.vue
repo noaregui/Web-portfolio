@@ -1,63 +1,75 @@
 <template>
   <section class="about">
     <div class="about-wrapper">
-      <div class="about-text no-scrollbar" ref="aboutText">
-        <div class="about-section">
-          <h3 class="about-subtitle">
-            <span class="title-white">My</span>
-            <span class="title-purple"> Background</span>
-          </h3>
-          <p>
-            I’ve always been curious about technology, even though my career initially led me into
-            <span class="highlight">psychology</span>. After completing my degree and a master’s in
-            social psychology, I worked for five years in the field. Over time, my interest in
-            <span class="highlight">programming</span> kept growing, so I made a meaningful career
-            shift and started studying software development.
-          </p>
-        </div>
+      <!-- Texto rotatorio con efecto slide-up -->
+      <div class="about-text">
+        <transition name="slide-up" mode="out-in">
+          <div class="about-section" :key="currentIndex">
+            <!-- Usamos v-if para mostrar solo el bloque activo -->
+            <div v-if="currentIndex === 0">
+              <h3 class="about-subtitle">
+                <span class="title-white">My</span>
+                <span class="title-purple"> Background</span>
+              </h3>
+              <p>
+                I’ve always been curious about technology, even though my career initially led me
+                into
+                <span class="highlight">psychology</span>. After completing my degree and a master’s
+                in social psychology, I worked for five years in the field. Over time, my interest
+                in <span class="highlight">programming</span> kept growing, so I made a meaningful
+                career shift and started studying software development.
+              </p>
+            </div>
 
-        <div class="about-section">
-          <h3 class="about-subtitle">
-            <span class="title-white">My</span>
-            <span class="title-purple"> Approach</span>
-          </h3>
-          <p>
-            I enjoy combining <span class="highlight">frontend</span> and
-            <span class="highlight">backend</span> skills to create smooth experiences. I’m
-            comfortable working in agile, cross-functional teams, collaborating closely with others,
-            and seeing projects through from start to finish.
-          </p>
-        </div>
+            <div v-else-if="currentIndex === 1">
+              <h3 class="about-subtitle">
+                <span class="title-white">My</span>
+                <span class="title-purple"> Approach</span>
+              </h3>
+              <p>
+                I enjoy combining <span class="highlight">frontend</span> and
+                <span class="highlight">backend</span> skills to create smooth experiences. I’m
+                comfortable working in agile, cross-functional teams, collaborating closely with
+                others, and seeing projects through from start to finish.
+              </p>
+            </div>
 
-        <div class="about-section">
-          <h3 class="about-subtitle">
-            <span class="title-white">Outside</span>
-            <span class="title-purple"> Work</span>
-          </h3>
-          <p>
-            I enjoy learning <span class="highlight">new technologies</span> and exploring
-            innovative solutions. My background in psychology gives me a fresh perspective on user
-            experience, <span class="highlight">communication</span>, and how teams work together.
-          </p>
-        </div>
+            <div v-else-if="currentIndex === 2">
+              <h3 class="about-subtitle">
+                <span class="title-white">Outside</span>
+                <span class="title-purple"> Work</span>
+              </h3>
+              <p>
+                I enjoy learning <span class="highlight">new technologies</span> and exploring
+                innovative solutions. My background in psychology gives me a fresh perspective on
+                user experience, <span class="highlight">communication</span>, and how teams work
+                together.
+              </p>
+            </div>
 
-        <div class="about-section">
-          <h3 class="about-subtitle">
-            <span class="title-white">What</span>
-            <span class="title-purple"> I Build</span>
-          </h3>
-          <p>
-            I enjoy building reliable, scalable applications across the full stack. On the frontend,
-            I work with JavaScript, TypeScript, React, and Vue to create clean interfaces and smooth
-            user experiences. On the backend, I focus on developing
-            <span class="highlight">REST APIs</span>, workflow logic, and
-            <span class="highlight">platform integrations</span>
-            using Node.js, Express, Flask, and MySQL. I have experience connecting systems,
-            automating processes, and designing data structures that support real business needs.
-          </p>
-        </div>
+            <div v-else-if="currentIndex === 3">
+              <h3 class="about-subtitle">
+                <span class="title-white">What</span>
+                <span class="title-purple"> I Build</span>
+              </h3>
+              <p>
+                I enjoy building reliable, scalable applications across the full stack. On the
+                frontend, I work with <span class="highlight">JavaScript</span>,
+                <span class="highlight">TypeScript</span>, <span class="highlight">React</span>, and
+                <span class="highlight">Vue</span> to create clean interfaces and smooth user
+                experiences. On the backend, I focus on developing
+                <span class="highlight">REST APIs</span>, workflow logic, and
+                <span class="highlight">platform integrations</span>
+                using Node.js, Express, Flask, and MySQL. I have experience connecting systems,
+                automating processes, and designing data structures that support real business
+                needs.
+              </p>
+            </div>
+          </div>
+        </transition>
       </div>
 
+      <!-- Imagen fija -->
       <div class="about-image">
         <img src="@/assets/Avatar_programming_sin_fondo.jpg" alt="Ainhoa Avatar" />
       </div>
@@ -66,46 +78,28 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
-const aboutText = ref(null)
-let inactivityTimer = null
-let autoScrollInterval = null
+const currentIndex = ref(0)
+let interval = null
 
 onMounted(() => {
-  const container = aboutText.value
-  if (!container) return
+  interval = setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % 4
+  }, 5000) // Cambia cada 5 segundos
+})
 
-  const resetTimer = () => {
-    clearTimeout(inactivityTimer)
-    clearInterval(autoScrollInterval)
-    inactivityTimer = setTimeout(startAutoScroll, 4000)
-  }
-
-  const startAutoScroll = () => {
-    autoScrollInterval = setInterval(() => {
-      const bottom = container.scrollHeight - container.clientHeight
-
-      // Si ha llegado al final → volver arriba
-      if (container.scrollTop >= bottom) {
-        container.scrollTo({ top: 0, behavior: 'smooth' })
-        return
-      }
-
-      // Desplazamiento normal
-      container.scrollBy({ top: 3, behavior: 'smooth' })
-    }, 30)
-  }
-  container.addEventListener('scroll', resetTimer)
-  resetTimer()
+onUnmounted(() => {
+  clearInterval(interval)
 })
 </script>
 
 <style scoped>
 .about {
   max-width: 1200px;
-  margin: 0rem auto;
+  margin: 0 auto;
   padding: 1rem;
+  padding-top: 5rem;
 }
 
 .about-wrapper {
@@ -114,25 +108,14 @@ onMounted(() => {
   align-items: center;
 }
 
+/* Texto */
 .about-text {
   flex: 1;
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  padding-right: 1rem;
-}
-
-.no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .about-section {
-  scroll-snap-align: start;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -146,16 +129,22 @@ onMounted(() => {
   letter-spacing: 0.5px;
 }
 
-.about-subtitle span {
-  font-weight: 700 !important;
-}
-
 .title-white {
   color: #ffffff;
 }
-
 .title-purple {
   color: #6b46c1;
+}
+
+/* Palabras resaltadas */
+.highlight {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-color: #6b46c1;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
 }
 
 p {
@@ -163,6 +152,7 @@ p {
   line-height: 2;
 }
 
+/* Imagen */
 .about-image {
   flex: 0 0 400px;
   display: flex;
@@ -176,37 +166,49 @@ p {
   border-radius: 12px;
 }
 
-.highlight {
-  font-weight: 800;
-  font-size: 1.5rem;
-  color: #ffffff;
-  text-decoration: underline;
-  text-decoration-color: #6b46c1;
-  text-decoration-thickness: 5px;
-  text-underline-offset: 4px;
-  line-height: 1.33;
-  vertical-align: baseline;
+/* Transition efecto slide-up */
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.7s ease;
 }
 
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-up-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-up-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+/* Responsivo */
 @media (max-width: 900px) {
   .about-wrapper {
     flex-direction: column;
   }
 
-  .about-text {
-    height: auto;
-    overflow-y: visible;
-    scroll-snap-type: none;
-  }
-
-  .about-section {
-    min-height: auto;
-  }
-
   .about-image {
-    position: relative;
-    top: 0;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
+    max-width: 300px;
+  }
+
+  .about-subtitle {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+
+  p {
+    font-size: 1rem;
   }
 }
 </style>
