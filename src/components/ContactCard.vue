@@ -53,6 +53,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import emailjs from '@emailjs/browser'
 
 const form = ref({
   name: '',
@@ -70,11 +71,20 @@ const sendMessage = async () => {
   error.value = false
 
   try {
-    // Aquí tu lógica real de envío (API, etc)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        name: form.value.name,
+        email: form.value.email,
+        message: form.value.message,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    )
     sent.value = true
     form.value = { name: '', email: '', message: '' }
-  } catch {
+  } catch (err) {
+    console.error(err)
     error.value = true
   } finally {
     sending.value = false
@@ -83,11 +93,10 @@ const sendMessage = async () => {
 </script>
 
 <style scoped>
-/* Variables de color morado elegantes */
 :root {
   --color-bg-card: #0c1015;
   --color-light-bg: #1a1f25;
-  --color-primary: #6b46c1; /* morado medio */
+  --color-primary: #6b46c1;
   --color-primary-hover: #553c9a;
   --color-text-light: #d1d5db;
   --color-text-secondary: #9ca3af;
@@ -240,7 +249,6 @@ textarea:focus {
   color: #ffffff;
 }
 
-/* ✅ forzamos que los spans hereden el mismo estilo de fuente */
 .contact-info h2 span {
   font-family: inherit !important;
   font-weight: inherit !important;
@@ -249,11 +257,11 @@ textarea:focus {
 }
 
 .title-white {
-  color: #ffffff; /* Gris más suave, menos visible */
+  color: #ffffff;
 }
 
 .title-purple {
-  color: #6b46c1; /* Morado de tu paleta */
+  color: #6b46c1;
 }
 
 .contact-info p {
