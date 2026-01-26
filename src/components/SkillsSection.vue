@@ -11,48 +11,26 @@
         automations. Check out what I can do!
       </p>
     </div>
-
-    <!-- Animación Uiverse -->
-    <!-- <div class="animation">
-      <div class="loader">
-        <svg width="100" height="100" viewBox="0 0 100 100">
-          <defs>
-            <mask id="clipping">
-              <polygon points="0,0 100,0 100,100 0,100" fill="black"></polygon>
-              <polygon points="25,25 75,25 50,75" fill="white"></polygon>
-              <polygon points="50,25 75,75 25,75" fill="white"></polygon>
-              <polygon points="35,35 65,35 50,65" fill="white"></polygon>
-              <polygon points="35,35 65,35 50,65" fill="white"></polygon>
-              <polygon points="35,35 65,35 50,65" fill="white"></polygon>
-              <polygon points="35,35 65,35 50,65" fill="white"></polygon>
-            </mask>
-          </defs>
-        </svg>
-        <div class="box"></div>
-      </div>
-    </div> -->
   </div>
 </template>
 
-<script setup>
-// Componente estático
-</script>
+<script setup></script>
 
 <style scoped>
 .skills-section {
   display: flex;
-  align-items: center; /* centra verticalmente texto y animación */
-  justify-content: space-between; /* texto a la izquierda, animación a la derecha */
-  gap: 2rem; /* espacio entre texto y animación */
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
   width: 100%;
   margin-top: 2rem;
   background-color: transparent;
-  flex-wrap: wrap; /* hace que sea responsive en pantallas pequeñas */
+  flex-wrap: wrap;
 }
 
 .text-content {
-  flex: 1; /* ocupa todo el espacio disponible a la izquierda */
-  min-width: 250px; /* evita que se achique demasiado en pantallas pequeñas */
+  flex: 1;
+  min-width: 250px;
 }
 
 .skills-section h2 {
@@ -82,8 +60,7 @@
   color: #898888;
 }
 
-/* Contenedor de la animación */
 .animation {
-  flex-shrink: 0; /* evita que se encoja demasiado */
+  flex-shrink: 0;
 }
 </style>
