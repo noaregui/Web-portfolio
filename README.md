@@ -5,7 +5,7 @@
 <p>Welcome to my personal portfolio! Here you'll find a showcase of my projects, experiments, and explorations in **JavaScript, Vue, React, and web development**. This page is designed to give you a quick overview of what I build, how I think as a developer, and the tools I love to use.</p>
 
 <div align="center">
-  <img src="https://media.giphy.com/media/l0HlPjezQ6wZjxgwo/giphy.gif](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2lnM293YjV5aHg3Z2tkanZnMXpwMzBiMTZjZ2h6bXRvbnU5a2VuaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Gpf8A8aX2uWAg/giphy.gif" width="400"/>
+  <img src="https://media.giphy.com/media/l0HlPjezQ6wZjxgwo/giphy.gif" width="400"/>
 </div>
 
 ---
