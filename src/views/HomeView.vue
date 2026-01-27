@@ -25,7 +25,6 @@ import ContactCTA from '@/components/ContactCTA.vue'
   color: #8c8a8a;
 }
 .container {
-  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   margin-top: 10px;
