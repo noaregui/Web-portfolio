@@ -150,6 +150,7 @@ onUnmounted(() => {
 p {
   font-size: 1.1rem;
   line-height: 2;
+  color: #ffffff;
 }
 
 /* Imagen */
