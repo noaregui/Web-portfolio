@@ -3,8 +3,10 @@
     <!-- Hero -->
     <header class="hero">
       <h1 class="hero-title">
-        <span class="title-white">VAPI - AI Voice Assistant</span>
+        <span class="hero-title-line">VAPI - AI VOICE ASSISTANT</span>
+        <span class="hero-title-line"> </span>
       </h1>
+
       <button @click="scrollToContent">View project details</button>
     </header>
 
@@ -37,7 +39,8 @@
             <span class="highlight">automate phone call handling</span> and streamline customer
             interactions. It allows a virtual assistant to answer calls, understand caller intent,
             and interact naturally in <span class="highlight">real time</span>, significantly
-            reducing the need for manual intervention.
+            reducing the need for manual intervention. This makes day-to-day operations smoother and
+            ensures a more responsive experience for clients.
           </p>
           <ul class="feature-list">
             <li>📞 Handles incoming calls automatically</li>
@@ -156,10 +159,20 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
 }
 
 .hero-title {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
+  letter-spacing: 0.5px;
   line-height: 1.2;
   margin-bottom: 2rem;
+}
+
+.hero-title-line {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: 0.5px;
+  color: #e0e0e0;
 }
 
 .title-white {
@@ -181,14 +194,14 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
 
 /* ===== Carousel ===== */
 .carousel {
-  width: 100%;
-  max-width: 900px;
+  width: 95%;
+  max-width: 1200px;
   margin: 2rem auto 4rem;
   overflow: hidden;
   position: relative;
   border-radius: 16px;
-  box-shadow: none; /* <-- sin sombra */
-  height: auto; /* altura fija relativa al card */
+  box-shadow: none;
+  height: auto;
 }
 
 .carousel-track {
@@ -273,9 +286,9 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
 
 /* ===== Project Description ===== */
 .project-description {
-  max-width: 900px;
+  max-width: 1200px; /* Igual que el carousel */
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -363,6 +376,16 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
 }
 
 /* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .carousel {
+    width: 90%;
+  }
+  .project-description {
+    width: 90%;
+    padding: 2rem 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .carousel-slide img {
     height: 220px;
@@ -375,6 +398,13 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
   }
   .hero-title {
     font-size: clamp(2.5rem, 7vw, 4rem);
+  }
+  .carousel {
+    width: 100%;
+  }
+  .project-description {
+    width: 100%;
+    padding: 1rem;
   }
 }
 </style>
