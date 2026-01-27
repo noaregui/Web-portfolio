@@ -40,11 +40,10 @@
           creation of intelligent, stateful chatbots using
           <span class="highlight">large language models (LLMs)</span>. It allows businesses to
           design flexible conversational workflows, integrate external systems through APIs, and
-          deploy conversations across channels such as <span class="highlight">WhatsApp</span>. In
-          this project, Botpress was used to automate
-          <span class="highlight">post-visit feedback collection</span> in a real estate context,
-          providing a <span class="highlight">personalized conversational experience</span> instead
-          of static forms.
+          deploy conversations across channels such as WhatsApp. In this project, Botpress was used
+          to automate post-visit feedback collection in a real estate context, providing a
+          <span class="highlight">personalized conversational experience</span> instead of static
+          forms.
         </p>
 
         <ul class="feature-list">
