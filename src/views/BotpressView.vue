@@ -9,10 +9,10 @@
     </header>
 
     <!-- ===== Carousel ===== -->
-    <section class="carousel" ref="carouselRef">
+    <section class="carousel">
       <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
         <div class="carousel-slide" v-for="(image, index) in carouselImages" :key="index">
-          <img :src="image" alt="Botpress slide" :ref="(el) => (slideImages[index] = el)" />
+          <img :src="image" alt="Botpress slide" />
         </div>
       </div>
 
@@ -93,57 +93,38 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
-
+import { ref, onMounted, onUnmounted } from 'vue'
 import Botpress1 from '@/assets/Botpress1.jpg'
 import Botpress2 from '@/assets/Botpress2.jpg'
 import Botpress3 from '@/assets/Botpress3.jpg'
 import Botpress4 from '@/assets/Botpress4.jpg'
 import Botpress5 from '@/assets/Botpress5.jpg'
 
-/* ===== Refs ===== */
 const contentRef = ref(null)
-const carouselRef = ref(null)
-const slideImages = ref([])
 
 /* ===== Carousel ===== */
 const carouselImages = [Botpress1, Botpress2, Botpress3, Botpress4, Botpress5]
 const currentSlide = ref(0)
 let interval = null
 
-const updateCarouselHeight = () => {
-  nextTick(() => {
-    const img = slideImages.value[currentSlide.value]
-    if (img && carouselRef.value) {
-      carouselRef.value.style.height = img.offsetHeight + 'px'
-    }
-  })
-}
-
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % carouselImages.length
-  updateCarouselHeight()
 }
 
 const prevSlide = () => {
   currentSlide.value = (currentSlide.value - 1 + carouselImages.length) % carouselImages.length
-  updateCarouselHeight()
 }
 
 const goToSlide = (index) => {
   currentSlide.value = index
-  updateCarouselHeight()
 }
 
 onMounted(() => {
-  updateCarouselHeight()
   interval = setInterval(nextSlide, 4000)
-  window.addEventListener('resize', updateCarouselHeight)
 })
 
 onUnmounted(() => {
   clearInterval(interval)
-  window.removeEventListener('resize', updateCarouselHeight)
 })
 
 /* ===== Scroll ===== */
@@ -164,27 +145,20 @@ const technologies = [
 </script>
 
 <style scoped>
-/* ===== Reset ===== */
-:global(html),
-:global(body) {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
 /* ===== Base ===== */
 .vapi-landing {
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
   color: white;
-  padding-bottom: 4rem;
   background: #0c1016;
+  padding-bottom: 4rem;
+  overflow-x: hidden;
 }
 
 /* ===== Hero ===== */
 .hero {
   text-align: center;
-  padding: 5rem 2rem 3rem;
+  padding: 3rem 2rem;
 }
 
 .hero-title {
@@ -193,32 +167,22 @@ const technologies = [
   margin-bottom: 2rem;
 }
 
-.title-white {
-  color: #ffffff;
-}
-
 .hero button {
   background: #6b46c1;
   border: none;
   padding: 0.8rem 2rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.hero button:hover {
-  background: #7b5fd3;
 }
 
 /* ===== Carousel ===== */
 .carousel {
-  width: 100%;
   max-width: 900px;
   margin: 2rem auto 4rem;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   border-radius: 16px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 .carousel-track {
@@ -228,22 +192,19 @@ const technologies = [
 
 .carousel-slide {
   min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-slide img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  object-fit: contain;
-  background-color: #0c1016;
+  display: block;
   border-radius: 16px;
-  transition: transform 0.3s;
 }
 
-.carousel-slide img:hover {
-  transform: scale(1.03);
-}
-
-/* ===== Carousel Buttons ===== */
+/* ===== Buttons & dots ===== */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -252,20 +213,9 @@ const technologies = [
   border: none;
   width: 1.5rem;
   height: 1.5rem;
-  font-size: 0.9rem;
   color: white;
   cursor: pointer;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s;
-  z-index: 10;
-}
-
-.carousel-btn:hover {
-  background: rgba(107, 70, 193, 0.9);
-  transform: translateY(-50%) scale(1.1);
 }
 
 .prev {
@@ -275,10 +225,9 @@ const technologies = [
   right: 1rem;
 }
 
-/* ===== Dots ===== */
 .carousel-dots {
   position: absolute;
-  bottom: 1rem;
+  bottom: 0.8rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -291,7 +240,6 @@ const technologies = [
   background: #555;
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .carousel-dots span.active {
@@ -316,9 +264,14 @@ const technologies = [
 
 .description-block p {
   line-height: 1.6;
-  color: #ffffff;
   text-align: justify;
-  margin-bottom: 1rem;
+}
+
+/* ===== Lists ===== */
+.feature-list {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+  line-height: 2rem;
 }
 
 /* ===== Highlight ===== */
@@ -329,16 +282,6 @@ const technologies = [
   text-decoration-color: #6b46c1;
   text-decoration-thickness: 4px;
   text-underline-offset: 3px;
-}
-
-/* ===== Feature list ===== */
-.feature-list {
-  padding-left: 1.2rem;
-  color: #e0e0e0;
-}
-
-.feature-list li {
-  margin-bottom: 0.5rem;
 }
 
 /* ===== Tech ===== */
@@ -353,15 +296,10 @@ const technologies = [
   justify-content: center;
 }
 
-.tech-card {
-  background: #353141;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  transition: 0.3s;
-}
-
-.tech-card:hover {
-  background: #7b5fd3;
-  transform: translateY(-5px) scale(1.05);
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .carousel {
+    max-width: 100%;
+  }
 }
 </style>
