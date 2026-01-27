@@ -26,6 +26,7 @@
   margin-top: 2rem;
   background-color: transparent;
   flex-wrap: wrap;
+  padding: 0 5rem;
 }
 
 .text-content {
@@ -47,9 +48,9 @@
   display: block;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 4rem;
   letter-spacing: 0.5px;
-  color: #ffffff;
+  color: #e0e0e0;
 }
 
 .skills-section p {
