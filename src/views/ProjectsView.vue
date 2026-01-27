@@ -1,10 +1,14 @@
 <template>
   <section class="projects">
     <div class="projects-hero">
-      <h1 class="projects-title">Projects</h1>
+      <h1 class="projects-title">
+        <span class="title-line">PROJECTS</span>
+      </h1>
       <p class="projects-subtitle">
         Here you will find a selection of projects I have worked on — polished, real-world
-        applications that reflect my skills and experience.
+        applications that reflect my skills, creativity, and technical expertise. Each project
+        showcases my ability to build scalable, maintainable, and user-friendly applications across
+        different technologies.
       </p>
     </div>
 
@@ -81,29 +85,50 @@ import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
 <style scoped>
 .projects {
   padding: 3rem 2rem 4rem;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 .projects-hero {
-  text-align: center;
-  margin-bottom: 2rem;
+  text-align: left;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .projects-title {
-  font-size: 2.8rem;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  margin-bottom: 0.8rem;
-  color: white;
+  font-size: clamp(2.5rem, 4vw, 3rem);
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.title-line {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: 0.5px;
+  color: #e0e0e0;
 }
 
 .projects-subtitle {
-  font-size: 1.1rem;
-  opacity: 0.75;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   line-height: 1.6;
-  color: white;
+  color: #898888;
+  width: 100%; /* ocupa todo el ancho del contenedor de hero */
+  max-width: 100%; /* igual que el h1 */
+  margin: 0;
 }
 
+/* Resto del estilo de los proyectos (tarjetas) */
 .columns {
   display: flex;
   gap: 2rem;
@@ -113,7 +138,7 @@ import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .project-card {
@@ -122,7 +147,7 @@ import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
   text-decoration: none;
   color: white;
   overflow: hidden;
-  min-height: 220px;
+  min-height: 300px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -178,25 +203,48 @@ import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
 }
 
 .project-name {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
 
 .project-tech {
-  font-size: 0.95rem;
+  font-size: 1rem;
   opacity: 0.85;
 }
 
 .extra-text {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   opacity: 0.7;
   margin-top: 0.3rem;
 }
 
+/* Responsive */
+@media (max-width: 1024px) {
+  .projects-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  .project-card {
+    min-height: 250px;
+  }
+}
+
 @media (max-width: 768px) {
+  .projects-hero {
+    text-align: center;
+    align-items: center;
+  }
+  .title-line {
+    text-align: center;
+  }
+  .projects-subtitle {
+    text-align: center;
+  }
   .columns {
     flex-direction: column;
+  }
+  .project-card {
+    min-height: 220px;
   }
 }
 </style>
