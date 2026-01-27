@@ -4,7 +4,7 @@
       <div class="contact-info">
         <h2 class="contact-title">
           <span class="title-white">LET'S WORK</span>
-          <span class="title-purple"> TOGETHER</span>
+          <span class="title-purple">TOGETHER</span>
         </h2>
         <p class="contact-subtitle">
           If you have an idea, project, or just want to say hi, fill out the form and I’ll get back
@@ -105,10 +105,12 @@ const sendMessage = async () => {
 .card-content {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 3rem;
+  align-items: center;
+  gap: 1.5rem;
   width: 100%;
   flex-wrap: wrap;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
 .contact-info {
@@ -116,30 +118,35 @@ const sendMessage = async () => {
   min-width: 280px;
   padding: 2rem;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-/* ===== Mantener estilos existentes para el título ===== */
 .contact-title {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 4.5rem; /* tamaño original */
+  font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: 700;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
   color: #ffffff;
   display: flex;
-  flex-wrap: wrap; /* permite que baje de línea si no cabe */
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .contact-title span {
   font-family: inherit !important;
   font-weight: inherit !important;
+  font-size: inherit;
   letter-spacing: inherit;
-  /* Solo ajustamos TOGETHER */
+  display: block;
 }
 
 .title-purple {
   color: #6b46c1;
-  font-size: clamp(3rem, 6vw, 4.5rem); /* se reduce automáticamente en pantallas estrechas */
 }
 
 .title-white {
@@ -153,7 +160,6 @@ const sendMessage = async () => {
   margin-bottom: 1.5rem;
 }
 
-/* ===== Formulario y resto de estilos se mantienen igual ===== */
 .contact-form {
   flex: 1;
   min-width: 300px;
@@ -162,6 +168,8 @@ const sendMessage = async () => {
   gap: 1.5rem;
   padding: 2rem;
   border-radius: 12px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .form-group {
@@ -219,7 +227,6 @@ textarea:focus {
   cursor: not-allowed;
 }
 
-/* Mensajes de estado */
 .success-msg {
   color: #22c55e;
   margin-top: 1rem;
@@ -232,31 +239,36 @@ textarea:focus {
   font-size: 0.95rem;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 900px) {
   .card-content {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
     text-align: start;
+    padding: 1rem;
   }
 
   .contact-form,
   .contact-info {
     width: 90%;
     max-width: 600px;
+    margin-left: 0;
+    margin-right: 0;
     padding: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  /* Ajuste solo para TOGETHER */
-  .title-purple {
-    font-size: clamp(2rem, 10vw, 3.5rem);
+  .contact-title {
+    font-size: clamp(3rem, 7vw, 4rem);
   }
 
   .contact-subtitle {
     font-size: 0.95rem;
+  }
+
+  .card-content {
+    gap: 0.5rem;
   }
 
   .contact-form {
