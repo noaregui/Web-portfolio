@@ -34,11 +34,10 @@
           <h2>What is VAPI?</h2>
           <p>
             VAPI is an AI-powered voice assistant designed to
-            <span class="highlight">automate phone call handling</span> and
-            <span class="highlight">streamline customer interactions</span>. It allows a virtual
-            assistant to answer calls, understand caller intent, and interact naturally in
-            <span class="highlight">real time</span>, significantly reducing the need for manual
-            intervention.
+            <span class="highlight">automate phone call handling</span> and streamline customer
+            interactions. It allows a virtual assistant to answer calls, understand caller intent,
+            and interact naturally in <span class="highlight">real time</span>, significantly
+            reducing the need for manual intervention.
           </p>
           <ul class="feature-list">
             <li>📞 Handles incoming calls automatically</li>
@@ -59,8 +58,8 @@
             properties and check availability for visits.
           </p>
           <p>
-            It could also <span class="highlight">schedule appointments automatically</span>,
-            <span class="highlight">log caller information and responses</span> in the database, and
+            It could also schedule appointments automatically, log caller information and responses
+            in the database, and
             <span class="highlight">integrate with internal sales applications</span> to streamline
             operations.
           </p>
