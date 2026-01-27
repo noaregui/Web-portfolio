@@ -35,9 +35,8 @@
         <!-- Descripción personal -->
         <p class="description">
           I enjoy turning ideas into efficient web solutions and creating intuitive digital
-          experiences, combining frontend and backend in a simple and effective way.
-          <!-- Me gusta transformar ideas en soluciones web eficientes y en experiencias digitales
-          intuitivas, combinando frontend y backend de manera sencilla y efectiva. -->
+          experiences, combining frontend and backend in a simple and effective way. I am passionate
+          about designing interfaces that are both visually appealing and user-friendly.
         </p>
 
         <!-- Redes sociales -->
@@ -168,7 +167,7 @@ const playAudioAndAnimate = () => {
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-  max-width: 900px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -180,8 +179,8 @@ const playAudioAndAnimate = () => {
 }
 
 .image-placeholder {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid #0e1217;
@@ -194,7 +193,8 @@ const playAudioAndAnimate = () => {
 }
 
 .text-header h1 {
-  font-size: clamp(1.5rem, 4vw, 2.75rem);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #ffffff;
@@ -212,7 +212,7 @@ const playAudioAndAnimate = () => {
 
 .subtitle {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 500;
   color: #9ca3af;
 }
@@ -233,8 +233,8 @@ const playAudioAndAnimate = () => {
 }
 
 .socialContainer {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: #1c1c1c;
   display: flex;
@@ -312,6 +312,7 @@ const playAudioAndAnimate = () => {
   align-items: center;
   width: 100%;
   height: 100px;
+  margin-top: 20px;
 }
 
 .loader {
