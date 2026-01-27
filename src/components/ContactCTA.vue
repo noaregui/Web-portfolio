@@ -38,11 +38,13 @@ import { RouterLink } from 'vue-router'
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4rem 0;
+  margin: 4rem auto;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  max-width: 900px;
+  width: 100%;
 }
 
 .contact-card:hover {
