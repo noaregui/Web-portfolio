@@ -3,12 +3,12 @@
     <!-- ===== Hero ===== -->
     <header class="hero">
       <h1 class="hero-title">
-        <span class="title-white">Meta – WhatsApp</span>
+        <span class="hero-title-line">META – WHATSAPP BUSINESS AUTOMATION</span>
       </h1>
       <button @click="scrollToContent">View project details</button>
     </header>
 
-    <!-- ===== Carousel (VERSIÓN BUENA) ===== -->
+    <!-- ===== Carousel ===== -->
     <section class="carousel">
       <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
         <div class="carousel-slide" v-for="(image, index) in carouselImages" :key="index">
@@ -29,57 +29,43 @@
       </div>
     </section>
 
-    <!-- ===== Project Description (TEXTOS COMPLETOS) ===== -->
+    <!-- ===== Project Description ===== -->
     <section class="project-description" ref="contentRef">
-      <!-- What is Meta -->
       <div class="description-block">
         <h2>What is Meta - WhatsApp?</h2>
         <p>
           Meta WhatsApp Business Cloud API enables the
           <span class="highlight">automation</span> of WhatsApp messages using pre-approved message
-          templates, helping businesses efficiently engage with clients, send information, and
-          capture leads without manual intervention.
+          templates, helping businesses efficiently engage with clients and capture leads.
         </p>
 
         <p>
           In this project, it was used to streamline real estate inquiries, sending automated
-          messages to prospective clients in a structured sequence, while ensuring message timing,
-          avoiding duplicates, and providing a consistent user experience.
+          messages in a structured sequence while ensuring consistency and timing.
         </p>
 
         <ul class="feature-list">
           <li>💬 Automated WhatsApp contact with potential clients</li>
-          <li>
-            🧠 Guided conversational flows via
-            <span class="highlight">Landbot</span>
-          </li>
-          <li>📅 Appointment scheduling directly within WhatsApp</li>
+          <li>🧠 Guided conversational flows via <span class="highlight">Landbot</span></li>
+          <li>📅 Appointment scheduling inside WhatsApp</li>
         </ul>
       </div>
 
-      <!-- Development -->
       <div class="description-block">
         <h2>Development</h2>
         <p>
           This solution connected Meta’s WhatsApp Business Cloud API with a
           <span class="highlight">custom internal application</span> and
-          <span class="highlight">Landbot conversational flows</span>. Prospective clients received
-          the Landbot link automatically, following a defined order of arrival.
+          <span class="highlight">Landbot conversational flows</span>.
         </p>
 
         <ul class="feature-list">
-          <li>⏳ Controlled message timing to avoid duplicates</li>
-          <li>💬 Response windows for lead interaction</li>
-          <li>
-            🌐 Integration of <span class="highlight">webhooks</span> and
-            <span class="highlight">APIs</span> for real-time updates
-          </li>
+          <li>⏳ Controlled message timing</li>
+          <li>🌐 Webhooks & real-time updates</li>
           <li>⚡ Fully automated lead qualification</li>
-          <li>✅ Consistent user experience end-to-end</li>
         </ul>
       </div>
 
-      <!-- Technologies -->
       <div class="description-block tech-section">
         <h2>Technologies Used</h2>
         <div class="tech-cards">
@@ -103,20 +89,16 @@ import whatsapp2 from '@/assets/whatsapp2.jpg'
 
 const contentRef = ref(null)
 
-/* ===== Carousel ===== */
 const carouselImages = [landbot1, landbot2, landbot3, whatsapp1, whatsapp2]
-
 const currentSlide = ref(0)
 let interval = null
 
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % carouselImages.length
 }
-
 const prevSlide = () => {
   currentSlide.value = (currentSlide.value - 1 + carouselImages.length) % carouselImages.length
 }
-
 const goToSlide = (index) => {
   currentSlide.value = index
 }
@@ -124,17 +106,12 @@ const goToSlide = (index) => {
 onMounted(() => {
   interval = setInterval(nextSlide, 4000)
 })
+onUnmounted(() => clearInterval(interval))
 
-onUnmounted(() => {
-  clearInterval(interval)
-})
-
-/* ===== Scroll ===== */
 const scrollToContent = () => {
   contentRef.value?.scrollIntoView({ behavior: 'smooth' })
 }
 
-/* ===== Technologies ===== */
 const technologies = [
   'Meta WhatsApp Business Cloud API',
   'Landbot',
@@ -142,49 +119,57 @@ const technologies = [
   'Node.js',
   'JavaScript (ES6+)',
   'REST APIs',
-  'Authentication Tokens',
 ]
 </script>
 
 <style scoped>
-/* ===== Base ===== */
 .vapi-landing {
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
-  color: white;
   background: #0c1016;
+  color: white;
   padding-bottom: 4rem;
   overflow-x: hidden;
 }
 
-/* ===== Hero ===== */
 .hero {
   text-align: center;
-  padding: 3rem 2rem;
+  padding: 5rem 2rem 3rem;
 }
 
 .hero-title {
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 700;
   margin-bottom: 2rem;
+}
+
+.hero-title-line {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: 0.5px;
+  color: #e0e0e0;
 }
 
 .hero button {
   background: #6b46c1;
   border: none;
   padding: 0.8rem 2rem;
+  font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
+}
+.hero button:hover {
+  background: #7b5fd3;
 }
 
-/* ===== Carousel ===== */
 .carousel {
-  max-width: 900px;
+  width: 95%;
+  max-width: 1200px;
   margin: 2rem auto 4rem;
-  position: relative;
   overflow: hidden;
+  position: relative;
   border-radius: 16px;
-  box-shadow: none;
 }
 
 .carousel-track {
@@ -194,19 +179,21 @@ const technologies = [
 
 .carousel-slide {
   min-width: 100%;
+  min-height: 420px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .carousel-slide img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  display: block;
+  object-fit: contain;
   border-radius: 16px;
+  display: block;
 }
 
-/* ===== Buttons & dots ===== */
+/* ===== Buttons ===== */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -215,6 +202,7 @@ const technologies = [
   border: none;
   width: 1.5rem;
   height: 1.5rem;
+  font-size: 0.9rem;
   color: white;
   cursor: pointer;
   border-radius: 50%;
@@ -227,6 +215,7 @@ const technologies = [
   right: 1rem;
 }
 
+/* ===== Dots ===== */
 .carousel-dots {
   position: absolute;
   bottom: 1rem;
@@ -251,7 +240,7 @@ const technologies = [
 
 /* ===== Description ===== */
 .project-description {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   display: flex;
@@ -267,13 +256,6 @@ const technologies = [
 .description-block p {
   line-height: 1.6;
   text-align: justify;
-}
-
-/* ===== Lists ===== */
-.feature-list {
-  margin-top: 1rem;
-  padding-left: 1.2rem;
-  line-height: 2rem;
 }
 
 /* ===== Highlight ===== */
@@ -306,8 +288,8 @@ const technologies = [
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .carousel {
-    max-width: 100%;
+  .carousel-slide {
+    min-height: 260px;
   }
 }
 </style>
