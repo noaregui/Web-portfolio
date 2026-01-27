@@ -26,8 +26,8 @@
   margin-top: 2rem;
   background-color: transparent;
   flex-wrap: wrap;
-  padding: 0 5rem; /* margen en escritorio */
-  box-sizing: border-box; /* importante para que padding no rompa layout */
+  padding: 0 5rem;
+  box-sizing: border-box;
 }
 
 .text-content {
@@ -35,10 +35,9 @@
   min-width: 250px;
 }
 
-/* Títulos */
 .skills-section h2 {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(2.5rem, 4vw, 3rem); /* escalable y responsive */
+  font-size: clamp(2.5rem, 4vw, 3rem);
   font-weight: 700;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
@@ -50,15 +49,14 @@
   display: block;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: clamp(2.5rem, 5vw, 4rem); /* escalable */
+  font-size: clamp(2.5rem, 5vw, 4rem);
   letter-spacing: 0.5px;
   color: #e0e0e0;
 }
 
-/* Párrafo */
 .skills-section p {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.1rem); /* escalable */
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   line-height: 1.6;
   margin-bottom: 1.5rem;
   color: #898888;
@@ -68,23 +66,22 @@
   flex-shrink: 0;
 }
 
-/* 🔹 Media queries para tablets y móviles */
 @media (max-width: 1024px) {
   .skills-section {
-    padding: 0 3rem; /* menos margen en tablet */
+    padding: 0 3rem;
   }
 }
 
 @media (max-width: 768px) {
   .skills-section {
-    padding: 0 1.5rem; /* margen más pequeño en móviles */
-    justify-content: center; /* centrar contenido horizontal */
+    padding: 0 1.5rem;
+    justify-content: center;
   }
   .title-line {
-    text-align: center; /* títulos centrados */
+    text-align: center;
   }
   .skills-section p {
-    text-align: center; /* párrafo centrado */
+    text-align: center;
   }
 }
 </style>
