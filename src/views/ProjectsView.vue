@@ -1,6 +1,5 @@
 <template>
   <section class="projects">
-    <!-- HERO -->
     <div class="projects-hero">
       <h1 class="projects-title">Projects</h1>
       <p class="projects-subtitle">
@@ -9,9 +8,7 @@
       </p>
     </div>
 
-    <!-- COLUMNAS -->
     <div class="columns">
-      <!-- Columna izquierda -->
       <div class="column">
         <!-- VAPI -->
         <RouterLink
@@ -43,7 +40,6 @@
         </RouterLink>
       </div>
 
-      <!-- Columna derecha -->
       <div class="column">
         <!-- META -->
         <RouterLink
@@ -108,7 +104,6 @@ import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
   color: white;
 }
 
-/* ===== COLUMNAS ===== */
 .columns {
   display: flex;
   gap: 2rem;
@@ -121,7 +116,6 @@ import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
   gap: 1.5rem;
 }
 
-/* ===== CARD ===== */
 .project-card {
   position: relative;
   border-radius: 12px;
@@ -143,14 +137,12 @@ import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* Fondo dinámico */
 .project-card-bg {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Overlay invisible inicialmente */
 .project-card .overlay {
   position: absolute;
   top: 0;
@@ -163,12 +155,10 @@ import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
   border-radius: 12px;
 }
 
-/* Overlay degradado al hover */
 .project-card:hover .overlay {
   background: linear-gradient(to bottom, rgba(22, 22, 22, 0) 0%, rgba(22, 22, 22, 0.85) 100%);
 }
 
-/* Contenido encima del overlay */
 .project-content {
   position: relative;
   z-index: 2;
@@ -182,13 +172,11 @@ import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
   padding: 1rem;
 }
 
-/* Mostrar contenido al hover */
 .project-card:hover .project-content {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ===== TEXTOS ===== */
 .project-name {
   font-size: 1.25rem;
   font-weight: 600;
@@ -206,7 +194,6 @@ import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
   margin-top: 0.3rem;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .columns {
     flex-direction: column;
