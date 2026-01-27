@@ -93,34 +93,13 @@ const sendMessage = async () => {
 </script>
 
 <style scoped>
-:root {
-  --color-bg-card: #0c1015;
-  --color-light-bg: #1a1f25;
-  --color-primary: #6b46c1;
-  --color-primary-hover: #553c9a;
-  --color-text-light: #d1d5db;
-  --color-text-secondary: #9ca3af;
-  --color-border: #2d3748;
-  --color-success: #22c55e;
-  --color-error: #ef4444;
-}
-
-@keyframes shift-bg {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 50px 50px;
-  }
-}
-
 .contact-card {
   display: flex;
   justify-content: center;
   border-radius: 16px;
   padding: 0;
   width: 100%;
-  background-color: var(--color-bg-card);
+  background-color: #0c1015;
 }
 
 .card-content {
@@ -135,31 +114,52 @@ const sendMessage = async () => {
 .contact-info {
   flex: 1;
   min-width: 280px;
-  background-color: var(--color-light-bg);
   padding: 2rem;
   border-radius: 12px;
 }
 
+/* ===== Mantener estilos existentes para el título ===== */
 .contact-title {
-  font-size: clamp(2.5rem, 3vw, 3rem);
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 4.5rem; /* tamaño original */
   font-weight: 700;
-  color: var(--color-light-bg);
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  display: flex;
+  flex-wrap: wrap; /* permite que baje de línea si no cabe */
+}
+
+.contact-title span {
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  letter-spacing: inherit;
+  /* Solo ajustamos TOGETHER */
+}
+
+.title-purple {
+  color: #6b46c1;
+  font-size: clamp(3rem, 6vw, 4.5rem); /* se reduce automáticamente en pantallas estrechas */
+}
+
+.title-white {
+  color: #ffffff;
 }
 
 .contact-subtitle {
-  color: var(--color-text-secondary);
-  font-size: 1rem;
-  line-height: 1.5;
+  color: #898888;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
+/* ===== Formulario y resto de estilos se mantienen igual ===== */
 .contact-form {
   flex: 1;
   min-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background-color: var(--color-light-bg);
   padding: 2rem;
   border-radius: 12px;
 }
@@ -171,17 +171,17 @@ const sendMessage = async () => {
 
 label {
   font-size: 0.95rem;
-  color: var(--color-text-secondary);
+  color: #9ca3af;
   margin-bottom: 0.5rem;
 }
 
 input,
 textarea {
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  background-color: #0c1015;
+  border: 1px solid #2d3748;
   border-radius: 8px;
   padding: 0.75rem 1rem;
-  color: var(--color-text-light);
+  color: #d1d5db;
   font-size: 1rem;
   transition:
     border-color 0.3s ease,
@@ -191,7 +191,7 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--color-primary);
+  border-color: #6b46c1;
   box-shadow: 0 0 8px rgba(107, 70, 193, 0.4);
 }
 
@@ -219,77 +219,48 @@ textarea:focus {
   cursor: not-allowed;
 }
 
-.success-msg,
-.error-msg {
+/* Mensajes de estado */
+.success-msg {
+  color: #22c55e;
   margin-top: 1rem;
   font-size: 0.95rem;
 }
 
-.success-msg {
-  color: var(--color-success);
-}
-
 .error-msg {
-  color: var(--color-error);
+  color: #ef4444;
+  margin-top: 1rem;
+  font-size: 0.95rem;
 }
 
-.contact-info {
-  width: 100%;
-  margin-top: 2rem;
-  background-color: transparent;
-  text-align: left;
-}
-
-.contact-info h2 {
-  font-family: 'Poppins', sans-serif !important;
-  font-size: 4.5rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-.contact-info h2 span {
-  font-family: inherit !important;
-  font-weight: inherit !important;
-  letter-spacing: inherit;
-  font-size: inherit;
-}
-
-.title-white {
-  color: #ffffff;
-}
-
-.title-purple {
-  color: #6b46c1;
-}
-
-.contact-info p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  color: #898888;
-}
-
-/* Responsive */
+/* ===== Responsive ===== */
 @media (max-width: 900px) {
   .card-content {
     flex-direction: column;
-    gap: 0;
+    gap: 2rem;
     align-items: center;
     text-align: start;
   }
 
-  .contact-form {
-    width: 90%;
-    max-width: 600px;
-  }
-
+  .contact-form,
   .contact-info {
     width: 90%;
     max-width: 600px;
     padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajuste solo para TOGETHER */
+  .title-purple {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+
+  .contact-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .contact-form {
+    width: 95%;
   }
 }
 </style>
