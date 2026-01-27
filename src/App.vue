@@ -13,7 +13,6 @@ import NavBar from './components/NavBar.vue'
       <RouterView />
     </main>
 
-    <!-- Footer solo usa Vuetify -->
     <FooterCard />
   </div>
 </template>
@@ -29,7 +28,6 @@ body {
 }
 
 #app {
-  margin: 0 auto;
   width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
@@ -37,7 +35,6 @@ body {
   flex-direction: column;
 }
 
-/* Navbar wrapper */
 .navbar-wrapper {
   top: 0;
   left: 0;
@@ -46,23 +43,19 @@ body {
   display: block;
 }
 
-/* Contenido principal */
 .main-content {
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* min-height: 100vh; */
   box-sizing: border-box;
 }
 
 .main-content .container {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  gap: 5rem; /* espacio uniforme entre los hijos de .container */
-  padding: 0 1rem; /* padding horizontal si quieres */
+  gap: 5rem;
+  padding: 0;
 }
 </style>
