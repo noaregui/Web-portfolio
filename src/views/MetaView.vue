@@ -1,6 +1,6 @@
 <template>
   <section class="vapi-landing">
-    <!-- Hero -->
+    <!-- ===== Hero ===== -->
     <header class="hero">
       <h1 class="hero-title">
         <span class="title-white">Meta – WhatsApp</span>
@@ -8,11 +8,11 @@
       <button @click="scrollToContent">View project details</button>
     </header>
 
-    <!-- ===== Carousel ===== -->
-    <section class="carousel" ref="carouselRef">
+    <!-- ===== Carousel (VERSIÓN BUENA) ===== -->
+    <section class="carousel">
       <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
         <div class="carousel-slide" v-for="(image, index) in carouselImages" :key="index">
-          <img :src="image" alt="Meta project slide" :ref="(el) => (slideImages[index] = el)" />
+          <img :src="image" alt="Meta project slide" />
         </div>
       </div>
 
@@ -29,53 +29,54 @@
       </div>
     </section>
 
-    <!-- ===== Project Description ===== -->
+    <!-- ===== Project Description (TEXTOS COMPLETOS) ===== -->
     <section class="project-description" ref="contentRef">
       <!-- What is Meta -->
-      <div class="description-block alternate">
-        <div class="text">
-          <h2>What is Meta - Whatsapp?</h2>
-          <p>
-            Meta WhatsApp Business Cloud API enables the
-            <span class="highlight">automation</span> of WhatsApp messages using pre‑approved
-            message templates, helping businesses efficiently engage with clients, send information,
-            and capture leads without manual intervention. In this project, it was used to
-            streamline real estate inquiries, sending automated messages to prospective clients in a
-            structured sequence, while ensuring message timing, avoiding duplicates, and providing a
-            consistent user experience.
-          </p>
+      <div class="description-block">
+        <h2>What is Meta - WhatsApp?</h2>
+        <p>
+          Meta WhatsApp Business Cloud API enables the
+          <span class="highlight">automation</span> of WhatsApp messages using pre-approved message
+          templates, helping businesses efficiently engage with clients, send information, and
+          capture leads without manual intervention.
+        </p>
 
-          <ul class="feature-list">
-            <li>💬 Automated WhatsApp contact with potential clients</li>
-            <li>🧠 Guided conversational flows via <span class="highlight">Landbot</span></li>
-            <li>📅 Appointment scheduling directly within WhatsApp</li>
-          </ul>
-        </div>
+        <p>
+          In this project, it was used to streamline real estate inquiries, sending automated
+          messages to prospective clients in a structured sequence, while ensuring message timing,
+          avoiding duplicates, and providing a consistent user experience.
+        </p>
+
+        <ul class="feature-list">
+          <li>💬 Automated WhatsApp contact with potential clients</li>
+          <li>
+            🧠 Guided conversational flows via
+            <span class="highlight">Landbot</span>
+          </li>
+          <li>📅 Appointment scheduling directly within WhatsApp</li>
+        </ul>
       </div>
 
-      <!-- ===== Development ===== -->
-      <div class="description-block alternate reverse">
-        <div class="text">
-          <h2>Development</h2>
-          <p>
-            This solution connected Meta’s WhatsApp Business Cloud API with a
-            <span class="highlight">custom internal application</span> and
-            <span class="highlight">Landbot conversational flows</span>. Prospective clients
-            received the Landbot link automatically, following a defined order of arrival. The
-            system implemented logic to:
-          </p>
+      <!-- Development -->
+      <div class="description-block">
+        <h2>Development</h2>
+        <p>
+          This solution connected Meta’s WhatsApp Business Cloud API with a
+          <span class="highlight">custom internal application</span> and
+          <span class="highlight">Landbot conversational flows</span>. Prospective clients received
+          the Landbot link automatically, following a defined order of arrival.
+        </p>
 
-          <ul class="feature-list">
-            <li>⏳ Send messages at controlled intervals to avoid duplicates</li>
-            <li>💬 Provide a response window for each lead to interact with the bot</li>
-            <li>
-              🌐 Integrate <span class="highlight">webhooks</span> and
-              <span class="highlight">APIs</span> for real-time updates and lead tracking
-            </li>
-            <li>⚡ Fully automated lead qualification</li>
-            <li>✅ Consistent user experience from first contact to confirmation</li>
-          </ul>
-        </div>
+        <ul class="feature-list">
+          <li>⏳ Controlled message timing to avoid duplicates</li>
+          <li>💬 Response windows for lead interaction</li>
+          <li>
+            🌐 Integration of <span class="highlight">webhooks</span> and
+            <span class="highlight">APIs</span> for real-time updates
+          </li>
+          <li>⚡ Fully automated lead qualification</li>
+          <li>✅ Consistent user experience end-to-end</li>
+        </ul>
       </div>
 
       <!-- Technologies -->
@@ -92,69 +93,40 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 import landbot1 from '@/assets/landbot1.jpg'
 import landbot2 from '@/assets/landbot2.jpg'
 import landbot3 from '@/assets/landbot3.jpg'
 import whatsapp1 from '@/assets/whatsapp1.jpg'
 import whatsapp2 from '@/assets/whatsapp2.jpg'
-import whatsapp3 from '@/assets/whatsapp3.jpg'
-import whatsapp4 from '@/assets/whatsapp4.jpg'
-import whatsapp5 from '@/assets/whatsapp5.jpg'
 
-/* ===== Refs ===== */
 const contentRef = ref(null)
-const carouselRef = ref(null)
-const slideImages = ref([])
 
 /* ===== Carousel ===== */
-const carouselImages = [
-  landbot1,
-  landbot2,
-  landbot3,
-  whatsapp1,
-  whatsapp2,
-  whatsapp3,
-  whatsapp4,
-  whatsapp5,
-]
+const carouselImages = [landbot1, landbot2, landbot3, whatsapp1, whatsapp2]
+
 const currentSlide = ref(0)
 let interval = null
 
-const updateCarouselHeight = () => {
-  nextTick(() => {
-    const img = slideImages.value[currentSlide.value]
-    if (img && carouselRef.value) {
-      carouselRef.value.style.height = img.offsetHeight + 'px'
-    }
-  })
-}
-
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % carouselImages.length
-  updateCarouselHeight()
 }
 
 const prevSlide = () => {
   currentSlide.value = (currentSlide.value - 1 + carouselImages.length) % carouselImages.length
-  updateCarouselHeight()
 }
 
 const goToSlide = (index) => {
   currentSlide.value = index
-  updateCarouselHeight()
 }
 
 onMounted(() => {
-  updateCarouselHeight()
   interval = setInterval(nextSlide, 4000)
-  window.addEventListener('resize', updateCarouselHeight)
 })
 
 onUnmounted(() => {
   clearInterval(interval)
-  window.removeEventListener('resize', updateCarouselHeight)
 })
 
 /* ===== Scroll ===== */
@@ -188,13 +160,12 @@ const technologies = [
 /* ===== Hero ===== */
 .hero {
   text-align: center;
-  padding: 3rem 2rem 3rem;
+  padding: 3rem 2rem;
 }
 
 .hero-title {
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 700;
-  line-height: 1.2;
   margin-bottom: 2rem;
 }
 
@@ -204,21 +175,16 @@ const technologies = [
   padding: 0.8rem 2rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.hero button:hover {
-  background: #7b5fd3;
 }
 
 /* ===== Carousel ===== */
 .carousel {
   max-width: 900px;
   margin: 2rem auto 4rem;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   border-radius: 16px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 .carousel-track {
@@ -228,16 +194,16 @@ const technologies = [
 
 .carousel-slide {
   min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-slide img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
   border-radius: 16px;
-  transition: transform 0.3s;
-}
-
-.carousel-slide img:hover {
-  transform: scale(1.03);
 }
 
 /* ===== Buttons & dots ===== */
@@ -252,12 +218,6 @@ const technologies = [
   color: white;
   cursor: pointer;
   border-radius: 50%;
-  transition: 0.3s;
-}
-
-.carousel-btn:hover {
-  background: rgba(107, 70, 193, 0.9);
-  transform: translateY(-50%) scale(1.1);
 }
 
 .prev {
@@ -282,7 +242,6 @@ const technologies = [
   background: #555;
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .carousel-dots span.active {
@@ -303,47 +262,31 @@ const technologies = [
 .description-block h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: #fff;
 }
 
 .description-block p {
-  font-size: 1rem;
   line-height: 1.6;
-  color: #fff;
   text-align: justify;
 }
 
+/* ===== Lists ===== */
 .feature-list {
+  margin-top: 1rem;
   padding-left: 1.2rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
-  list-style-type: disc;
-  color: #e0e0e0;
-  font-size: 1rem;
   line-height: 2rem;
 }
 
-.feature-list li {
-  margin-bottom: 0.8rem;
-}
-
-/* ===== Highlighted words ===== */
+/* ===== Highlight ===== */
 .highlight {
-  color: #fff;
   font-weight: 700;
   font-size: 1.2rem;
   text-decoration: underline;
   text-decoration-color: #6b46c1;
   text-decoration-thickness: 4px;
   text-underline-offset: 3px;
-  transition: transform 0.3s;
 }
 
-.highlight:hover {
-  transform: scale(1.05);
-}
-
-/* ===== Tech Cards ===== */
+/* ===== Tech ===== */
 .tech-section {
   text-align: center;
 }
@@ -353,41 +296,18 @@ const technologies = [
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  margin-top: 1rem;
 }
 
 .tech-card {
   background: #353141;
-  color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.tech-card:hover {
-  background: #7b5fd3;
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 5px 15px rgba(107, 70, 193, 0.5);
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .carousel-slide img {
-    height: 220px;
-  }
-  .description-block h2 {
-    font-size: 1.5rem;
-  }
-  .description-block p {
-    font-size: 0.95rem;
-  }
-  .hero-title {
-    font-size: clamp(2.5rem, 7vw, 4rem);
-  }
-  .highlight {
-    font-size: 1.1rem;
+  .carousel {
+    max-width: 100%;
   }
 }
 </style>
