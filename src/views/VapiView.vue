@@ -12,7 +12,7 @@
     <section class="carousel" ref="carouselRef">
       <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
         <div class="carousel-slide" v-for="(image, index) in carouselImages" :key="index">
-          <img :src="image" alt="VAPI slide" :ref="(el) => (slideImages[index] = el)" />
+          <img :src="image" alt="VAPI slide" />
         </div>
       </div>
       <button class="carousel-btn prev" @click="prevSlide">&#10094;</button>
@@ -85,7 +85,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 import VAPI1 from '@/assets/VAPI 1.jpg'
 import VAPI2 from '@/assets/VAPI 2.jpg'
@@ -95,46 +95,30 @@ import VAPI4 from '@/assets/VAPI 4.jpg'
 /* ===== Refs ===== */
 const contentRef = ref(null)
 const carouselRef = ref(null)
-const slideImages = ref([])
 
 /* ===== Carousel ===== */
 const carouselImages = [VAPI1, VAPI2, VAPI3, VAPI4]
 const currentSlide = ref(0)
 let interval = null
 
-const updateCarouselHeight = () => {
-  nextTick(() => {
-    const img = slideImages.value[currentSlide.value]
-    if (img && carouselRef.value) {
-      carouselRef.value.style.height = img.offsetHeight + 'px'
-    }
-  })
-}
-
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % carouselImages.length
-  updateCarouselHeight()
 }
 
 const prevSlide = () => {
   currentSlide.value = (currentSlide.value - 1 + carouselImages.length) % carouselImages.length
-  updateCarouselHeight()
 }
 
 const goToSlide = (index) => {
   currentSlide.value = index
-  updateCarouselHeight()
 }
 
 onMounted(() => {
-  updateCarouselHeight()
   interval = setInterval(nextSlide, 4000)
-  window.addEventListener('resize', updateCarouselHeight)
 })
 
 onUnmounted(() => {
   clearInterval(interval)
-  window.removeEventListener('resize', updateCarouselHeight)
 })
 
 /* ===== Scroll ===== */
@@ -181,9 +165,6 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
 .title-white {
   color: #ffffff;
 }
-.title-purple {
-  color: #6b46c1;
-}
 
 .hero button {
   background: #6b46c1;
@@ -206,8 +187,8 @@ const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'REST APIs', 'VAP
   overflow: hidden;
   position: relative;
   border-radius: 16px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-  height: auto;
+  box-shadow: none; /* <-- sin sombra */
+  height: auto; /* altura fija relativa al card */
 }
 
 .carousel-track {
