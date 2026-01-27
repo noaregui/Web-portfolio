@@ -86,7 +86,7 @@ let interval = null
 onMounted(() => {
   interval = setInterval(() => {
     currentIndex.value = (currentIndex.value + 1) % 4
-  }, 5000) // Cambia cada 5 segundos
+  }, 10000)
 })
 
 onUnmounted(() => {
