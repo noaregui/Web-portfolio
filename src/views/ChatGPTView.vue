@@ -8,11 +8,11 @@
       <button @click="scrollToContent">View project details</button>
     </header>
 
-    <!-- ===== Carousel (único cambio) ===== -->
-    <section class="carousel" ref="carouselRef">
+    <!-- ===== Carousel ===== -->
+    <section class="carousel">
       <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
         <div class="carousel-slide" v-for="(image, index) in carouselImages" :key="index">
-          <img :src="image" alt="ChatGPT slide" :ref="(el) => (slideImages[index] = el)" />
+          <img :src="image" alt="ChatGPT slide" />
         </div>
       </div>
 
@@ -92,63 +92,41 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
-
+import { ref, onMounted, onUnmounted } from 'vue'
 import chatgpt2 from '@/assets/chatgpt2.jpg'
 import chatgpt3 from '@/assets/chatgpt3.jpg'
 import chatgpt4 from '@/assets/chatgpt4.jpg'
 
 const contentRef = ref(null)
 
-/* ===== Carousel logic ===== */
-const carouselRef = ref(null)
-const slideImages = ref([])
-
 const carouselImages = [chatgpt2, chatgpt3, chatgpt4]
 const currentSlide = ref(0)
 let interval = null
 
-const updateCarouselHeight = () => {
-  nextTick(() => {
-    const img = slideImages.value[currentSlide.value]
-    if (img && carouselRef.value) {
-      carouselRef.value.style.height = img.offsetHeight + 'px'
-    }
-  })
-}
-
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % carouselImages.length
-  updateCarouselHeight()
 }
 
 const prevSlide = () => {
   currentSlide.value = (currentSlide.value - 1 + carouselImages.length) % carouselImages.length
-  updateCarouselHeight()
 }
 
 const goToSlide = (index) => {
   currentSlide.value = index
-  updateCarouselHeight()
 }
 
 onMounted(() => {
-  updateCarouselHeight()
   interval = setInterval(nextSlide, 4000)
-  window.addEventListener('resize', updateCarouselHeight)
 })
 
 onUnmounted(() => {
   clearInterval(interval)
-  window.removeEventListener('resize', updateCarouselHeight)
 })
 
-/* ===== Scroll ===== */
 const scrollToContent = () => {
   contentRef.value?.scrollIntoView({ behavior: 'smooth' })
 }
 
-/* ===== Technologies ===== */
 const technologies = [
   'OpenAI ChatGPT API',
   'Pipedrive CRM API',
@@ -162,13 +140,6 @@ const technologies = [
 </script>
 
 <style scoped>
-:global(html),
-:global(body) {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
 .vapi-landing {
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
@@ -176,7 +147,7 @@ const technologies = [
   padding-bottom: 4rem;
 }
 
-/* ===== Hero ===== */
+/* Hero */
 .hero {
   text-align: center;
   padding: 5rem 2rem 3rem;
@@ -205,7 +176,7 @@ const technologies = [
   background: #7b5fd3;
 }
 
-/* ===== Carousel ===== */
+/* Carousel */
 .carousel {
   width: 100%;
   max-width: 900px;
@@ -213,7 +184,7 @@ const technologies = [
   overflow: hidden;
   position: relative;
   border-radius: 16px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 .carousel-track {
@@ -223,12 +194,15 @@ const technologies = [
 
 .carousel-slide {
   min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-slide img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  object-fit: contain;
+  display: block;
   border-radius: 16px;
 }
 
@@ -241,15 +215,10 @@ const technologies = [
   border: none;
   width: 1.5rem;
   height: 1.5rem;
-  font-size: 0.9rem;
   color: white;
   cursor: pointer;
   border-radius: 50%;
   z-index: 10;
-}
-
-.carousel-btn:hover {
-  background: rgba(107, 70, 193, 0.9);
 }
 
 .prev {
@@ -259,10 +228,14 @@ const technologies = [
   right: 1rem;
 }
 
+.carousel-btn:hover {
+  background: rgba(107, 70, 193, 0.9);
+}
+
 /* Dots */
 .carousel-dots {
   position: absolute;
-  bottom: 1rem;
+  bottom: 0.5rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -282,7 +255,7 @@ const technologies = [
   transform: scale(1.3);
 }
 
-/* ===== Description ===== */
+/* Description */
 .project-description {
   max-width: 900px;
   margin: 0 auto;
@@ -305,7 +278,7 @@ const technologies = [
   margin-bottom: 1.5rem;
 }
 
-/* ===== Highlighted words ===== */
+/* Highlight */
 .highlight {
   color: #ffffff;
   font-weight: 700;
@@ -314,11 +287,6 @@ const technologies = [
   text-decoration-color: #6b46c1;
   text-decoration-thickness: 4px;
   text-underline-offset: 3px;
-  transition: transform 0.3s;
-}
-
-.highlight:hover {
-  transform: scale(1.05);
 }
 
 .feature-list {
@@ -330,7 +298,7 @@ const technologies = [
   margin-bottom: 0.5rem;
 }
 
-/* ===== Tech cards ===== */
+/* Tech cards */
 .tech-cards {
   display: flex;
   flex-wrap: wrap;
@@ -347,5 +315,12 @@ const technologies = [
 .tech-card:hover {
   background: #7b5fd3;
   transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel {
+    max-width: 100%;
+  }
 }
 </style>
