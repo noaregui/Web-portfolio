@@ -1,9 +1,7 @@
 <template>
-  <!-- Card ocupando todo el container -->
   <div class="container">
     <div class="card">
       <div class="card-content">
-        <!-- Header imagen + texto -->
         <div class="header-content">
           <div class="image-placeholder">
             <img src="@/assets/Avatar_web_sin_fondo.jpg" alt="AvatarPrueba" />
@@ -32,14 +30,12 @@
           </div>
         </div>
 
-        <!-- Descripción personal -->
         <p class="description">
           I enjoy turning ideas into efficient web solutions and creating intuitive digital
           experiences, combining frontend and backend in a simple and effective way. I am passionate
           about designing interfaces that are both visually appealing and user-friendly.
         </p>
 
-        <!-- Redes sociales -->
         <div class="social-card">
           <!-- GitHub -->
           <a
@@ -111,7 +107,7 @@ const isPlaying = ref(false)
 const audio = new Audio(audioFile)
 
 const playAudioAndAnimate = () => {
-  if (isPlaying.value) return // si ya está reproduciéndose, no hacer nada
+  if (isPlaying.value) return
 
   isPlaying.value = true
   audio.play()
@@ -127,8 +123,6 @@ const playAudioAndAnimate = () => {
     }
   }
 }
-
-// props opcionales
 </script>
 
 <style scoped>
@@ -193,8 +187,7 @@ const playAudioAndAnimate = () => {
 }
 
 .text-header h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #ffffff;
@@ -211,10 +204,11 @@ const playAudioAndAnimate = () => {
 }
 
 .subtitle {
-  text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1.25rem, 3vw, 2rem);
   font-weight: 500;
+  text-align: center;
   color: #9ca3af;
+  margin-bottom: 1rem;
 }
 
 .description {
@@ -441,7 +435,6 @@ const playAudioAndAnimate = () => {
   }
 }
 
-/* 🔹 Animación de fases de color controladas */
 @keyframes color-phases {
   0%,
   100% {
@@ -453,14 +446,13 @@ const playAudioAndAnimate = () => {
   }
 }
 .loader:hover {
-  transform: translate(-50%, -50%) scale(calc(var(--size) * 1.1)); /* 10% más grande */
+  transform: translate(-50%, -50%) scale(calc(var(--size) * 1.1));
   box-shadow:
     0 0 35px 0 var(--color-three),
     0 0 70px 0 var(--color-four);
   cursor: pointer;
 }
 
-/* Para suavizar la transición de colores */
 .loader,
 .loader.playing {
   transition: all 0.3s ease-in-out;
@@ -470,7 +462,6 @@ const playAudioAndAnimate = () => {
   animation: talking-color 2s ease-in-out infinite alternate;
 }
 
-/* Mientras se está reproduciendo */
 .loader.playing {
   --color-one: #f8a024;
   --color-two: #f8a024;
@@ -478,7 +469,6 @@ const playAudioAndAnimate = () => {
   --color-four: #ffd262;
   --color-five: #ffd262;
 
-  /* Animación tipo “pulse” */
   animation: pulse 1s ease-in-out infinite alternate;
 }
 
