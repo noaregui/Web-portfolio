@@ -5,10 +5,6 @@
 <p>Welcome to my personal portfolio! Here you'll find a showcase of my projects, experiments, and explorations in **JavaScript, Vue, React, and web development**. This page is designed to give you a quick overview of what I build, how I think as a developer, and the tools I love to use.</p>
 
 <div align="center">
-  
-
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmM3bXN1bXR5cXZueWNjbmgxc2p0cmUxdDl0anFxa201cXF3bTYzMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/nZtpBHTi8noDfTCGb5/giphy.gifhttps://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmM3bXN1bXR5cXZueWNjbmgxc2p0cmUxdDl0anFxa201cXF3bTYzMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/nZtpBHTi8noDfTCGb5/giphy.gif"/>
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmM3bXN1bXR5cXZueWNjbmgxc2p0cmUxdDl0anFxa201cXF3bTYzMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Gpf8A8aX2uWAg/giphy.gif" />
 <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dnI1N3JyOGdxenMwMjN3Y2hqbnFsM3drcTl1ZGFkcmRqeGRveGk0NCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/JtrHPBNTg7KM0/giphy.gif" />
 
 
