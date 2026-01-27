@@ -98,12 +98,14 @@ import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
   font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
+  color: white;
 }
 
 .projects-subtitle {
   font-size: 1.1rem;
   opacity: 0.75;
   line-height: 1.6;
+  color: white;
 }
 
 /* ===== COLUMNAS ===== */
