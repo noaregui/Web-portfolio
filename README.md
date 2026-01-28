@@ -1,5 +1,5 @@
 <div align="center">
-  <h1 align="center">🌟 Ainhoa León – Web Developer Portfolio</h1>
+  <h1 align="center">✨ Web Developer Portfolio</h1>
 </div>
 
 <p>Welcome to my personal portfolio! Here you'll find a showcase of my projects, experiments, and explorations in **JavaScript, Vue, React, and web development**. This page is designed to give you a quick overview of what I build, how I think as a developer, and the tools I love to use.</p>
