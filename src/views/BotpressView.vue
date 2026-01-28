@@ -75,9 +75,9 @@
         </div>
       </div>
 
-      <!-- Technologies Used -->
+      <!-- Used Technologies -->
       <div class="description-block tech-section">
-        <h2>Technologies Used</h2>
+        <h2>Used Technologies</h2>
         <div class="tech-cards">
           <span class="tech-card" v-for="(tech, index) in technologies" :key="index">
             {{ tech }}
