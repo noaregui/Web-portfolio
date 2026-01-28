@@ -2,25 +2,22 @@
   <h1 align="center">✨ Web Developer Portfolio</h1>
 </div>
 
-<p>Welcome to my personal portfolio! Here you'll find a showcase of my projects, experiments, and explorations in **JavaScript, Vue, React, and web development**. This page is designed to give you a quick overview of what I build, how I think as a developer, and the tools I love to use.</p>
+<p>Welcome to my personal portfolio! Here you'll find a showcase of my projects, built mainly with **Vue, JavaScript, and React**, with examples of **Python, SQL, and API integrations**. The page is interactive, easy to explore, and a simple way to get in touch. Enjoy your visit!</p>
 
 <div align="center">
-<img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dnI1N3JyOGdxenMwMjN3Y2hqbnFsM3drcTl1ZGFkcmRqeGRveGk0NCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/JtrHPBNTg7KM0/giphy.gif" />
-
-
-
-
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGZmOTZ4M2UyYnlqcmtyMHcwYTh4cHN4ZWc3ZTBmbTIxYWJ5aWRuciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3orieQHmkjxSiLGC08/giphy.gif" />
+  
 </div>
 
 ---
 
 ## 💻 About This Portfolio
-This portfolio is not just a collection of projects—it's a **living demonstration of my coding skills and creativity**. You'll find:
+This portfolio is a collection of my projects, showing what I build and how I approach web development. You'll find:  
 
-- Interactive web projects built with **Vue 3 and React**  
+- Interactive web projects built with **Vue 3**  
 - Examples of **API integrations** (like ChatGPT, Pipedrive, Witei)  
 - Clean and responsive UI design  
-- Experiments with **Fetch API, EmailJS, and modern JavaScript features**  
+- Features implemented with **modern JavaScript and web tools**
 
 ---
 
@@ -36,6 +33,11 @@ I mainly work with:
   <span>🎨 Tailwind CSS</span> • 
   <span>📡 Fetch API / Axios</span>
 </div>
+<br></br>
+<div align="center">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGs4aDE4ZTc3aXFpeDRkMGFzMmc3MXpkNzN0bWhyeW02bXExNjdrayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/CTX0ivSQbI78A/giphy.gif" />
+</div>
+
 
 ---
 
@@ -44,7 +46,7 @@ You can clone and run this portfolio locally to explore the code and projects:
 
 ```bash
 # Clone the repository
-git clone https://github.com/tu-usuario/mi-portfolio.git
+git clone https://github.com/noaregui/mi-portfolio.git
 
 # Navigate into the folder
 cd mi-portfolio
@@ -57,50 +59,13 @@ npm run dev
 
 # Build for production
 npm run build
-
-
-
-# mi-portfolio
-
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
 ```
 
-### Compile and Hot-Reload for Development
+<div align="center">
+  <h2>Check out my portfolio online!</h2>
+  <p>Visit my website to explore my projects and see them in action:</p>
+  <p>👉<a href="https://noaregui.github.io/Web-portfolio/" target="_blank">https://noaregui.github.io/Web-portfolio/</a></p>
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExand2cjUwNjFraXliMnRrNGYxNmtsdnM5N3VkZGcyMmFwa2d1c3JrbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Ztfno2Qtm2dVxS81f5/giphy.gif" />
+</div>
 
-```sh
-npm run dev
-```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
