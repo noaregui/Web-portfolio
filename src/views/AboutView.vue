@@ -58,7 +58,8 @@
                 <span class="highlight">TypeScript</span>, <span class="highlight">React</span>, and
                 <span class="highlight">Vue</span> to create clean interfaces and smooth user
                 experiences. On the backend, I focus on developing
-                <span class="highlight">custom REST APIs and webhooks</span>, workflow logic, and
+                <span class="highlight">custom-made REST APIs and webhooks</span>, workflow logic,
+                and
                 <span class="highlight">platform integrations</span>
                 using Node.js, Express, Flask, and MySQL. I have experience connecting systems,
                 automating processes, and designing data structures that support real business

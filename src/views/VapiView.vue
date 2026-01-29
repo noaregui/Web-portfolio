@@ -130,7 +130,7 @@ const scrollToContent = () => {
 }
 
 /* ===== Technologies ===== */
-const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'Custom REST APIs', 'VAPI AI']
+const technologies = ['Node.js', 'JavaScript (ES6+)', 'React', 'Custom-made REST APIs', 'VAPI AI']
 </script>
 
 <style scoped>

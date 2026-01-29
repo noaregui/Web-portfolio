@@ -61,7 +61,7 @@
 
         <ul class="feature-list">
           <li>⏳ Controlled message timing</li>
-          <li>🌐 Webhooks & real-time updates</li>
+          <li>🌐 Custonm-made Webhooks & real-time updates</li>
           <li>⚡ Fully automated lead qualification</li>
         </ul>
       </div>
@@ -115,10 +115,10 @@ const scrollToContent = () => {
 const technologies = [
   'Meta WhatsApp Business Cloud API',
   'Landbot',
-  'Custom Webhooks',
+  'Custom-made Webhooks',
   'Node.js',
   'JavaScript (ES6+)',
-  'Custom REST APIs',
+  'Custom-made REST APIs',
 ]
 </script>
 
