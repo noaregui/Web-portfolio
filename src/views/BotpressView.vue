@@ -69,7 +69,7 @@
             <li>🧠 Adapt questions based on previous answers and stored context</li>
             <li>🔄 Maintain conversational state across interactions</li>
             <li>📥 Collect structured feedback and validate user inputs</li>
-            <li>🌐 Sync data with internal systems using REST APIs and webhooks</li>
+            <li>🌐 Sync data with internal systems using custom REST APIs and webhooks</li>
             <li>✅ Deliver a natural, user-friendly experience directly in WhatsApp</li>
           </ul>
         </div>
@@ -131,10 +131,10 @@ const scrollToContent = () => {
 const technologies = [
   'Botpress (AI conversational agent)',
   'WhatsApp Business API',
-  'Webhooks',
+  'Custom Webhooks',
   'Node.js',
   'TypeScript',
-  'REST APIs',
+  'Custom REST APIs',
   'Authentication Tokens',
 ]
 </script>
