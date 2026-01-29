@@ -7,6 +7,8 @@ import VapiView from '@/views/VapiView.vue'
 import MetaView from '@/views/MetaView.vue'
 import ChatGPTView from '@/views/ChatGPTView.vue'
 import BotpressView from '@/views/BotpressView.vue'
+import NativeAppBackView from '@/views/NativeAppBackView.vue'
+import NativeAppFrontView from '@/views/NativeAppFrontView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +52,16 @@ const router = createRouter({
       path: '/botpress',
       name: 'botpress',
       component: BotpressView,
+    },
+    {
+      path: '/nativeappback',
+      name: 'nativeappback',
+      component: NativeAppBackView,
+    },
+    {
+      path: '/nativeappfront',
+      name: 'nativeappfront',
+      component: NativeAppFrontView,
     },
   ],
 })
