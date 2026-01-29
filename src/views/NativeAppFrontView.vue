@@ -116,16 +116,15 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-import Docker from '@/assets/Docker.jpg'
-import MongoDB2 from '@/assets/MongoDB2.jpg'
-import MySQL1 from '@/assets/MySQL1.jpg'
+import Nuxt from '@/assets/Nuxt.jpg'
+import Vue1 from '@/assets/Vue1.jpg'
 
 /* ===== Refs ===== */
 const contentRef = ref(null)
 const carouselRef = ref(null)
 
 /* ===== Carousel ===== */
-const carouselImages = [Docker, MongoDB2, MySQL1]
+const carouselImages = [Nuxt, Vue1]
 const currentSlide = ref(0)
 let interval = null
 
