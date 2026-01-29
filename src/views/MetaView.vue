@@ -1,5 +1,5 @@
 <template>
-  <section class="vapi-landing">
+  <section class="meta-landing">
     <!-- ===== Hero ===== -->
     <header class="hero">
       <h1 class="hero-title">
@@ -123,7 +123,7 @@ const technologies = [
 </script>
 
 <style scoped>
-.vapi-landing {
+.meta-landing {
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
   background: #0c1016;
