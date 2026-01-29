@@ -124,10 +124,10 @@ const technologies = [
   'OpenAI ChatGPT API',
   'Pipedrive CRM API',
   'Witei API',
-  'Webhooks',
+  'Custom Webhooks',
   'Node.js',
   'JavaScript (ES6+)',
-  'REST APIs',
+  'Custom REST APIs',
   'Authentication Tokens',
 ]
 </script>

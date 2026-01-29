@@ -115,10 +115,10 @@ const scrollToContent = () => {
 const technologies = [
   'Meta WhatsApp Business Cloud API',
   'Landbot',
-  'Webhooks',
+  'Custom Webhooks',
   'Node.js',
   'JavaScript (ES6+)',
-  'REST APIs',
+  'Custom REST APIs',
 ]
 </script>
 
