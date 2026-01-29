@@ -37,9 +37,6 @@
           <div class="project-content">
             <h3 class="project-name">Chatbot</h3>
             <p class="project-tech">Botpress · Landbot</p>
-            <p class="extra-text">
-              Chatbots inteligentes con integración multicanal y automatización de conversaciones.
-            </p>
           </div>
         </RouterLink>
       </div>
@@ -71,6 +68,34 @@
           </div>
         </RouterLink>
       </div>
+
+      <div class="column">
+        <!-- Native App Back-->
+        <RouterLink
+          to="/nativeappback"
+          class="project-card project-card-bg"
+          :style="{ backgroundImage: `url(${NativeAppBack})` }"
+        >
+          <div class="overlay"></div>
+          <div class="project-content">
+            <h3 class="project-name">Backend migration from MySQL to MongoDB</h3>
+            <p class="project-tech">Cloud Native Admin - Backend</p>
+          </div>
+        </RouterLink>
+
+        <!-- Native App Front -->
+        <RouterLink
+          to="/nativeappfront"
+          class="project-card project-card-bg"
+          :style="{ backgroundImage: `url(${NativeAppFront})` }"
+        >
+          <div class="overlay"></div>
+          <div class="project-content">
+            <h3 class="project-name">Fronted migration using Vue.js and Nuxt.js</h3>
+            <p class="project-tech">Cloud Native Admin - Fronted</p>
+          </div>
+        </RouterLink>
+      </div>
     </div>
   </section>
 </template>
@@ -80,6 +105,8 @@ import VAPI1 from '@/assets/VAPI 1.jpg'
 import BotpressLogo from '@/assets/Botpress.jpg'
 import MetaFondo from '@/assets/MetaFondo.jpg'
 import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
+import NativeAppBack from '@/assets/NativeAppBack.jpg'
+import NativeAppFront from '@/assets/NativeAppFront.jpg'
 </script>
 
 <style scoped>
