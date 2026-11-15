@@ -2,14 +2,9 @@
   <section class="projects">
     <div class="projects-hero">
       <h1 class="projects-title">
-        <span class="title-line">PROJECTS</span>
+        <span class="title-line">{{ t('projects.title') }}</span>
       </h1>
-      <p class="projects-subtitle">
-        Here you will find a selection of projects I have worked on — polished, real-world
-        applications that reflect my skills, creativity, and technical expertise. Each project
-        showcases my ability to build scalable, maintainable, and user-friendly applications across
-        different technologies.
-      </p>
+      <p class="projects-subtitle">{{ t('projects.subtitle') }}</p>
     </div>
 
     <div class="columns">
@@ -19,7 +14,7 @@
           :key="project.slug"
           :to="{ name: 'project', params: { slug: project.slug } }"
           class="project-card project-card-bg"
-          :style="{ backgroundImage: `url(${project.card.image})` }"
+          :style="{ backgroundImage: `url(${project.cardImage})` }"
         >
           <div class="overlay"></div>
           <div class="project-content">
@@ -33,15 +28,22 @@
 </template>
 
 <script setup>
-import { projects } from '@/data/projects'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { localizeProject, projects } from '@/data/projects'
+
+const { t, locale } = useI18n()
 
 const COLUMN_COUNT = 3
 
-// Split projects into consecutive groups, one per column, keeping their order in projects.js.
-const projectsPerColumn = Math.ceil(projects.length / COLUMN_COUNT)
-const columns = Array.from({ length: COLUMN_COUNT }, (_, index) =>
-  projects.slice(index * projectsPerColumn, (index + 1) * projectsPerColumn),
-).filter((column) => column.length)
+// Split projects into consecutive groups, one per column, keeping their order in projects/index.js.
+const columns = computed(() => {
+  const localized = projects.map((project) => localizeProject(project, locale.value))
+  const perColumn = Math.ceil(localized.length / COLUMN_COUNT)
+  return Array.from({ length: COLUMN_COUNT }, (_, index) =>
+    localized.slice(index * perColumn, (index + 1) * perColumn),
+  ).filter((column) => column.length)
+})
 </script>
 
 <style scoped>

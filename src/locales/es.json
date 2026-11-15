@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "¡Hola, soy Ainhoa!"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "menu": "Menú"
+  },
+  "theme": {
+    "label": "Modo oscuro",
+    "toLight": "Cambiar a modo claro",
+    "toDark": "Cambiar a modo oscuro"
+  },
+  "language": {
+    "label": "Idioma"
+  },
+  "home": {
+    "greeting": "Hola, soy {name}",
+    "role": "Full Stack Developer",
+    "description": "Disfruto convirtiendo ideas en soluciones web eficientes y creando experiencias digitales intuitivas, combinando frontend y backend de forma sencilla y eficaz. Me apasiona diseñar interfaces atractivas y fáciles de usar.",
+    "avatarAlt": "Avatar ilustrado de Ainhoa",
+    "playIntro": "Reproducir presentación en audio"
+  },
+  "skills": {
+    "titleLine1": "CONSTRUYENDO",
+    "titleLine2": "EXPERIENCIAS DIGITALES",
+    "text": "Creo experiencias digitales combinando frontend y backend. Desarrollo aplicaciones web completas, escalables y fáciles de mantener, integrando bases de datos, APIs y automatizaciones. ¡Echa un vistazo a lo que puedo hacer!"
+  },
+  "cta": {
+    "titleStart": "TRABAJEMOS",
+    "titleEnd": "JUNTOS",
+    "subtitle": "Si tienes una idea, un proyecto o simplemente quieres saludar, hablemos.",
+    "button": "Contáctame"
+  },
+  "contact": {
+    "titleStart": "TRABAJEMOS",
+    "titleEnd": "JUNTOS",
+    "subtitle": "Si tienes una idea, un proyecto o simplemente quieres saludar, rellena el formulario y te responderé lo antes posible.",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "email": "Email",
+    "emailPlaceholder": "tu{'@'}email.com",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntame tu idea, tu proyecto o simplemente saluda 🙂",
+    "send": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success": "✅ ¡Mensaje enviado correctamente!",
+    "error": "❌ Algo ha ido mal. Inténtalo de nuevo."
+  },
+  "about": {
+    "avatarAlt": "Avatar de Ainhoa programando con un portátil",
+    "background": {
+      "titleStart": "Mi",
+      "titleEnd": "Trayectoria",
+      "text": "La tecnología siempre me ha despertado curiosidad, aunque mi carrera me llevó primero a la **psicología**. Tras terminar el grado y un máster en psicología social, trabajé cinco años en ese campo. Con el tiempo, mi interés por la **programación** no dejó de crecer, así que di un giro importante a mi carrera y empecé a estudiar desarrollo de software."
+    },
+    "approach": {
+      "titleStart": "Mi",
+      "titleEnd": "Enfoque",
+      "text": "Disfruto combinando habilidades de **frontend** y **backend** para crear experiencias fluidas. Trabajo a gusto en equipos ágiles y multidisciplinares, colaborando de cerca con los demás y llevando los proyectos de principio a fin."
+    },
+    "outside": {
+      "titleStart": "Fuera del",
+      "titleEnd": "Trabajo",
+      "text": "Me gusta aprender **nuevas tecnologías** y explorar soluciones innovadoras. Mi formación en psicología me aporta una perspectiva diferente sobre la experiencia de usuario, la **comunicación** y la forma en que trabajan los equipos."
+    },
+    "build": {
+      "titleStart": "Lo que",
+      "titleEnd": "Construyo",
+      "text": "Me gusta crear aplicaciones fiables y escalables en todo el stack. En el frontend trabajo con **JavaScript**, **TypeScript**, **React** y **Vue** para crear interfaces limpias y experiencias de usuario fluidas. En el backend me centro en desarrollar **APIs REST y webhooks a medida**, lógica de flujos de trabajo e **integraciones entre plataformas** con Node.js, Express, Flask y MySQL. Tengo experiencia conectando sistemas, automatizando procesos y diseñando estructuras de datos que responden a necesidades reales de negocio."
+    }
+  },
+  "projects": {
+    "title": "PROYECTOS",
+    "subtitle": "Aquí encontrarás una selección de proyectos en los que he trabajado: aplicaciones reales y cuidadas que reflejan mis habilidades, mi creatividad y mi experiencia técnica. Cada proyecto muestra mi capacidad para crear aplicaciones escalables, mantenibles y fáciles de usar con distintas tecnologías."
+  },
+  "project": {
+    "viewDetails": "Ver detalles del proyecto",
+    "technologies": "Tecnologías utilizadas",
+    "slide": "imagen {n}",
+    "previous": "Imagen anterior",
+    "next": "Imagen siguiente",
+    "goToSlide": "Ir a la imagen {n}"
+  },
+  "notFound": {
+    "titleStart": "PÁGINA",
+    "titleEnd": "NO ENCONTRADA",
+    "subtitle": "La página que buscas no existe o se ha movido.",
+    "home": "Ir al inicio",
+    "projects": "Ver proyectos"
+  },
+  "footer": {
+    "role": "Frontend Developer · Vue / React",
+    "builtWith": "Web hecha con Vue y Vite.",
+    "rights": "© {year} Ainhoa León. Todos los derechos reservados.",
+    "location": "Vivo en Barcelona"
+  }
+}

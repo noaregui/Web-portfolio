@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "Hi, I’m Ainhoa!"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About me",
+    "projects": "Projects",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "theme": {
+    "label": "Dark mode",
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode"
+  },
+  "language": {
+    "label": "Language"
+  },
+  "home": {
+    "greeting": "Hi, I'm {name}",
+    "role": "Full Stack Developer",
+    "description": "I enjoy turning ideas into efficient web solutions and creating intuitive digital experiences, combining frontend and backend in a simple and effective way. I am passionate about designing interfaces that are both visually appealing and user-friendly.",
+    "avatarAlt": "Illustrated avatar of Ainhoa",
+    "playIntro": "Play audio introduction"
+  },
+  "skills": {
+    "titleLine1": "BUILDING",
+    "titleLine2": "DIGITAL EXPERIENCES",
+    "text": "I create digital experiences by combining frontend and backend. I build full-featured, scalable, and easy-to-maintain web applications, integrating databases, APIs, and automations. Check out what I can do!"
+  },
+  "cta": {
+    "titleStart": "LET'S WORK",
+    "titleEnd": "TOGETHER",
+    "subtitle": "If you have an idea, project, or just want to say hi, let’s talk.",
+    "button": "Contact me"
+  },
+  "contact": {
+    "titleStart": "LET'S WORK",
+    "titleEnd": "TOGETHER",
+    "subtitle": "If you have an idea, project, or just want to say hi, fill out the form and I’ll get back to you as soon as possible.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you{'@'}email.com",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your idea, project or just say hi 🙂",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "✅ Message sent successfully!",
+    "error": "❌ Something went wrong. Please try again."
+  },
+  "about": {
+    "avatarAlt": "Avatar of Ainhoa programming at a laptop",
+    "background": {
+      "titleStart": "My",
+      "titleEnd": "Background",
+      "text": "I’ve always been curious about technology, even though my career initially led me into **psychology**. After completing my degree and a master’s in social psychology, I worked for five years in the field. Over time, my interest in **programming** kept growing, so I made a meaningful career shift and started studying software development."
+    },
+    "approach": {
+      "titleStart": "My",
+      "titleEnd": "Approach",
+      "text": "I enjoy combining **frontend** and **backend** skills to create smooth experiences. I’m comfortable working in agile, cross-functional teams, collaborating closely with others, and seeing projects through from start to finish."
+    },
+    "outside": {
+      "titleStart": "Outside",
+      "titleEnd": "Work",
+      "text": "I enjoy learning **new technologies** and exploring innovative solutions. My background in psychology gives me a fresh perspective on user experience, **communication**, and how teams work together."
+    },
+    "build": {
+      "titleStart": "What",
+      "titleEnd": "I Build",
+      "text": "I enjoy building reliable, scalable applications across the full stack. On the frontend, I work with **JavaScript**, **TypeScript**, **React**, and **Vue** to create clean interfaces and smooth user experiences. On the backend, I focus on developing **custom-made REST APIs and webhooks**, workflow logic, and **platform integrations** using Node.js, Express, Flask, and MySQL. I have experience connecting systems, automating processes, and designing data structures that support real business needs."
+    }
+  },
+  "projects": {
+    "title": "PROJECTS",
+    "subtitle": "Here you will find a selection of projects I have worked on — polished, real-world applications that reflect my skills, creativity, and technical expertise. Each project showcases my ability to build scalable, maintainable, and user-friendly applications across different technologies."
+  },
+  "project": {
+    "viewDetails": "View project details",
+    "technologies": "Used Technologies",
+    "slide": "image {n}",
+    "previous": "Previous image",
+    "next": "Next image",
+    "goToSlide": "Go to image {n}"
+  },
+  "notFound": {
+    "titleStart": "PAGE",
+    "titleEnd": "NOT FOUND",
+    "subtitle": "The page you are looking for doesn't exist or has been moved.",
+    "home": "Go home",
+    "projects": "See projects"
+  },
+  "footer": {
+    "role": "Frontend Developer · Vue / React",
+    "builtWith": "Website built with Vue and Vite.",
+    "rights": "© {year} Ainhoa León. All rights reserved.",
+    "location": "Based in Barcelona"
+  }
+}

@@ -2,19 +2,19 @@
   <div class="skills-section">
     <div class="text-content">
       <h2>
-        <span class="title-line">BUILDING</span>
-        <span class="title-line">DIGITAL EXPERIENCES</span>
+        <span class="title-line">{{ t('skills.titleLine1') }}</span>
+        <span class="title-line">{{ t('skills.titleLine2') }}</span>
       </h2>
-      <p>
-        I create digital experiences by combining frontend and backend. I build full-featured,
-        scalable, and easy-to-maintain web applications, integrating databases, APIs, and
-        automations. Check out what I can do!
-      </p>
+      <p>{{ t('skills.text') }}</p>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .skills-section {
@@ -82,6 +82,13 @@
   }
   .skills-section p {
     text-align: center;
+  }
+}
+
+/* Long single words (e.g. "CONSTRUYENDO", "ESPERIENTZIA") must fit small phones */
+@media (max-width: 480px) {
+  .title-line {
+    font-size: clamp(1.75rem, 8.5vw, 2.5rem);
   }
 }
 </style>

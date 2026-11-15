@@ -2,32 +2,33 @@
   <div class="contact-card cta">
     <div class="contact-info">
       <h2 class="contact-title">
-        <span class="title-white">LET'S WORK</span>
-        <span class="title-purple"> TOGETHER</span>
+        <span class="title-white">{{ t('cta.titleStart') }}</span>
+        <span class="title-purple">{{ ' ' + t('cta.titleEnd') }}</span>
       </h2>
 
-      <p class="contact-subtitle">
-        If you have an idea, project, or just want to say hi, let’s talk.
-      </p>
+      <p class="contact-subtitle">{{ t('cta.subtitle') }}</p>
 
-      <RouterLink to="/contact" class="cta-btn" alt="contact me">
-        <i>C</i>
-        <i>o</i>
-        <i>n</i>
-        <i>t</i>
-        <i>a</i>
-        <i>c</i>
-        <i>t</i>
-        <i>&nbsp;</i>
-        <i>m</i>
-        <i>e</i>
+      <!-- The label is shown as a whole, then letter by letter on hover -->
+      <RouterLink
+        to="/contact"
+        class="cta-btn"
+        :alt="t('cta.button')"
+        :aria-label="t('cta.button')"
+      >
+        <i v-for="(letter, index) in letters" :key="index" aria-hidden="true">{{ letter }}</i>
       </RouterLink>
     </div>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
+
+const { t } = useI18n()
+// Non-breaking spaces keep the gap between words visible inside each <i>
+const letters = computed(() => [...t('cta.button')].map((c) => (c === ' ' ? '\u00a0' : c)))
 </script>
 
 <style scoped>
