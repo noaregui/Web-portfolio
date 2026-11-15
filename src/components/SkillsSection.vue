@@ -36,30 +36,30 @@
 }
 
 .skills-section h2 {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(2.5rem, 4vw, 3rem);
   font-weight: 700;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
-  color: #ffffff;
+  color: var(--color-text-strong);
   line-height: 1.2;
 }
 
 .title-line {
   display: block;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(2.5rem, 5vw, 4rem);
   letter-spacing: 0.5px;
-  color: #e0e0e0;
+  color: var(--color-text);
 }
 
 .skills-section p {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  color: #898888;
+  color: var(--color-text-subtle);
 }
 
 .animation {

@@ -51,12 +51,12 @@ const scrollToContent = () => {
 
 <style scoped>
 .project-landing {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-display);
   min-height: 100vh;
-  color: white;
+  color: var(--color-text-strong);
   overflow-x: hidden;
   padding-bottom: 4rem;
-  background: #0c1016;
+  background: var(--color-bg);
 }
 
 /* ===== Hero ===== */
@@ -66,18 +66,18 @@ const scrollToContent = () => {
 }
 
 .hero-title {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(2.5rem, 5vw, 4rem);
   letter-spacing: 0.5px;
   line-height: 1.2;
   text-transform: uppercase;
-  color: #e0e0e0;
+  color: var(--color-text);
   margin-bottom: 2rem;
 }
 
 .hero button {
-  background: #6b46c1;
+  background: var(--color-accent);
   border: none;
   padding: 0.8rem 2rem;
   font-size: 1rem;
@@ -87,7 +87,7 @@ const scrollToContent = () => {
 }
 
 .hero button:hover {
-  background: #7b5fd3;
+  background: var(--color-accent-hover);
 }
 
 /* ===== Project Description ===== */
@@ -109,13 +109,13 @@ const scrollToContent = () => {
 .description-block h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: #fff;
+  color: var(--color-text-strong);
 }
 
 .description-block p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #ffffff;
+  color: var(--color-text-strong);
   text-align: justify;
   text-justify: inter-word;
   margin-bottom: 1rem;
@@ -127,7 +127,7 @@ const scrollToContent = () => {
   margin-bottom: 1rem;
   padding-left: 1.2rem;
   list-style-type: disc;
-  color: #e0e0e0;
+  color: var(--color-text);
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -150,8 +150,8 @@ const scrollToContent = () => {
 }
 
 .tech-card {
-  background: #353141;
-  color: white;
+  background: var(--color-chip);
+  color: var(--color-text-strong);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-weight: 500;
@@ -160,9 +160,9 @@ const scrollToContent = () => {
 }
 
 .tech-card:hover {
-  background: #7b5fd3;
+  background: var(--color-accent-hover);
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 5px 15px rgba(107, 70, 193, 0.5);
+  box-shadow: 0 5px 15px color-mix(in srgb, var(--color-accent) 50%, transparent);
 }
 
 /* ===== Responsive ===== */

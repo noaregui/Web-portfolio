@@ -1,0 +1,70 @@
+/*
+ * Design tokens. Every color in the app comes from here, so a theme is just a
+ * different set of values for these variables.
+ *
+ * The site is dark-only for now; a light theme will override these under
+ * [data-theme='light'].
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* Page and surfaces */
+  --color-bg: #0c1016;
+  --color-bg-gradient-start: #0d1117;
+  --color-bg-gradient-end: #0b0f14;
+  --color-surface: #0d1117;
+  --color-surface-hover: #21262c;
+  --color-surface-raised: #1c1c1c;
+  --color-card-gradient-start: #131924;
+  --color-card-gradient-end: #1e232e;
+  --color-chip: #353141;
+  --color-indicator: #555555;
+
+  /* Borders */
+  --color-border: #2d3748;
+  --color-border-subtle: rgba(255, 255, 255, 0.2);
+  --color-avatar-border: #0e1217;
+
+  /* Text */
+  --color-text-strong: #ffffff;
+  --color-text: #e0e0e0;
+  --color-text-soft: #d1d5db;
+  --color-text-light: #cccccc;
+  --color-text-muted: #9ca3af;
+  --color-text-subtle: #898888;
+  --color-text-faint: rgba(255, 255, 255, 0.4);
+
+  /* Brand accent (same in every theme) */
+  --color-accent: #6b46c1;
+  --color-accent-hover: #7b5fd3;
+  --color-accent-soft: #a37feb;
+  --color-button: #642fae;
+  --color-cta: #632abe;
+  --color-cta-shadow: #3f0fa5;
+  --color-on-accent: #ffffff;
+
+  /* Links, status */
+  --color-link: #9bbcff;
+  --color-link-hover: #c3d7ff;
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+
+  /* Decorative */
+  --color-name-gradient-start: #3b82f6;
+  --color-name-gradient-end: #60a5fa;
+  --color-name-fallback: #4d3ee6;
+  --color-grid-dot: rgba(8, 126, 126, 0.3);
+  --color-grid-line-h: rgba(138, 43, 226, 0.15);
+  --color-grid-line-v: rgba(29, 78, 216, 0.15);
+
+  /* Shadows */
+  --shadow-navbar: 0 2px 6px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 8px 20px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 12px 28px rgba(0, 0, 0, 0.5);
+  --shadow-project-card-hover: 0 10px 25px rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  --font-display: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}

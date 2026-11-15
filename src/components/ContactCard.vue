@@ -99,7 +99,7 @@ const sendMessage = async () => {
   border-radius: 16px;
   padding: 0;
   width: 100%;
-  background-color: #0c1015;
+  background-color: var(--color-bg);
 }
 
 .card-content {
@@ -126,12 +126,12 @@ const sendMessage = async () => {
 }
 
 .contact-title {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: var(--font-display) !important;
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: 700;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
-  color: #ffffff;
+  color: var(--color-text-strong);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -146,15 +146,15 @@ const sendMessage = async () => {
 }
 
 .title-purple {
-  color: #6b46c1;
+  color: var(--color-accent);
 }
 
 .title-white {
-  color: #ffffff;
+  color: var(--color-text-strong);
 }
 
 .contact-subtitle {
-  color: #898888;
+  color: var(--color-text-subtle);
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -179,17 +179,17 @@ const sendMessage = async () => {
 
 label {
   font-size: 0.95rem;
-  color: #9ca3af;
+  color: var(--color-text-muted);
   margin-bottom: 0.5rem;
 }
 
 input,
 textarea {
-  background-color: #0c1015;
-  border: 1px solid #2d3748;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 0.75rem 1rem;
-  color: #d1d5db;
+  color: var(--color-text-soft);
   font-size: 1rem;
   transition:
     border-color 0.3s ease,
@@ -199,13 +199,13 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: #6b46c1;
-  box-shadow: 0 0 8px rgba(107, 70, 193, 0.4);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--color-accent) 40%, transparent);
 }
 
 .send-btn {
-  background-color: #642fae;
-  color: #fff;
+  background-color: var(--color-button);
+  color: var(--color-on-accent);
   font-weight: 600;
   border: none;
   padding: 0.75rem 1.25rem;
@@ -228,13 +228,13 @@ textarea:focus {
 }
 
 .success-msg {
-  color: #22c55e;
+  color: var(--color-success);
   margin-top: 1rem;
   font-size: 0.95rem;
 }
 
 .error-msg {
-  color: #ef4444;
+  color: var(--color-error);
   margin-top: 1rem;
   font-size: 0.95rem;
 }

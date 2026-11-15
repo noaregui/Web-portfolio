@@ -18,23 +18,16 @@ import { ref } from 'vue'
 const isMenuOpen = ref(false)
 </script>
 
-<style>
-:root {
-  --navbar-height: 80px;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+<style scoped>
 .navbar {
+  --navbar-height: 80px;
+  /* Keeps the navbar shadow above the page content (it's a flex item of the layout) */
+  z-index: 1000;
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #0d1117;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-navbar);
   transition: all 0.3s ease;
 }
 
@@ -64,7 +57,7 @@ const isMenuOpen = ref(false)
 
 .link {
   text-decoration: none;
-  color: white;
+  color: var(--color-text-strong);
   padding: 10px 16px;
   border-radius: 4px;
   font-weight: 500;
@@ -73,14 +66,14 @@ const isMenuOpen = ref(false)
 }
 
 .link:hover {
-  background-color: #21262c;
+  background-color: var(--color-surface-hover);
 }
 
 .menu-toggle {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--color-text-strong);
   font-size: 1.8rem;
   cursor: pointer;
 }
