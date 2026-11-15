@@ -17,10 +17,8 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@mdi/font": "^7.4.47",
     "vue": "^3.5.22",
-    "vue-router": "^4.5.1",
-    "vuetify": "^3.10.6"
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
