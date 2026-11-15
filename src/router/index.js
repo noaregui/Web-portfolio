@@ -59,6 +59,11 @@ const router = createRouter({
       name: 'nativeappfront',
       component: () => import('@/views/NativeAppFrontView.vue'),
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('@/views/NotFoundView.vue'),
+    },
   ],
 })
 
