@@ -1,15 +1,12 @@
-import Mockup from '@/assets/mockups/ai-medical-reports.svg'
-
-// Work project at Omnios AI: no code or screenshots can be shown, so the image is an
-// illustrative mock-up (src/assets/mockups/), not the real product UI.
+// Work project at Omnios AI: described only, no code or screenshots can be shown.
 export default {
   slug: 'ai-medical-reports',
-  images: [Mockup],
   featured: true,
   icon: 'mic',
   accent: '#14b8a6',
   ai: true,
   tags: ['Voice AI', 'RAG', 'AWS Bedrock', 'FastAPI', 'React'],
+  flowIcons: ['mic', 'text', 'sparkles', 'search', 'message'],
   content: {
     en: {
       title: 'AI Medical Reporting Platform',
@@ -23,6 +20,13 @@ export default {
           'Assistant to edit and query the report',
         ],
       },
+      flow: [
+        { title: 'Dictation', text: 'Audio streamed live over WebSocket' },
+        { title: 'Transcription', text: 'Live, with several speakers' },
+        { title: 'Report generation', text: 'Claude on Bedrock structures the findings' },
+        { title: 'Sources (RAG)', text: 'Knowledge base with verifiable citations' },
+        { title: 'Assistant', text: 'Edits and answers questions about the report' },
+      ],
       sections: [
         {
           heading: 'What is it?',
@@ -30,11 +34,11 @@ export default {
             'A platform that helps radiologists write their reports faster and more consistently. The radiologist **dictates the findings out loud** and sees the transcription live, and the AI turns the dictation into a **structured report** ready to review.',
             'An integrated assistant can edit the report or answer clinical questions about it, backing its answers with **verifiable citations** from scientific literature.',
             [
-              '🎙️ Real-time dictation with several speakers',
-              '📝 Structured reports generated from the dictation',
-              '📚 RAG over scientific literature with verifiable citations',
-              '💬 Assistant to edit the report or ask questions about it',
-              '🌍 Multilingual interface',
+              'Real-time dictation with several speakers',
+              'Structured reports generated from the dictation',
+              'RAG over scientific literature with verifiable citations',
+              'Assistant to edit the report or ask questions about it',
+              'Multilingual interface',
             ],
           ],
         },
@@ -45,11 +49,11 @@ export default {
             'On the backend I worked on the **real-time audio streaming over WebSockets**, solving concurrency problems such as race conditions and silent failures with Python asyncio, and on integrating transcription and report generation on **AWS**.',
             'The knowledge base is refreshed automatically from scientific sources, and every citation comes from stored metadata, so the model never makes up a reference.',
             [
-              '⚡ WebSocket audio streaming with configurable transcription providers',
-              '🧠 Report generation and assistant with Claude on AWS Bedrock, using tool calls',
-              '🔎 Bedrock Knowledge Bases with an automated ingestion pipeline',
-              '🔒 Anonymisation of patient data',
-              '📐 Spec-Driven Development with AI-agent-assisted coding',
+              'WebSocket audio streaming with configurable transcription providers',
+              'Report generation and assistant with Claude on AWS Bedrock, using tool calls',
+              'Bedrock Knowledge Bases with an automated ingestion pipeline',
+              'Anonymisation of patient data',
+              'Spec-Driven Development with AI-agent-assisted coding',
             ],
           ],
         },
@@ -81,6 +85,13 @@ export default {
           'Asistente para editar y consultar el informe',
         ],
       },
+      flow: [
+        { title: 'Dictado', text: 'Audio enviado en directo por WebSocket' },
+        { title: 'Transcripción', text: 'En directo y con varios interlocutores' },
+        { title: 'Generación del informe', text: 'Claude en Bedrock estructura los hallazgos' },
+        { title: 'Fuentes (RAG)', text: 'Base de conocimiento con citas verificables' },
+        { title: 'Asistente', text: 'Edita y responde preguntas sobre el informe' },
+      ],
       sections: [
         {
           heading: '¿Qué es?',
@@ -88,11 +99,11 @@ export default {
             'Una plataforma que ayuda a los radiólogos a redactar sus informes más rápido y de forma más homogénea. El radiólogo **dicta los hallazgos en voz alta** y ve la transcripción en directo, y la IA convierte el dictado en un **informe estructurado** listo para revisar.',
             'Un asistente integrado permite editar el informe o hacerle preguntas clínicas, y respalda sus respuestas con **citas verificables** de literatura científica.',
             [
-              '🎙️ Dictado en tiempo real con varios interlocutores',
-              '📝 Informes estructurados generados a partir del dictado',
-              '📚 RAG sobre literatura científica con citas verificables',
-              '💬 Asistente para editar el informe o hacerle preguntas',
-              '🌍 Interfaz multilingüe',
+              'Dictado en tiempo real con varios interlocutores',
+              'Informes estructurados generados a partir del dictado',
+              'RAG sobre literatura científica con citas verificables',
+              'Asistente para editar el informe o hacerle preguntas',
+              'Interfaz multilingüe',
             ],
           ],
         },
@@ -103,11 +114,11 @@ export default {
             'En el backend he trabajado en el **streaming de audio en tiempo real por WebSockets**, resolviendo problemas de concurrencia como condiciones de carrera y fallos silenciosos con Python asyncio, y en la integración de la transcripción y la generación de informes en **AWS**.',
             'La base de conocimiento se actualiza automáticamente a partir de fuentes científicas, y cada cita sale de metadatos almacenados, así que el modelo nunca se inventa una referencia.',
             [
-              '⚡ Streaming de audio por WebSocket con proveedores de transcripción configurables',
-              '🧠 Generación de informes y asistente con Claude en AWS Bedrock, mediante tool calls',
-              '🔎 Bedrock Knowledge Bases con un pipeline de ingesta automatizado',
-              '🔒 Anonimización de los datos del paciente',
-              '📐 Spec-Driven Development con desarrollo asistido por agentes de IA',
+              'Streaming de audio por WebSocket con proveedores de transcripción configurables',
+              'Generación de informes y asistente con Claude en AWS Bedrock, mediante tool calls',
+              'Bedrock Knowledge Bases con un pipeline de ingesta automatizado',
+              'Anonimización de los datos del paciente',
+              'Spec-Driven Development con desarrollo asistido por agentes de IA',
             ],
           ],
         },
@@ -139,6 +150,13 @@ export default {
           'Txostena editatu eta kontsultatzeko laguntzailea',
         ],
       },
+      flow: [
+        { title: 'Diktaketa', text: 'Audioa zuzenean WebSocket bidez' },
+        { title: 'Transkripzioa', text: 'Zuzenean, hainbat hiztunekin' },
+        { title: 'Txostenaren sorrera', text: 'Claude-k Bedrocken aurkikuntzak egituratzen ditu' },
+        { title: 'Iturriak (RAG)', text: 'Ezagutza-basea, aipamen egiaztagarriekin' },
+        { title: 'Laguntzailea', text: 'Txostena editatu eta galderak erantzuten ditu' },
+      ],
       sections: [
         {
           heading: 'Zer da?',
@@ -146,11 +164,11 @@ export default {
             'Erradiologoei txostenak azkarrago eta modu homogeneoagoan idazten laguntzen dien plataforma. Erradiologoak **aurkikuntzak ozen diktatzen ditu** eta transkripzioa zuzenean ikusten du, eta AAk diktaketa **txosten egituratu** bihurtzen du, berrikusteko prest.',
             'Laguntzaile integratu batek txostena editatu edo horri buruzko galdera klinikoak erantzun ditzake, eta literatura zientifikoko **aipamen egiaztagarriekin** babesten ditu erantzunak.',
             [
-              '🎙️ Denbora errealeko diktaketa, hainbat hiztunekin',
-              '📝 Diktaketatik sortutako txosten egituratuak',
-              '📚 RAG literatura zientifikoaren gainean, aipamen egiaztagarriekin',
-              '💬 Txostena editatzeko edo galderak egiteko laguntzailea',
-              '🌍 Interfaze eleaniztuna',
+              'Denbora errealeko diktaketa, hainbat hiztunekin',
+              'Diktaketatik sortutako txosten egituratuak',
+              'RAG literatura zientifikoaren gainean, aipamen egiaztagarriekin',
+              'Txostena editatzeko edo galderak egiteko laguntzailea',
+              'Interfaze eleaniztuna',
             ],
           ],
         },
@@ -161,11 +179,11 @@ export default {
             'Backendean, **WebSocket bidezko denbora errealeko audio-streamingean** aritu naiz, Python asyncio-rekin konkurrentzia-arazoak konponduz (lasterketa-baldintzak eta isilpeko hutsegiteak, adibidez), baita transkripzioa eta txostenen sorrera **AWSn** integratzen ere.',
             'Ezagutza-basea automatikoki eguneratzen da iturri zientifikoetatik, eta aipamen bakoitza gordetako metadatuetatik dator; beraz, ereduak ez du inoiz erreferentziarik asmatzen.',
             [
-              '⚡ WebSocket bidezko audio-streaming-a, transkripzio-hornitzaile konfiguragarriekin',
-              '🧠 Txostenen sorrera eta laguntzailea Claude-rekin AWS Bedrocken, tool call bidez',
-              '🔎 Bedrock Knowledge Bases, ingesta-pipeline automatizatu batekin',
-              '🔒 Pazientearen datuen anonimizazioa',
-              '📐 Spec-Driven Development, AA agenteek lagundutako garapenarekin',
+              'WebSocket bidezko audio-streaming-a, transkripzio-hornitzaile konfiguragarriekin',
+              'Txostenen sorrera eta laguntzailea Claude-rekin AWS Bedrocken, tool call bidez',
+              'Bedrock Knowledge Bases, ingesta-pipeline automatizatu batekin',
+              'Pazientearen datuen anonimizazioa',
+              'Spec-Driven Development, AA agenteek lagundutako garapenarekin',
             ],
           ],
         },

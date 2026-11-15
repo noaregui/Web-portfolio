@@ -1,15 +1,11 @@
-import Docker from '@/assets/Docker.jpg'
-import MongoDB from '@/assets/MongoDB2.jpg'
-import MySQL from '@/assets/MySQL1.jpg'
-
 export default {
   slug: 'nativeappback',
-  images: [Docker, MongoDB, MySQL],
   featured: false,
   icon: 'database',
   accent: '#06b6d4',
   ai: false,
   tags: ['Node.js', 'MongoDB', 'MySQL', 'Docker'],
+  flowIcons: ['database', 'code', 'database', 'server', 'box'],
   content: {
     en: {
       title: 'Cloud Native Admin – Backend',
@@ -18,6 +14,13 @@ export default {
         summary:
           'Migration of an internal property-management backend from MySQL to MongoDB, containerised with Docker.',
       },
+      flow: [
+        { title: 'MySQL', text: 'Legacy relational data' },
+        { title: 'Migration', text: 'Data models redesigned and migrated' },
+        { title: 'MongoDB', text: 'Flexible document database' },
+        { title: 'REST API', text: 'Node.js services for the frontend' },
+        { title: 'Docker', text: 'Containerised and scalable' },
+      ],
       sections: [
         {
           heading: 'What is Cloud-native Admin?',
@@ -26,9 +29,9 @@ export default {
             'The migration to a cloud-native architecture using Node.js and Docker improves scalability, ensures real-time data handling, and provides a more reliable foundation for future features.',
             'Key highlights:',
             [
-              '🏢 Centralized management of properties, tenants, and landlords',
-              '💰 Real-time financial data tracking',
-              '⚙️ Automated handling of maintenance requests and incidents',
+              'Centralized management of properties, tenants, and landlords',
+              'Real-time financial data tracking',
+              'Automated handling of maintenance requests and incidents',
             ],
           ],
         },
@@ -40,11 +43,11 @@ export default {
             'The new backend exposes **custom-made REST APIs** that allow the frontend and other internal services to interact seamlessly with the database. Docker containers were used to package the application, providing scalability, easier deployment, and a consistent development environment.',
             'Key features implemented:',
             [
-              '🏢 Complete migration from MySQL to MongoDB',
-              '🔗 Custom REST APIs for internal application functionality',
-              '📦 Containerized backend using Docker for deployment and scalability',
-              '⚡ Optimized data models and workflow logic for improved efficiency',
-              '✅ Real-time management of tenants, properties, and incidents',
+              'Complete migration from MySQL to MongoDB',
+              'Custom REST APIs for internal application functionality',
+              'Containerized backend using Docker for deployment and scalability',
+              'Optimized data models and workflow logic for improved efficiency',
+              'Real-time management of tenants, properties, and incidents',
             ],
           ],
         },
@@ -58,6 +61,13 @@ export default {
         summary:
           'Migración del backend interno de gestión inmobiliaria de MySQL a MongoDB, en contenedores Docker.',
       },
+      flow: [
+        { title: 'MySQL', text: 'Datos relacionales heredados' },
+        { title: 'Migración', text: 'Modelos de datos rediseñados y migrados' },
+        { title: 'MongoDB', text: 'Base de datos documental flexible' },
+        { title: 'API REST', text: 'Servicios Node.js para el frontend' },
+        { title: 'Docker', text: 'En contenedores y escalable' },
+      ],
       sections: [
         {
           heading: '¿Qué es Cloud-native Admin?',
@@ -66,9 +76,9 @@ export default {
             'La migración a una arquitectura cloud-native con Node.js y Docker mejora la escalabilidad, permite trabajar con datos en tiempo real y ofrece una base más fiable para futuras funcionalidades.',
             'Aspectos destacados:',
             [
-              '🏢 Gestión centralizada de inmuebles, inquilinos y propietarios',
-              '💰 Seguimiento de datos financieros en tiempo real',
-              '⚙️ Gestión automatizada de solicitudes de mantenimiento e incidencias',
+              'Gestión centralizada de inmuebles, inquilinos y propietarios',
+              'Seguimiento de datos financieros en tiempo real',
+              'Gestión automatizada de solicitudes de mantenimiento e incidencias',
             ],
           ],
         },
@@ -80,11 +90,11 @@ export default {
             'El nuevo backend expone **APIs REST a medida** que permiten al frontend y a otros servicios internos comunicarse con la base de datos sin fricciones. La aplicación se empaquetó en contenedores Docker, lo que aporta escalabilidad, despliegues más sencillos y un entorno de desarrollo homogéneo.',
             'Funcionalidades principales:',
             [
-              '🏢 Migración completa de MySQL a MongoDB',
-              '🔗 APIs REST a medida para las funcionalidades de la aplicación interna',
-              '📦 Backend en contenedores Docker para el despliegue y la escalabilidad',
-              '⚡ Modelos de datos y lógica de flujos optimizados para ganar eficiencia',
-              '✅ Gestión en tiempo real de inquilinos, inmuebles e incidencias',
+              'Migración completa de MySQL a MongoDB',
+              'APIs REST a medida para las funcionalidades de la aplicación interna',
+              'Backend en contenedores Docker para el despliegue y la escalabilidad',
+              'Modelos de datos y lógica de flujos optimizados para ganar eficiencia',
+              'Gestión en tiempo real de inquilinos, inmuebles e incidencias',
             ],
           ],
         },
@@ -98,6 +108,13 @@ export default {
         summary:
           'Higiezinak kudeatzeko barne-backendaren migrazioa MySQLtik MongoDBra, Docker edukiontzietan.',
       },
+      flow: [
+        { title: 'MySQL', text: 'Datu erlazional zaharrak' },
+        { title: 'Migrazioa', text: 'Datu-ereduak birdiseinatu eta migratuta' },
+        { title: 'MongoDB', text: 'Dokumentu-datu-base malgua' },
+        { title: 'REST APIa', text: 'Frontendarentzako Node.js zerbitzuak' },
+        { title: 'Docker', text: 'Edukiontzietan eta eskalagarria' },
+      ],
       sections: [
         {
           heading: 'Zer da Cloud-native Admin?',
@@ -106,9 +123,9 @@ export default {
             'Node.js eta Docker erabiliz cloud-native arkitektura batera egindako migrazioak eskalagarritasuna hobetzen du, denbora errealeko datuekin lan egitea ahalbidetzen du eta etorkizuneko funtzionalitateetarako oinarri fidagarriagoa eskaintzen du.',
             'Alderdi nagusiak:',
             [
-              '🏢 Higiezinen, maizterren eta jabeen kudeaketa zentralizatua',
-              '💰 Datu finantzarioen jarraipena denbora errealean',
-              '⚙️ Mantentze-eskaeren eta gorabeheren kudeaketa automatizatua',
+              'Higiezinen, maizterren eta jabeen kudeaketa zentralizatua',
+              'Datu finantzarioen jarraipena denbora errealean',
+              'Mantentze-eskaeren eta gorabeheren kudeaketa automatizatua',
             ],
           ],
         },
@@ -120,11 +137,11 @@ export default {
             'Backend berriak **neurrira egindako REST APIak** eskaintzen ditu, frontendak eta beste barne-zerbitzu batzuek datu-basearekin arazorik gabe komunika daitezen. Aplikazioa Docker edukiontzietan paketatu zen, eskalagarritasuna, hedapen errazagoak eta garapen-ingurune homogeneoa lortzeko.',
             'Ezaugarri nagusiak:',
             [
-              '🏢 MySQLtik MongoDBrako migrazio osoa',
-              '🔗 Barne-aplikazioaren funtzionalitateetarako neurrira egindako REST APIak',
-              '📦 Docker edukiontzietako backenda, hedapenerako eta eskalagarritasunerako',
-              '⚡ Datu-eredu eta lan-fluxuen logika optimizatuak, eraginkortasuna hobetzeko',
-              '✅ Maizter, higiezin eta gorabeheren kudeaketa denbora errealean',
+              'MySQLtik MongoDBrako migrazio osoa',
+              'Barne-aplikazioaren funtzionalitateetarako neurrira egindako REST APIak',
+              'Docker edukiontzietako backenda, hedapenerako eta eskalagarritasunerako',
+              'Datu-eredu eta lan-fluxuen logika optimizatuak, eraginkortasuna hobetzeko',
+              'Maizter, higiezin eta gorabeheren kudeaketa denbora errealean',
             ],
           ],
         },

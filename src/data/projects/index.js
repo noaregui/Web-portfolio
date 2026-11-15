@@ -4,7 +4,7 @@
  * Each project lives in its own file in this folder and renders at
  * /projects/:slug and as a card in the Projects page (in the order below).
  *
- * To add a project: copy an existing file, change the slug, images and the
+ * To add a project: copy an existing file, change the slug and the
  * texts in every language (`content.en`, `content.es`, `content.eu`), then
  * add it to the `projects` list.
  *
@@ -13,8 +13,8 @@
  * `card.highlights`; `ai` adds an "AI" badge; `tags` are the main technologies
  * (the full list is `technologies`, per language).
  *
- * `images` feeds the carousel on the project page; leave it empty for projects
- * that can't show screenshots (the page then shows only the text).
+ * Project page: `flowIcons` + `content.<lang>.flow` (same length) draw the
+ * "How it works" diagram, one step per item.
  *
  * Section `content` items:
  * - a string renders as a paragraph

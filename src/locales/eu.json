@@ -105,12 +105,12 @@
     "aiBadge": "AA"
   },
   "project": {
-    "viewDetails": "Ikusi proiektuaren xehetasunak",
-    "technologies": "Erabilitako teknologiak",
-    "slide": "{n}. irudia",
-    "previous": "Aurreko irudia",
-    "next": "Hurrengo irudia",
-    "goToSlide": "Joan {n}. irudira"
+    "technologies": "Teknologiak",
+    "back": "Proiektu guztiak",
+    "highlights": "Gako-puntuak",
+    "prevProject": "Aurreko proiektua",
+    "nextProject": "Hurrengo proiektua",
+    "howItWorks": "Nola dabilen"
   },
   "notFound": {
     "titleStart": "ORRIA",
