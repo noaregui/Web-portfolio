@@ -1,16 +1,11 @@
-import Vapi1 from '@/assets/VAPI 1.jpg'
-import Vapi2 from '@/assets/VAPI 2.jpg'
-import Vapi3 from '@/assets/VAPI 3.jpg'
-import Vapi4 from '@/assets/VAPI 4.jpg'
-
 export default {
   slug: 'vapi',
-  images: [Vapi1, Vapi2, Vapi3, Vapi4],
   featured: false,
   icon: 'phone',
   accent: '#ec4899',
   ai: true,
   tags: ['VAPI', 'Voice AI', 'Node.js', 'React'],
+  flowIcons: ['phone', 'sparkles', 'database', 'calendar', 'document'],
   content: {
     en: {
       title: 'VAPI – AI Voice Assistant',
@@ -19,15 +14,22 @@ export default {
         summary:
           'AI voice assistant that answers calls, checks availability in real time and books visits.',
       },
+      flow: [
+        { title: 'Incoming call', text: 'A client calls the agency' },
+        { title: 'Voice AI', text: 'VAPI understands what the caller wants' },
+        { title: 'Live lookup', text: 'Properties and availability via REST API' },
+        { title: 'Booking', text: 'Visit scheduled automatically' },
+        { title: 'Call log', text: 'Call data saved for the sales team' },
+      ],
       sections: [
         {
           heading: 'What is VAPI?',
           content: [
             'VAPI is an AI-powered voice assistant designed to **automate phone call handling** and streamline customer interactions. It allows a virtual assistant to answer calls, understand caller intent, and interact naturally in **real time**, significantly reducing the need for manual intervention. This makes day-to-day operations smoother and ensures a more responsive experience for clients.',
             [
-              '📞 Handles incoming calls automatically',
-              '🤖 Recognizes user intent using AI',
-              '📊 Provides accurate information instantly',
+              'Handles incoming calls automatically',
+              'Recognizes user intent using AI',
+              'Provides accurate information instantly',
             ],
           ],
         },
@@ -37,9 +39,9 @@ export default {
             'In this project, I implemented VAPI to handle incoming calls from potential property clients. The assistant was capable of **querying the internal database in real time** to locate properties and check availability for visits.',
             'It could also schedule appointments automatically, log caller information and responses in the database, and **integrate with internal sales applications** to streamline operations.',
             [
-              '✅ Answered incoming calls efficiently',
-              '🗂️ Maintained accurate records of client interactions',
-              '⚡ Reduced manual workload and increased efficiency',
+              'Answered incoming calls efficiently',
+              'Maintained accurate records of client interactions',
+              'Reduced manual workload and increased efficiency',
             ],
           ],
         },
@@ -53,15 +55,22 @@ export default {
         summary:
           'Asistente de voz con IA que atiende llamadas, consulta la disponibilidad en tiempo real y agenda visitas.',
       },
+      flow: [
+        { title: 'Llamada entrante', text: 'Un cliente llama a la inmobiliaria' },
+        { title: 'IA de voz', text: 'VAPI entiende qué quiere quien llama' },
+        { title: 'Consulta en directo', text: 'Inmuebles y disponibilidad vía API REST' },
+        { title: 'Cita', text: 'Visita agendada automáticamente' },
+        { title: 'Registro', text: 'Datos de la llamada guardados para ventas' },
+      ],
       sections: [
         {
           heading: '¿Qué es VAPI?',
           content: [
             'VAPI es un asistente de voz con inteligencia artificial diseñado para **automatizar la gestión de llamadas** y agilizar la atención a clientes. Permite que un asistente virtual responda llamadas, entienda la intención de quien llama e interactúe de forma natural en **tiempo real**, reduciendo mucho la necesidad de intervención manual. Así, el día a día es más fluido y los clientes reciben una atención más ágil.',
             [
-              '📞 Atiende las llamadas entrantes automáticamente',
-              '🤖 Reconoce la intención del usuario con IA',
-              '📊 Ofrece información precisa al instante',
+              'Atiende las llamadas entrantes automáticamente',
+              'Reconoce la intención del usuario con IA',
+              'Ofrece información precisa al instante',
             ],
           ],
         },
@@ -71,9 +80,9 @@ export default {
             'En este proyecto implementé VAPI para atender las llamadas de posibles clientes interesados en inmuebles. El asistente podía **consultar la base de datos interna en tiempo real** para localizar inmuebles y comprobar la disponibilidad para visitas.',
             'También podía agendar citas automáticamente, registrar los datos y respuestas de cada llamada en la base de datos e **integrarse con las aplicaciones internas de ventas** para agilizar el trabajo.',
             [
-              '✅ Respondía las llamadas entrantes de forma eficiente',
-              '🗂️ Mantenía un registro preciso de las interacciones con clientes',
-              '⚡ Reducía el trabajo manual y aumentaba la eficiencia',
+              'Respondía las llamadas entrantes de forma eficiente',
+              'Mantenía un registro preciso de las interacciones con clientes',
+              'Reducía el trabajo manual y aumentaba la eficiencia',
             ],
           ],
         },
@@ -87,15 +96,22 @@ export default {
         summary:
           'Deiak erantzun, erabilgarritasuna denbora errealean kontsultatu eta bisitak antolatzen dituen AA ahots-laguntzailea.',
       },
+      flow: [
+        { title: 'Sarrerako deia', text: 'Bezero batek agentziara deitzen du' },
+        { title: 'Ahots-AA', text: 'VAPIk deitzaileak zer nahi duen ulertzen du' },
+        { title: 'Zuzeneko kontsulta', text: 'Higiezinak eta erabilgarritasuna REST API bidez' },
+        { title: 'Hitzordua', text: 'Bisita automatikoki antolatuta' },
+        { title: 'Erregistroa', text: 'Deiaren datuak salmenta-taldearentzat gordeta' },
+      ],
       sections: [
         {
           heading: 'Zer da VAPI?',
           content: [
             'VAPI adimen artifizialean oinarritutako ahots-laguntzaile bat da, **telefono-deien kudeaketa automatizatzeko** eta bezeroekiko harremana errazteko diseinatua. Laguntzaile birtual batek deiak erantzun, deitzailearen asmoa ulertu eta modu naturalean jardun dezake **denbora errealean**, eskuzko esku-hartzearen beharra nabarmen murriztuz. Horri esker, eguneroko lana arinagoa da eta bezeroek arreta azkarragoa jasotzen dute.',
             [
-              '📞 Sarrerako deiak automatikoki kudeatzen ditu',
-              '🤖 Erabiltzailearen asmoa AA bidez ezagutzen du',
-              '📊 Informazio zehatza berehala ematen du',
+              'Sarrerako deiak automatikoki kudeatzen ditu',
+              'Erabiltzailearen asmoa AA bidez ezagutzen du',
+              'Informazio zehatza berehala ematen du',
             ],
           ],
         },
@@ -105,9 +121,9 @@ export default {
             'Proiektu honetan, VAPI inplementatu nuen etxebizitzetan interesa zuten bezero potentzialen deiak kudeatzeko. Laguntzaileak **barne-datu basea denbora errealean kontsulta** zezakeen, etxebizitzak aurkitzeko eta bisitetarako erabilgarritasuna egiaztatzeko.',
             'Gainera, hitzorduak automatikoki antola zitzakeen, deitzaileen datuak eta erantzunak datu-basean erregistratu, eta **barne-salmenta aplikazioekin integratu** lana errazteko.',
             [
-              '✅ Sarrerako deiei modu eraginkorrean erantzuten zien',
-              '🗂️ Bezeroekiko elkarreraginen erregistro zehatza mantentzen zuen',
-              '⚡ Eskuzko lana murriztu eta eraginkortasuna handitu zuen',
+              'Sarrerako deiei modu eraginkorrean erantzuten zien',
+              'Bezeroekiko elkarreraginen erregistro zehatza mantentzen zuen',
+              'Eskuzko lana murriztu eta eraginkortasuna handitu zuen',
             ],
           ],
         },

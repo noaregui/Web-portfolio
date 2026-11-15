@@ -105,12 +105,12 @@
     "aiBadge": "IA"
   },
   "project": {
-    "viewDetails": "Ver detalles del proyecto",
-    "technologies": "Tecnologías utilizadas",
-    "slide": "imagen {n}",
-    "previous": "Imagen anterior",
-    "next": "Imagen siguiente",
-    "goToSlide": "Ir a la imagen {n}"
+    "technologies": "Tecnologías",
+    "back": "Todos los proyectos",
+    "highlights": "Puntos clave",
+    "prevProject": "Proyecto anterior",
+    "nextProject": "Proyecto siguiente",
+    "howItWorks": "Cómo funciona"
   },
   "notFound": {
     "titleStart": "PÁGINA",

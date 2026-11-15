@@ -1,14 +1,11 @@
-import Nuxt from '@/assets/Nuxt.jpg'
-import Vue from '@/assets/Vue1.jpg'
-
 export default {
   slug: 'nativeappfront',
-  images: [Nuxt, Vue],
   featured: false,
   icon: 'layout',
   accent: '#6366f1',
   ai: false,
   tags: ['Vue.js', 'Nuxt.js', 'Axios'],
+  flowIcons: ['layout', 'code', 'document', 'link', 'user'],
   content: {
     en: {
       title: 'Cloud Native Admin – Frontend',
@@ -17,6 +14,13 @@ export default {
         summary:
           'Rebuild of the internal admin frontend with Vue.js and Nuxt.js to speed up daily work.',
       },
+      flow: [
+        { title: 'Redesign', text: 'A more visual and intuitive UI' },
+        { title: 'Vue components', text: 'Modular, reusable pieces' },
+        { title: 'Nuxt pages', text: 'One page per module' },
+        { title: 'API integration', text: 'Real-time data with Axios' },
+        { title: 'Daily work', text: 'Faster tasks for the office team' },
+      ],
       sections: [
         {
           heading: 'What is Cloud-native Admin?',
@@ -25,10 +29,10 @@ export default {
             'The frontend was rebuilt using **Vue.js and Nuxt.js**, focusing on creating a **visual, interactive, and highly functional user experience**. With the new design, staff can perform tasks faster, access data in real time, and manage all aspects of property administration more efficiently.',
             'Key highlights:',
             [
-              '💻 Modern and scalable frontend architecture',
-              '🎨 Improved visual design and user experience',
-              '⚙️ Streamlined workflows for total office productivity',
-              '📊 Real-time access to data across all modules',
+              'Modern and scalable frontend architecture',
+              'Improved visual design and user experience',
+              'Streamlined workflows for total office productivity',
+              'Real-time access to data across all modules',
             ],
           ],
         },
@@ -37,17 +41,17 @@ export default {
           content: [
             'In this project, I focused on rebuilding the frontend of the internal admin system as part of the migration. I implemented scalable Vue.js components and Nuxt.js pages to create modular and maintainable code. The interface was redesigned to be more visual, intuitive, and functional, improving navigation and overall usability.',
             [
-              '⚡ Optimized for real-time data updates from the backend APIs, ensuring staff always have access to the latest information.',
-              '🎨 Applied modern styling practices for a clean, consistent, and professional look across the application.',
-              '✅ Ensured end-to-end functionality for property management, tenant and landlord workflows, financial data, and incident tracking, making daily operations more efficient.',
+              'Optimized for real-time data updates from the backend APIs, ensuring staff always have access to the latest information.',
+              'Applied modern styling practices for a clean, consistent, and professional look across the application.',
+              'Ensured end-to-end functionality for property management, tenant and landlord workflows, financial data, and incident tracking, making daily operations more efficient.',
             ],
             'Key features implemented:',
             [
-              '🏛️ Scalable Vue.js and Nuxt.js architecture',
-              '🖥️ Improved UI/UX for better productivity and usability',
-              '💬 Interactive, real-time data handling',
-              '🌐 Seamless integration with backend APIs',
-              '📦 Modular and maintainable code structure',
+              'Scalable Vue.js and Nuxt.js architecture',
+              'Improved UI/UX for better productivity and usability',
+              'Interactive, real-time data handling',
+              'Seamless integration with backend APIs',
+              'Modular and maintainable code structure',
             ],
           ],
         },
@@ -61,6 +65,13 @@ export default {
         summary:
           'Reconstrucción del frontend de administración interna con Vue.js y Nuxt.js para agilizar el trabajo diario.',
       },
+      flow: [
+        { title: 'Rediseño', text: 'Interfaz más visual e intuitiva' },
+        { title: 'Componentes Vue', text: 'Piezas modulares y reutilizables' },
+        { title: 'Páginas Nuxt', text: 'Una página por módulo' },
+        { title: 'Integración con la API', text: 'Datos en tiempo real con Axios' },
+        { title: 'Trabajo diario', text: 'Tareas más rápidas para la oficina' },
+      ],
       sections: [
         {
           heading: '¿Qué es Cloud-native Admin?',
@@ -69,10 +80,10 @@ export default {
             'El frontend se reconstruyó con **Vue.js y Nuxt.js**, con el objetivo de crear una **experiencia de usuario visual, interactiva y muy funcional**. Con el nuevo diseño, el equipo realiza las tareas más rápido, accede a los datos en tiempo real y gestiona todos los aspectos de la administración de inmuebles de forma más eficiente.',
             'Aspectos destacados:',
             [
-              '💻 Arquitectura frontend moderna y escalable',
-              '🎨 Diseño visual y experiencia de usuario mejorados',
-              '⚙️ Flujos de trabajo simplificados para la productividad de toda la oficina',
-              '📊 Acceso a los datos en tiempo real en todos los módulos',
+              'Arquitectura frontend moderna y escalable',
+              'Diseño visual y experiencia de usuario mejorados',
+              'Flujos de trabajo simplificados para la productividad de toda la oficina',
+              'Acceso a los datos en tiempo real en todos los módulos',
             ],
           ],
         },
@@ -81,17 +92,17 @@ export default {
           content: [
             'En este proyecto me centré en reconstruir el frontend del sistema interno de administración como parte de la migración. Implementé componentes de Vue.js y páginas de Nuxt.js escalables para conseguir un código modular y fácil de mantener. La interfaz se rediseñó para ser más visual, intuitiva y funcional, mejorando la navegación y la usabilidad en general.',
             [
-              '⚡ Optimizado para recibir en tiempo real los datos de las APIs del backend, de modo que el equipo siempre tiene la información más reciente.',
-              '🎨 Buenas prácticas de estilo modernas para un aspecto limpio, coherente y profesional en toda la aplicación.',
-              '✅ Funcionamiento completo de la gestión de inmuebles, los flujos de inquilinos y propietarios, los datos financieros y el seguimiento de incidencias, haciendo más eficiente el trabajo diario.',
+              'Optimizado para recibir en tiempo real los datos de las APIs del backend, de modo que el equipo siempre tiene la información más reciente.',
+              'Buenas prácticas de estilo modernas para un aspecto limpio, coherente y profesional en toda la aplicación.',
+              'Funcionamiento completo de la gestión de inmuebles, los flujos de inquilinos y propietarios, los datos financieros y el seguimiento de incidencias, haciendo más eficiente el trabajo diario.',
             ],
             'Funcionalidades principales:',
             [
-              '🏛️ Arquitectura escalable con Vue.js y Nuxt.js',
-              '🖥️ UI/UX mejorada para ganar productividad y usabilidad',
-              '💬 Gestión de datos interactiva y en tiempo real',
-              '🌐 Integración fluida con las APIs del backend',
-              '📦 Código modular y fácil de mantener',
+              'Arquitectura escalable con Vue.js y Nuxt.js',
+              'UI/UX mejorada para ganar productividad y usabilidad',
+              'Gestión de datos interactiva y en tiempo real',
+              'Integración fluida con las APIs del backend',
+              'Código modular y fácil de mantener',
             ],
           ],
         },
@@ -105,6 +116,13 @@ export default {
         summary:
           'Barne-administrazioko frontendaren berreraikitzea Vue.js eta Nuxt.js-ekin, eguneroko lana arintzeko.',
       },
+      flow: [
+        { title: 'Birdiseinua', text: 'Interfaze bisualagoa eta intuitiboagoa' },
+        { title: 'Vue osagaiak', text: 'Pieza modular eta berrerabilgarriak' },
+        { title: 'Nuxt orriak', text: 'Orri bat modulu bakoitzeko' },
+        { title: 'API integrazioa', text: 'Denbora errealeko datuak Axios-ekin' },
+        { title: 'Eguneroko lana', text: 'Bulegoko taldearentzat zeregin azkarragoak' },
+      ],
       sections: [
         {
           heading: 'Zer da Cloud-native Admin?',
@@ -113,10 +131,10 @@ export default {
             'Frontenda **Vue.js eta Nuxt.js** erabiliz berreraiki zen, **erabiltzaile-esperientzia bisual, interaktibo eta oso funtzional** bat sortzeko helburuarekin. Diseinu berriari esker, taldeak zereginak azkarrago egiten ditu, datuak denbora errealean ikusten ditu eta higiezinen administrazioaren alderdi guztiak modu eraginkorragoan kudeatzen ditu.',
             'Alderdi nagusiak:',
             [
-              '💻 Frontend-arkitektura moderno eta eskalagarria',
-              '🎨 Diseinu bisuala eta erabiltzaile-esperientzia hobetuak',
-              '⚙️ Bulego osoaren produktibitaterako lan-fluxu sinplifikatuak',
-              '📊 Datuetarako sarbidea denbora errealean modulu guztietan',
+              'Frontend-arkitektura moderno eta eskalagarria',
+              'Diseinu bisuala eta erabiltzaile-esperientzia hobetuak',
+              'Bulego osoaren produktibitaterako lan-fluxu sinplifikatuak',
+              'Datuetarako sarbidea denbora errealean modulu guztietan',
             ],
           ],
         },
@@ -125,17 +143,17 @@ export default {
           content: [
             'Proiektu honetan, migrazioaren barruan, barne-administrazio sistemaren frontenda berreraikitzean jarri nuen arreta. Vue.js osagai eta Nuxt.js orri eskalagarriak inplementatu nituen, kode modularra eta mantentzeko erraza lortzeko. Interfazea bisualagoa, intuitiboagoa eta funtzionalagoa izateko birdiseinatu zen, nabigazioa eta erabilgarritasuna oro har hobetuz.',
             [
-              '⚡ Backend-APIetako datuak denbora errealean jasotzeko optimizatua, taldeak beti informazio eguneratuena izan dezan.',
-              '🎨 Estilo-praktika modernoak, aplikazio osoan itxura garbi, koherente eta profesionala lortzeko.',
-              '✅ Higiezinen kudeaketa, maizter eta jabeen fluxuak, datu finantzarioak eta gorabeheren jarraipena guztiz funtzionalak, eguneroko lana eraginkorragoa eginez.',
+              'Backend-APIetako datuak denbora errealean jasotzeko optimizatua, taldeak beti informazio eguneratuena izan dezan.',
+              'Estilo-praktika modernoak, aplikazio osoan itxura garbi, koherente eta profesionala lortzeko.',
+              'Higiezinen kudeaketa, maizter eta jabeen fluxuak, datu finantzarioak eta gorabeheren jarraipena guztiz funtzionalak, eguneroko lana eraginkorragoa eginez.',
             ],
             'Ezaugarri nagusiak:',
             [
-              '🏛️ Vue.js eta Nuxt.js bidezko arkitektura eskalagarria',
-              '🖥️ UI/UX hobetua, produktibitatea eta erabilgarritasuna irabazteko',
-              '💬 Datuen kudeaketa interaktiboa eta denbora errealean',
-              '🌐 Backend-APIekin integrazio arina',
-              '📦 Kode modularra eta mantentzeko erraza',
+              'Vue.js eta Nuxt.js bidezko arkitektura eskalagarria',
+              'UI/UX hobetua, produktibitatea eta erabilgarritasuna irabazteko',
+              'Datuen kudeaketa interaktiboa eta denbora errealean',
+              'Backend-APIekin integrazio arina',
+              'Kode modularra eta mantentzeko erraza',
             ],
           ],
         },

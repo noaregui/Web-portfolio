@@ -60,6 +60,11 @@ export const experience = [
   },
 ]
 
+/** Returns the job in which the project with this slug was done, if any. */
+export function findJobForProject(slug) {
+  return experience.find((job) => job.projects.includes(slug))
+}
+
 /** Returns an entry with its texts in `locale` (falls back to the default language). */
 export function localizeEntry(entry, locale) {
   const { content, ...rest } = entry
