@@ -23,6 +23,8 @@
  */
 
 import { DEFAULT_LOCALE } from '@/i18n'
+import aiProcurementCopilot from './ai-procurement-copilot'
+import aiMedicalReports from './ai-medical-reports'
 import botpress from './botpress'
 import chatgpt from './chatgpt'
 import meta from './meta'
@@ -30,7 +32,16 @@ import nativeappback from './nativeappback'
 import nativeappfront from './nativeappfront'
 import vapi from './vapi'
 
-export const projects = [vapi, botpress, meta, chatgpt, nativeappback, nativeappfront]
+export const projects = [
+  aiMedicalReports,
+  aiProcurementCopilot,
+  vapi,
+  botpress,
+  meta,
+  chatgpt,
+  nativeappback,
+  nativeappfront,
+]
 
 export function getProject(slug) {
   return projects.find((project) => project.slug === slug)

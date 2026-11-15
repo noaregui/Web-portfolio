@@ -11,7 +11,7 @@ export const experience = [
   {
     id: 'omnios',
     company: 'Omnios AI',
-    projects: [],
+    projects: ['ai-medical-reports', 'ai-procurement-copilot'],
     content: {
       en: {
         period: 'March 2026 – Present',
