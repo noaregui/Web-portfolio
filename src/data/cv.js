@@ -6,8 +6,8 @@
  */
 
 const CV_FILES = {
-  en: null, // e.g. 'cv/Ainhoa-Leon-CV-en.pdf'
-  es: null, // e.g. 'cv/Ainhoa-Leon-CV-es.pdf'
+  en: 'cv/Ainhoa-Leon-CV-en.pdf',
+  es: 'cv/Ainhoa-Leon-CV-es.pdf',
 }
 
 const FALLBACK_LOCALE = { eu: 'es' }
