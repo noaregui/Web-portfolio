@@ -13,86 +13,18 @@
     </div>
 
     <div class="columns">
-      <div class="column">
-        <!-- VAPI -->
+      <div class="column" v-for="(column, columnIndex) in columns" :key="columnIndex">
         <RouterLink
-          to="/vapi"
+          v-for="project in column"
+          :key="project.slug"
+          :to="{ name: 'project', params: { slug: project.slug } }"
           class="project-card project-card-bg"
-          :style="{ backgroundImage: `url(${VAPI1})` }"
+          :style="{ backgroundImage: `url(${project.card.image})` }"
         >
           <div class="overlay"></div>
           <div class="project-content">
-            <h3 class="project-name">AI Voice Assistant</h3>
-            <p class="project-tech">VAPI · Voice AI Agents</p>
-          </div>
-        </RouterLink>
-
-        <!-- CHATBOT -->
-        <RouterLink
-          to="/botpress"
-          class="project-card project-card-bg"
-          :style="{ backgroundImage: `url(${BotpressLogo})` }"
-        >
-          <div class="overlay"></div>
-          <div class="project-content">
-            <h3 class="project-name">Chatbot</h3>
-            <p class="project-tech">Botpress · Landbot</p>
-          </div>
-        </RouterLink>
-      </div>
-
-      <div class="column">
-        <!-- META -->
-        <RouterLink
-          to="/meta"
-          class="project-card project-card-bg"
-          :style="{ backgroundImage: `url(${MetaFondo})` }"
-        >
-          <div class="overlay"></div>
-          <div class="project-content">
-            <h3 class="project-name">Automated visit management</h3>
-            <p class="project-tech">Meta</p>
-          </div>
-        </RouterLink>
-
-        <!-- CHATGPT -->
-        <RouterLink
-          to="/chatgpt"
-          class="project-card project-card-bg"
-          :style="{ backgroundImage: `url(${ChatGPTLogo})` }"
-        >
-          <div class="overlay"></div>
-          <div class="project-content">
-            <h3 class="project-name">Automatic ads generation</h3>
-            <p class="project-tech">ChatGPT</p>
-          </div>
-        </RouterLink>
-      </div>
-
-      <div class="column">
-        <!-- Native App Back-->
-        <RouterLink
-          to="/nativeappback"
-          class="project-card project-card-bg"
-          :style="{ backgroundImage: `url(${NativeAppBack})` }"
-        >
-          <div class="overlay"></div>
-          <div class="project-content">
-            <h3 class="project-name">Backend migration from MySQL to MongoDB</h3>
-            <p class="project-tech">Cloud Native Admin - Backend</p>
-          </div>
-        </RouterLink>
-
-        <!-- Native App Front -->
-        <RouterLink
-          to="/nativeappfront"
-          class="project-card project-card-bg"
-          :style="{ backgroundImage: `url(${NativeAppFront})` }"
-        >
-          <div class="overlay"></div>
-          <div class="project-content">
-            <h3 class="project-name">Fronted migration using Vue.js and Nuxt.js</h3>
-            <p class="project-tech">Cloud Native Admin - Fronted</p>
+            <h3 class="project-name">{{ project.card.name }}</h3>
+            <p class="project-tech">{{ project.card.tagline }}</p>
           </div>
         </RouterLink>
       </div>
@@ -101,12 +33,15 @@
 </template>
 
 <script setup>
-import VAPI1 from '@/assets/VAPI 1.jpg'
-import BotpressLogo from '@/assets/Botpress.jpg'
-import MetaFondo from '@/assets/MetaFondo.jpg'
-import ChatGPTLogo from '@/assets/ChatGPT1.jpg'
-import NativeAppBack from '@/assets/NativeAppBack.jpg'
-import NativeAppFront from '@/assets/NativeAppFront.jpg'
+import { projects } from '@/data/projects'
+
+const COLUMN_COUNT = 3
+
+// Split projects into consecutive groups, one per column, keeping their order in projects.js.
+const projectsPerColumn = Math.ceil(projects.length / COLUMN_COUNT)
+const columns = Array.from({ length: COLUMN_COUNT }, (_, index) =>
+  projects.slice(index * projectsPerColumn, (index + 1) * projectsPerColumn),
+).filter((column) => column.length)
 </script>
 
 <style scoped>
