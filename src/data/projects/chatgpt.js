@@ -1,16 +1,23 @@
-import ChatGPTCover from '@/assets/ChatGPT1.jpg'
 import ChatGPT2 from '@/assets/chatgpt2.jpg'
 import ChatGPT3 from '@/assets/chatgpt3.jpg'
 import ChatGPT4 from '@/assets/chatgpt4.jpg'
 
 export default {
   slug: 'chatgpt',
-  cardImage: ChatGPTCover,
   images: [ChatGPT2, ChatGPT3, ChatGPT4],
+  featured: false,
+  icon: 'pen',
+  accent: '#f59e0b',
+  ai: true,
+  tags: ['OpenAI API', 'Pipedrive', 'Witei', 'Node.js'],
   content: {
     en: {
       title: 'ChatGPT – AI Content Automation for Real Estate',
-      card: { name: 'Automatic ads generation', tagline: 'ChatGPT' },
+      card: {
+        name: 'Automatic ads generation',
+        summary:
+          'Generates property listings with ChatGPT and publishes them on real estate portals automatically.',
+      },
       sections: [
         {
           heading: 'What is ChatGPT Content Automation?',
@@ -54,7 +61,11 @@ export default {
     },
     es: {
       title: 'ChatGPT – Automatización de contenido con IA para inmobiliarias',
-      card: { name: 'Generación automática de anuncios', tagline: 'ChatGPT' },
+      card: {
+        name: 'Generación automática de anuncios',
+        summary:
+          'Genera anuncios de inmuebles con ChatGPT y los publica automáticamente en portales inmobiliarios.',
+      },
       sections: [
         {
           heading: '¿Qué es la automatización de contenido con ChatGPT?',
@@ -98,7 +109,11 @@ export default {
     },
     eu: {
       title: 'ChatGPT – AA bidezko eduki-automatizazioa higiezinentzat',
-      card: { name: 'Iragarkien sorrera automatikoa', tagline: 'ChatGPT' },
+      card: {
+        name: 'Iragarkien sorrera automatikoa',
+        summary:
+          'Higiezinen iragarkiak ChatGPTrekin sortu eta higiezin-atarietan automatikoki argitaratzen ditu.',
+      },
       sections: [
         {
           heading: 'Zer da ChatGPT bidezko eduki-automatizazioa?',

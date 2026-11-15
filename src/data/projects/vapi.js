@@ -5,12 +5,20 @@ import Vapi4 from '@/assets/VAPI 4.jpg'
 
 export default {
   slug: 'vapi',
-  cardImage: Vapi1,
   images: [Vapi1, Vapi2, Vapi3, Vapi4],
+  featured: false,
+  icon: 'phone',
+  accent: '#ec4899',
+  ai: true,
+  tags: ['VAPI', 'Voice AI', 'Node.js', 'React'],
   content: {
     en: {
       title: 'VAPI – AI Voice Assistant',
-      card: { name: 'AI Voice Assistant', tagline: 'VAPI · Voice AI Agents' },
+      card: {
+        name: 'AI Voice Assistant',
+        summary:
+          'AI voice assistant that answers calls, checks availability in real time and books visits.',
+      },
       sections: [
         {
           heading: 'What is VAPI?',
@@ -40,7 +48,11 @@ export default {
     },
     es: {
       title: 'VAPI – Asistente de voz con IA',
-      card: { name: 'Asistente de voz con IA', tagline: 'VAPI · Agentes de voz con IA' },
+      card: {
+        name: 'Asistente de voz con IA',
+        summary:
+          'Asistente de voz con IA que atiende llamadas, consulta la disponibilidad en tiempo real y agenda visitas.',
+      },
       sections: [
         {
           heading: '¿Qué es VAPI?',
@@ -70,7 +82,11 @@ export default {
     },
     eu: {
       title: 'VAPI – AA bidezko ahots-laguntzailea',
-      card: { name: 'AA bidezko ahots-laguntzailea', tagline: 'VAPI · AA ahots-agenteak' },
+      card: {
+        name: 'AA bidezko ahots-laguntzailea',
+        summary:
+          'Deiak erantzun, erabilgarritasuna denbora errealean kontsultatu eta bisitak antolatzen dituen AA ahots-laguntzailea.',
+      },
       sections: [
         {
           heading: 'Zer da VAPI?',

@@ -101,7 +101,8 @@
   },
   "projects": {
     "title": "PROYECTOS",
-    "subtitle": "Aquí encontrarás una selección de proyectos en los que he trabajado: aplicaciones reales y cuidadas que reflejan mis habilidades, mi creatividad y mi experiencia técnica. Cada proyecto muestra mi capacidad para crear aplicaciones escalables, mantenibles y fáciles de usar con distintas tecnologías."
+    "subtitle": "Aquí encontrarás una selección de proyectos en los que he trabajado: aplicaciones reales y cuidadas que reflejan mis habilidades, mi creatividad y mi experiencia técnica. Cada proyecto muestra mi capacidad para crear aplicaciones escalables, mantenibles y fáciles de usar con distintas tecnologías.",
+    "aiBadge": "IA"
   },
   "project": {
     "viewDetails": "Ver detalles del proyecto",

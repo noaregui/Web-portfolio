@@ -1,18 +1,24 @@
 import Landbot1 from '@/assets/Landbot1.jpg'
 import Landbot2 from '@/assets/landbot2.jpg'
 import Landbot3 from '@/assets/landbot3.jpg'
-import MetaCover from '@/assets/MetaFondo.jpg'
 import WhatsApp1 from '@/assets/whatsapp1.jpg'
 import WhatsApp2 from '@/assets/whatsapp2.jpg'
 
 export default {
   slug: 'meta',
-  cardImage: MetaCover,
   images: [Landbot1, Landbot2, Landbot3, WhatsApp1, WhatsApp2],
+  featured: false,
+  icon: 'message',
+  accent: '#22c55e',
+  ai: false,
+  tags: ['WhatsApp Cloud API', 'Landbot', 'Webhooks', 'Node.js'],
   content: {
     en: {
       title: 'Meta – WhatsApp Business Automation',
-      card: { name: 'Automated visit management', tagline: 'Meta' },
+      card: {
+        name: 'Automated visit management',
+        summary: 'Automated WhatsApp flows to contact leads, qualify them and schedule visits.',
+      },
       sections: [
         {
           heading: 'What is Meta - WhatsApp?',
@@ -49,7 +55,11 @@ export default {
     },
     es: {
       title: 'Meta – Automatización de WhatsApp Business',
-      card: { name: 'Gestión automatizada de visitas', tagline: 'Meta' },
+      card: {
+        name: 'Gestión automatizada de visitas',
+        summary:
+          'Flujos automáticos de WhatsApp para contactar con posibles clientes, cualificarlos y agendar visitas.',
+      },
       sections: [
         {
           heading: '¿Qué es Meta - WhatsApp?',
@@ -86,7 +96,11 @@ export default {
     },
     eu: {
       title: 'Meta – WhatsApp Business automatizazioa',
-      card: { name: 'Bisiten kudeaketa automatizatua', tagline: 'Meta' },
+      card: {
+        name: 'Bisiten kudeaketa automatizatua',
+        summary:
+          'WhatsApp fluxu automatikoak, bezero potentzialekin harremanetan jarri, kalifikatu eta bisitak antolatzeko.',
+      },
       sections: [
         {
           heading: 'Zer da Meta - WhatsApp?',

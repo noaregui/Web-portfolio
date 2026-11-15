@@ -1,17 +1,21 @@
-import NativeAppFrontCover from '@/assets/NativeAppFront.jpg'
 import Nuxt from '@/assets/Nuxt.jpg'
 import Vue from '@/assets/Vue1.jpg'
 
 export default {
   slug: 'nativeappfront',
-  cardImage: NativeAppFrontCover,
   images: [Nuxt, Vue],
+  featured: false,
+  icon: 'layout',
+  accent: '#6366f1',
+  ai: false,
+  tags: ['Vue.js', 'Nuxt.js', 'Axios'],
   content: {
     en: {
       title: 'Cloud Native Admin – Frontend',
       card: {
         name: 'Frontend migration using Vue.js and Nuxt.js',
-        tagline: 'Cloud Native Admin – Frontend',
+        summary:
+          'Rebuild of the internal admin frontend with Vue.js and Nuxt.js to speed up daily work.',
       },
       sections: [
         {
@@ -54,7 +58,8 @@ export default {
       title: 'Cloud Native Admin – Frontend',
       card: {
         name: 'Migración del frontend con Vue.js y Nuxt.js',
-        tagline: 'Cloud Native Admin – Frontend',
+        summary:
+          'Reconstrucción del frontend de administración interna con Vue.js y Nuxt.js para agilizar el trabajo diario.',
       },
       sections: [
         {
@@ -97,7 +102,8 @@ export default {
       title: 'Cloud Native Admin – Frontenda',
       card: {
         name: 'Frontendaren migrazioa Vue.js eta Nuxt.js erabiliz',
-        tagline: 'Cloud Native Admin – Frontenda',
+        summary:
+          'Barne-administrazioko frontendaren berreraikitzea Vue.js eta Nuxt.js-ekin, eguneroko lana arintzeko.',
       },
       sections: [
         {

@@ -2,10 +2,10 @@
   <section class="project-landing">
     <header class="hero">
       <h1 class="hero-title">{{ project.title }}</h1>
-      <button @click="scrollToContent">{{ t('project.viewDetails') }}</button>
+      <button v-if="hasImages" @click="scrollToContent">{{ t('project.viewDetails') }}</button>
     </header>
 
-    <ProjectCarousel :images="project.images" :alt="project.title" />
+    <ProjectCarousel v-if="hasImages" :images="project.images" :alt="project.title" />
 
     <section class="project-description" ref="contentRef">
       <div v-for="section in project.sections" :key="section.heading" class="description-block">
@@ -44,6 +44,9 @@ const { t, locale } = useI18n()
 const route = useRoute()
 // The router guard guarantees the slug exists before this view renders.
 const project = computed(() => localizeProject(getProject(route.params.slug), locale.value))
+
+// Some projects (e.g. confidential work) have no screenshots: then the page shows only the text
+const hasImages = computed(() => project.value.images.length > 0)
 
 const contentRef = ref(null)
 const scrollToContent = () => {
@@ -191,6 +194,23 @@ const scrollToContent = () => {
   .project-description {
     width: 100%;
     padding: 1rem;
+  }
+}
+
+/* Small phones: long words (e.g. Basque titles) must fit, and justified text
+   leaves big gaps on narrow columns */
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.6rem, 7.5vw, 2.5rem);
+    overflow-wrap: break-word;
+  }
+
+  .description-block p {
+    text-align: left;
   }
 }
 </style>
