@@ -110,6 +110,8 @@ const columns = Array.from({ length: COLUMN_COUNT }, (_, index) =>
   color: var(--color-on-accent);
   overflow: hidden;
   min-height: 300px;
+  outline: 1px solid var(--color-card-outline);
+  outline-offset: -1px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
