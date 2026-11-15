@@ -52,25 +52,51 @@
   },
   "about": {
     "avatarAlt": "Avatar de Ainhoa programando con un portátil",
-    "background": {
-      "titleStart": "Mi",
-      "titleEnd": "Trayectoria",
-      "text": "La tecnología siempre me ha despertado curiosidad, aunque mi carrera me llevó primero a la **psicología**. Tras terminar el grado y un máster en psicología social, trabajé cinco años en ese campo. Con el tiempo, mi interés por la **programación** no dejó de crecer, así que di un giro importante a mi carrera y empecé a estudiar desarrollo de software."
+    "greeting": "Hola, soy {name}",
+    "intro": [
+      "Soy Full Stack Developer especializada en **IA aplicada**.",
+      "Desarrollo plataformas con IA para sectores muy diversos, como la sanidad o la contratación pública, entre otros. Trabajo con **sistemas RAG** sobre bases de conocimiento, **agentes con herramientas y skills**, salidas estructuradas y mecanismos para **controlar y evaluar** lo que genera la IA, sobre arquitecturas cloud preparadas para producción. Me ocupo de todo el recorrido, desde el backend hasta la interfaz."
+    ],
+    "downloadCv": "Descargar CV",
+    "skillsTitle": "Con qué trabajo",
+    "skills": {
+      "ai": {
+        "title": "IA aplicada",
+        "text": "RAG sobre bases de conocimiento, agentes con herramientas y skills, y mecanismos para controlar y evaluar lo que generan los modelos."
+      },
+      "backend": {
+        "title": "Backend",
+        "text": "APIs y servicios preparados para producción: procesamiento asíncrono, multi-tenancy y streaming en tiempo real."
+      },
+      "frontend": {
+        "title": "Frontend",
+        "text": "Interfaces claras y multilingües que hacen fáciles de usar flujos de IA complejos."
+      },
+      "cloud": {
+        "title": "Cloud y forma de trabajar",
+        "text": "Infraestructura cloud, CI y una forma de trabajar guiada por especificaciones, con agentes de IA integrados en el flujo."
+      }
     },
-    "approach": {
-      "titleStart": "Mi",
-      "titleEnd": "Enfoque",
-      "text": "Disfruto combinando habilidades de **frontend** y **backend** para crear experiencias fluidas. Trabajo a gusto en equipos ágiles y multidisciplinares, colaborando de cerca con los demás y llevando los proyectos de principio a fin."
-    },
-    "outside": {
-      "titleStart": "Fuera del",
-      "titleEnd": "Trabajo",
-      "text": "Me gusta aprender **nuevas tecnologías** y explorar soluciones innovadoras. Mi formación en psicología me aporta una perspectiva diferente sobre la experiencia de usuario, la **comunicación** y la forma en que trabajan los equipos."
-    },
-    "build": {
-      "titleStart": "Lo que",
-      "titleEnd": "Construyo",
-      "text": "Me gusta crear aplicaciones fiables y escalables en todo el stack. En el frontend trabajo con **JavaScript**, **TypeScript**, **React** y **Vue** para crear interfaces limpias y experiencias de usuario fluidas. En el backend me centro en desarrollar **APIs REST y webhooks a medida**, lógica de flujos de trabajo e **integraciones entre plataformas** con Node.js, Express, Flask y MySQL. Tengo experiencia conectando sistemas, automatizando procesos y diseñando estructuras de datos que responden a necesidades reales de negocio."
+    "experienceTitle": "Experiencia",
+    "projectsLabel": "Proyectos",
+    "languagesTitle": "Idiomas",
+    "languages": {
+      "spanish": {
+        "name": "Español",
+        "level": "Nativo"
+      },
+      "basque": {
+        "name": "Euskera",
+        "level": "Nativo"
+      },
+      "english": {
+        "name": "Inglés",
+        "level": "Intermedio"
+      },
+      "catalan": {
+        "name": "Catalán",
+        "level": "Básico"
+      }
     }
   },
   "projects": {

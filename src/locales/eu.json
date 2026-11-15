@@ -52,25 +52,51 @@
   },
   "about": {
     "avatarAlt": "Ainhoaren avatarra ordenagailu eramangarrian programatzen",
-    "background": {
-      "titleStart": "Nire",
-      "titleEnd": "Ibilbidea",
-      "text": "Teknologiak beti piztu dit jakin-mina, nahiz eta nire ibilbideak hasieran **psikologiara** eraman ninduen. Gradua eta psikologia sozialeko master bat amaitu ondoren, bost urtez aritu nintzen arlo horretan. Denborarekin, **programazioarekiko** interesa gero eta handiagoa zen, eta norabidez aldatu eta software-garapena ikasten hasi nintzen."
+    "greeting": "Kaixo, {name} naiz",
+    "intro": [
+      "Full Stack garatzailea naiz, eta **AA aplikatuan** espezializatuta nago.",
+      "Hainbat sektoretarako AA plataformak garatzen ditut, hala nola osasungintzarako edo kontratazio publikorako, besteak beste. **RAG sistemekin** lan egiten dut ezagutza-baseen gainean, baita **tresna eta skilldun agenteekin**, irteera egituratuekin eta AAk sortzen duena **kontrolatu eta ebaluatzeko** mekanismoekin ere, produkziorako prestatutako hodei-arkitekturen gainean. Bide osoaz arduratzen naiz, backendetik interfazera."
+    ],
+    "downloadCv": "Deskargatu CVa",
+    "skillsTitle": "Zerekin lan egiten dudan",
+    "skills": {
+      "ai": {
+        "title": "AA aplikatua",
+        "text": "RAG ezagutza-baseen gainean, tresna eta skilldun agenteak, eta ereduek sortzen dutena kontrolatu eta ebaluatzeko mekanismoak."
+      },
+      "backend": {
+        "title": "Backenda",
+        "text": "Produkziorako prestatutako APIak eta zerbitzuak: prozesamendu asinkronoa, multi-tenancy eta denbora errealeko streaming-a."
+      },
+      "frontend": {
+        "title": "Frontenda",
+        "text": "Interfaze argi eta eleaniztunak, AA fluxu konplexuak erabiltzeko errazak egiten dituztenak."
+      },
+      "cloud": {
+        "title": "Hodeia eta lan-modua",
+        "text": "Hodeiko azpiegitura, CI eta zehaztapenek gidatutako lan-modua, AA agenteak lan-fluxuan integratuta."
+      }
     },
-    "approach": {
-      "titleStart": "Nire",
-      "titleEnd": "Ikuspegia",
-      "text": "**Frontend** eta **backend** gaitasunak uztartzea gustatzen zait, esperientzia arinak sortzeko. Gustura aritzen naiz talde arin eta diziplinartekoetan, besteekin elkarlanean eta proiektuak hasieratik amaierara eramanez."
-    },
-    "outside": {
-      "titleStart": "Lanetik",
-      "titleEnd": "Kanpo",
-      "text": "**Teknologia berriak** ikastea eta irtenbide berritzaileak arakatzea gustatzen zait. Psikologiako prestakuntzak ikuspegi berezia ematen dit erabiltzaile-esperientziari, **komunikazioari** eta taldeek elkarrekin lan egiteko moduari buruz."
-    },
-    "build": {
-      "titleStart": "Zer",
-      "titleEnd": "Eraikitzen Dudan",
-      "text": "Stack osoan zehar aplikazio fidagarri eta eskalagarriak eraikitzea gustatzen zait. Frontendean **JavaScript**, **TypeScript**, **React** eta **Vue** erabiltzen ditut interfaze garbiak eta erabiltzaile-esperientzia arinak sortzeko. Backendean, **neurrira egindako REST APIak eta webhookak**, lan-fluxuen logika eta **plataformen arteko integrazioak** garatzen ditut Node.js, Express, Flask eta MySQL erabiliz. Esperientzia dut sistemak konektatzen, prozesuak automatizatzen eta negozioaren benetako beharrei erantzuten dieten datu-egiturak diseinatzen."
+    "experienceTitle": "Esperientzia",
+    "projectsLabel": "Proiektuak",
+    "languagesTitle": "Hizkuntzak",
+    "languages": {
+      "spanish": {
+        "name": "Gaztelania",
+        "level": "Ama-hizkuntza"
+      },
+      "basque": {
+        "name": "Euskara",
+        "level": "Ama-hizkuntza"
+      },
+      "english": {
+        "name": "Ingelesa",
+        "level": "Erdi-maila"
+      },
+      "catalan": {
+        "name": "Katalana",
+        "level": "Oinarrizkoa"
+      }
     }
   },
   "projects": {

@@ -52,25 +52,51 @@
   },
   "about": {
     "avatarAlt": "Avatar of Ainhoa programming at a laptop",
-    "background": {
-      "titleStart": "My",
-      "titleEnd": "Background",
-      "text": "I’ve always been curious about technology, even though my career initially led me into **psychology**. After completing my degree and a master’s in social psychology, I worked for five years in the field. Over time, my interest in **programming** kept growing, so I made a meaningful career shift and started studying software development."
+    "greeting": "Hi, I'm {name}",
+    "intro": [
+      "I'm a Full Stack Developer specialised in **applied AI**.",
+      "I build AI platforms for a wide range of sectors, such as healthcare or public procurement, among others. I work with **RAG systems** over knowledge bases, **agents with tools and skills**, structured outputs and mechanisms to **control and evaluate** what AI generates, on cloud architectures built for production. I take care of the whole journey, from the backend to the interface."
+    ],
+    "downloadCv": "Download CV",
+    "skillsTitle": "What I work with",
+    "skills": {
+      "ai": {
+        "title": "Applied AI",
+        "text": "RAG over knowledge bases, agents with tools and skills, and ways to control and evaluate what models generate."
+      },
+      "backend": {
+        "title": "Backend",
+        "text": "APIs and services built for production: async processing, multi-tenancy and real-time streaming."
+      },
+      "frontend": {
+        "title": "Frontend",
+        "text": "Clear, multilingual interfaces that make complex AI workflows easy to use."
+      },
+      "cloud": {
+        "title": "Cloud & workflow",
+        "text": "Cloud infrastructure, CI and a spec-driven way of working, with AI agents as part of the workflow."
+      }
     },
-    "approach": {
-      "titleStart": "My",
-      "titleEnd": "Approach",
-      "text": "I enjoy combining **frontend** and **backend** skills to create smooth experiences. I’m comfortable working in agile, cross-functional teams, collaborating closely with others, and seeing projects through from start to finish."
-    },
-    "outside": {
-      "titleStart": "Outside",
-      "titleEnd": "Work",
-      "text": "I enjoy learning **new technologies** and exploring innovative solutions. My background in psychology gives me a fresh perspective on user experience, **communication**, and how teams work together."
-    },
-    "build": {
-      "titleStart": "What",
-      "titleEnd": "I Build",
-      "text": "I enjoy building reliable, scalable applications across the full stack. On the frontend, I work with **JavaScript**, **TypeScript**, **React**, and **Vue** to create clean interfaces and smooth user experiences. On the backend, I focus on developing **custom-made REST APIs and webhooks**, workflow logic, and **platform integrations** using Node.js, Express, Flask, and MySQL. I have experience connecting systems, automating processes, and designing data structures that support real business needs."
+    "experienceTitle": "Experience",
+    "projectsLabel": "Projects",
+    "languagesTitle": "Languages",
+    "languages": {
+      "spanish": {
+        "name": "Spanish",
+        "level": "Native"
+      },
+      "basque": {
+        "name": "Basque",
+        "level": "Native"
+      },
+      "english": {
+        "name": "English",
+        "level": "Intermediate"
+      },
+      "catalan": {
+        "name": "Catalan",
+        "level": "Basic"
+      }
     }
   },
   "projects": {
