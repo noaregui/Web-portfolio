@@ -71,6 +71,7 @@ const scrollToContent = () => {
   font-size: clamp(2.5rem, 5vw, 4rem);
   letter-spacing: 0.5px;
   line-height: 1.2;
+  text-transform: uppercase;
   color: #e0e0e0;
   margin-bottom: 2rem;
 }

@@ -40,7 +40,7 @@ import WhatsApp2 from '@/assets/whatsapp2.jpg'
 export const projects = [
   {
     slug: 'vapi',
-    title: 'VAPI - AI VOICE ASSISTANT',
+    title: 'VAPI – AI Voice Assistant',
     card: {
       name: 'AI Voice Assistant',
       tagline: 'VAPI · Voice AI Agents',
@@ -76,7 +76,7 @@ export const projects = [
   },
   {
     slug: 'botpress',
-    title: 'BotPress – AI Agent Automated Conversations',
+    title: 'Botpress – AI Agent Automated Conversations',
     card: {
       name: 'Chatbot',
       tagline: 'Botpress · Landbot',
@@ -123,7 +123,7 @@ export const projects = [
   },
   {
     slug: 'meta',
-    title: 'META – WHATSAPP BUSINESS AUTOMATION',
+    title: 'Meta – WhatsApp Business Automation',
     card: {
       name: 'Automated visit management',
       tagline: 'Meta',
@@ -149,7 +149,7 @@ export const projects = [
           'This solution connected Meta’s WhatsApp Business Cloud API with a **custom internal application** and **Landbot conversational flows**.',
           [
             '⏳ Controlled message timing',
-            '🌐 Custonm-made Webhooks & real-time updates',
+            '🌐 Custom-made Webhooks & real-time updates',
             '⚡ Fully automated lead qualification',
           ],
         ],
@@ -216,10 +216,10 @@ export const projects = [
   },
   {
     slug: 'nativeappback',
-    title: 'Cloud Native Admin - Backend',
+    title: 'Cloud Native Admin – Backend',
     card: {
       name: 'Backend migration from MySQL to MongoDB',
-      tagline: 'Cloud Native Admin - Backend',
+      tagline: 'Cloud Native Admin – Backend',
       image: NativeAppBackCover,
     },
     images: [Docker, MongoDB, MySQL],
@@ -258,10 +258,10 @@ export const projects = [
   },
   {
     slug: 'nativeappfront',
-    title: 'Cloud Native Admin - Fronted',
+    title: 'Cloud Native Admin – Frontend',
     card: {
-      name: 'Fronted migration using Vue.js and Nuxt.js',
-      tagline: 'Cloud Native Admin - Fronted',
+      name: 'Frontend migration using Vue.js and Nuxt.js',
+      tagline: 'Cloud Native Admin – Frontend',
       image: NativeAppFrontCover,
     },
     images: [Nuxt, Vue],
@@ -269,7 +269,7 @@ export const projects = [
       {
         heading: 'What is Cloud-native Admin?',
         content: [
-          'Cloud-native Admin Frontend is an **end-to-end software suite for total office productivity**, designed to provide an intuitive and scalable interface for managing properties, tenants, landlords, financials, and maintenance requests. The frontend was rebuilt using Vue.js and Nuxt.js, focusing on creating a visual, interactive, and highly functional user experience. With the new design, staff can perform tasks faster, access data in real time, and manage all aspects of property administration more efficiently. Key highlights: 💻 Modern and scalable frontend architecture 🎨 Improved visual design and user experience ⚙️ Streamlined workflows for total office productivity 📊 Real-time access to data across all modules',
+          'Cloud-native Admin Frontend is an **end-to-end software suite for total office productivity**, designed to provide an intuitive and scalable interface for managing properties, tenants, landlords, financials, and maintenance requests.',
           'The frontend was rebuilt using **Vue.js and Nuxt.js**, focusing on creating a **visual, interactive, and highly functional user experience**. With the new design, staff can perform tasks faster, access data in real time, and manage all aspects of property administration more efficiently.',
           'Key highlights:',
           [
