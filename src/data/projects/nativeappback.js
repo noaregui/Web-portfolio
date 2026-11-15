@@ -1,18 +1,22 @@
 import Docker from '@/assets/Docker.jpg'
 import MongoDB from '@/assets/MongoDB2.jpg'
 import MySQL from '@/assets/MySQL1.jpg'
-import NativeAppBackCover from '@/assets/NativeAppBack.jpg'
 
 export default {
   slug: 'nativeappback',
-  cardImage: NativeAppBackCover,
   images: [Docker, MongoDB, MySQL],
+  featured: false,
+  icon: 'database',
+  accent: '#06b6d4',
+  ai: false,
+  tags: ['Node.js', 'MongoDB', 'MySQL', 'Docker'],
   content: {
     en: {
       title: 'Cloud Native Admin – Backend',
       card: {
         name: 'Backend migration from MySQL to MongoDB',
-        tagline: 'Cloud Native Admin – Backend',
+        summary:
+          'Migration of an internal property-management backend from MySQL to MongoDB, containerised with Docker.',
       },
       sections: [
         {
@@ -51,7 +55,8 @@ export default {
       title: 'Cloud Native Admin – Backend',
       card: {
         name: 'Migración del backend de MySQL a MongoDB',
-        tagline: 'Cloud Native Admin – Backend',
+        summary:
+          'Migración del backend interno de gestión inmobiliaria de MySQL a MongoDB, en contenedores Docker.',
       },
       sections: [
         {
@@ -90,7 +95,8 @@ export default {
       title: 'Cloud Native Admin – Backenda',
       card: {
         name: 'Backendaren migrazioa MySQLtik MongoDBra',
-        tagline: 'Cloud Native Admin – Backenda',
+        summary:
+          'Higiezinak kudeatzeko barne-backendaren migrazioa MySQLtik MongoDBra, Docker edukiontzietan.',
       },
       sections: [
         {

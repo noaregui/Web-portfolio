@@ -1,4 +1,3 @@
-import BotpressCover from '@/assets/Botpress.jpg'
 import Botpress1 from '@/assets/Botpress1.jpg'
 import Botpress2 from '@/assets/Botpress2.jpg'
 import Botpress3 from '@/assets/Botpress3.jpg'
@@ -7,12 +6,19 @@ import Botpress5 from '@/assets/Botpress5.jpg'
 
 export default {
   slug: 'botpress',
-  cardImage: BotpressCover,
   images: [Botpress1, Botpress2, Botpress3, Botpress4, Botpress5],
+  featured: false,
+  icon: 'bot',
+  accent: '#3b82f6',
+  ai: true,
+  tags: ['Botpress', 'LLMs', 'WhatsApp API', 'TypeScript'],
   content: {
     en: {
       title: 'Botpress – AI Agent Automated Conversations',
-      card: { name: 'Chatbot', tagline: 'Botpress · Landbot' },
+      card: {
+        name: 'Chatbot',
+        summary: 'AI agent on WhatsApp that collects personalised feedback after each visit.',
+      },
       sections: [
         {
           heading: 'What is BotPress?',
@@ -53,7 +59,11 @@ export default {
     },
     es: {
       title: 'Botpress – Conversaciones automatizadas con agentes de IA',
-      card: { name: 'Chatbot', tagline: 'Botpress · Landbot' },
+      card: {
+        name: 'Chatbot',
+        summary:
+          'Agente de IA en WhatsApp que recoge valoraciones personalizadas tras cada visita.',
+      },
       sections: [
         {
           heading: '¿Qué es Botpress?',
@@ -94,7 +104,11 @@ export default {
     },
     eu: {
       title: 'Botpress – AA agenteekin automatizatutako elkarrizketak',
-      card: { name: 'Chatbota', tagline: 'Botpress · Landbot' },
+      card: {
+        name: 'Chatbota',
+        summary:
+          'Bisita bakoitzaren ondoren balorazio pertsonalizatuak biltzen dituen AA agentea, WhatsAppen.',
+      },
       sections: [
         {
           heading: 'Zer da Botpress?',

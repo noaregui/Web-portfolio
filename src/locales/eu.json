@@ -101,7 +101,8 @@
   },
   "projects": {
     "title": "PROIEKTUAK",
-    "subtitle": "Hemen parte hartu dudan proiektuen hautaketa bat aurkituko duzu: nire gaitasunak, sormena eta esperientzia teknikoa islatzen dituzten aplikazio erreal eta landuak. Proiektu bakoitzak teknologia ezberdinekin aplikazio eskalagarriak, mantengarriak eta erabilerrazak eraikitzeko dudan gaitasuna erakusten du."
+    "subtitle": "Hemen parte hartu dudan proiektuen hautaketa bat aurkituko duzu: nire gaitasunak, sormena eta esperientzia teknikoa islatzen dituzten aplikazio erreal eta landuak. Proiektu bakoitzak teknologia ezberdinekin aplikazio eskalagarriak, mantengarriak eta erabilerrazak eraikitzeko dudan gaitasuna erakusten du.",
+    "aiBadge": "AA"
   },
   "project": {
     "viewDetails": "Ikusi proiektuaren xehetasunak",

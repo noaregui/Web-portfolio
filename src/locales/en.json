@@ -101,7 +101,8 @@
   },
   "projects": {
     "title": "PROJECTS",
-    "subtitle": "Here you will find a selection of projects I have worked on — polished, real-world applications that reflect my skills, creativity, and technical expertise. Each project showcases my ability to build scalable, maintainable, and user-friendly applications across different technologies."
+    "subtitle": "Here you will find a selection of projects I have worked on — polished, real-world applications that reflect my skills, creativity, and technical expertise. Each project showcases my ability to build scalable, maintainable, and user-friendly applications across different technologies.",
+    "aiBadge": "AI"
   },
   "project": {
     "viewDetails": "View project details",
