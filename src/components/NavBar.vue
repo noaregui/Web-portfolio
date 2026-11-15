@@ -1,22 +1,42 @@
 <template>
   <header class="navbar">
     <div class="navbar-content">
-      <button class="menu-toggle" @click="isMenuOpen = !isMenuOpen">☰</button>
-      <ThemeToggle />
+      <button
+        class="menu-toggle"
+        :aria-label="t('nav.menu')"
+        :aria-expanded="isMenuOpen"
+        @click="isMenuOpen = !isMenuOpen"
+      >
+        ☰
+      </button>
+      <div class="navbar-actions">
+        <LanguageSwitcher />
+        <ThemeToggle />
+      </div>
     </div>
 
     <nav class="menu" :class="{ open: isMenuOpen }">
-      <router-link to="/" class="link" @click="isMenuOpen = false">Home</router-link>
-      <router-link to="/about" class="link" @click="isMenuOpen = false">About me</router-link>
-      <router-link to="/projects" class="link" @click="isMenuOpen = false">Projects</router-link>
-      <router-link to="/contact" class="link" @click="isMenuOpen = false">Contact</router-link>
+      <router-link to="/" class="link" @click="isMenuOpen = false">{{ t('nav.home') }}</router-link>
+      <router-link to="/about" class="link" @click="isMenuOpen = false">{{
+        t('nav.about')
+      }}</router-link>
+      <router-link to="/projects" class="link" @click="isMenuOpen = false">{{
+        t('nav.projects')
+      }}</router-link>
+      <router-link to="/contact" class="link" @click="isMenuOpen = false">{{
+        t('nav.contact')
+      }}</router-link>
     </nav>
   </header>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
 import ThemeToggle from '@/components/ThemeToggle.vue'
+
+const { t } = useI18n()
 
 const isMenuOpen = ref(false)
 </script>
@@ -32,6 +52,12 @@ const isMenuOpen = ref(false)
   background-color: var(--color-surface);
   box-shadow: var(--shadow-navbar);
   transition: all 0.3s ease;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .navbar-content {

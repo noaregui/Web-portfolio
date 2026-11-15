@@ -2,16 +2,22 @@
   <section class="not-found">
     <p class="code">404</p>
     <h1 class="title">
-      <span class="title-white">PAGE</span>
-      <span class="title-purple"> NOT FOUND</span>
+      <span class="title-white">{{ t('notFound.titleStart') }}</span>
+      <span class="title-purple">{{ ' ' + t('notFound.titleEnd') }}</span>
     </h1>
-    <p class="subtitle">The page you are looking for doesn't exist or has been moved.</p>
+    <p class="subtitle">{{ t('notFound.subtitle') }}</p>
     <div class="actions">
-      <RouterLink to="/" class="btn btn-primary">Go home</RouterLink>
-      <RouterLink to="/projects" class="btn btn-secondary">See projects</RouterLink>
+      <RouterLink to="/" class="btn btn-primary">{{ t('notFound.home') }}</RouterLink>
+      <RouterLink to="/projects" class="btn btn-secondary">{{ t('notFound.projects') }}</RouterLink>
     </div>
   </section>
 </template>
+
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .not-found {

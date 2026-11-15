@@ -2,7 +2,7 @@
   <section class="project-landing">
     <header class="hero">
       <h1 class="hero-title">{{ project.title }}</h1>
-      <button @click="scrollToContent">View project details</button>
+      <button @click="scrollToContent">{{ t('project.viewDetails') }}</button>
     </header>
 
     <ProjectCarousel :images="project.images" :alt="project.title" />
@@ -21,7 +21,7 @@
       </div>
 
       <div class="description-block tech-section">
-        <h2>Used Technologies</h2>
+        <h2>{{ t('project.technologies') }}</h2>
         <div class="tech-cards">
           <span class="tech-card" v-for="tech in project.technologies" :key="tech">
             {{ tech }}
@@ -34,14 +34,16 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
-import { getProject } from '@/data/projects'
+import { getProject, localizeProject } from '@/data/projects'
 import HighlightedText from '@/components/HighlightedText.vue'
 import ProjectCarousel from '@/components/ProjectCarousel.vue'
 
+const { t, locale } = useI18n()
 const route = useRoute()
 // The router guard guarantees the slug exists before this view renders.
-const project = computed(() => getProject(route.params.slug))
+const project = computed(() => localizeProject(getProject(route.params.slug), locale.value))
 
 const contentRef = ref(null)
 const scrollToContent = () => {

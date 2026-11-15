@@ -5,19 +5,17 @@
       <!-- Row 1 -->
       <div class="footer-row">
         <strong>Ainhoa León</strong>
-        <span class="role">Frontend Developer · Vue / React</span>
+        <span class="role">{{ t('footer.role') }}</span>
       </div>
 
       <!-- Row 2 -->
       <div class="footer-row">
-        <p>Website built with Vue and Vite.</p>
+        <p>{{ t('footer.builtWith') }}</p>
       </div>
 
       <!-- Row 3 -->
       <div class="footer-row">
-        <span class="copyright">
-          © {{ new Date().getFullYear() }} Ainhoa León. All rights reserved.
-        </span>
+        <span class="copyright">{{ t('footer.rights', { year }) }}</span>
       </div>
     </div>
 
@@ -25,7 +23,7 @@
     <div class="footer-column footer-column-right">
       <!-- Row 1 -->
       <div class="footer-row">
-        <p>Based in Barcelona</p>
+        <p>{{ t('footer.location') }}</p>
       </div>
 
       <!-- Row 2 -->
@@ -58,6 +56,13 @@
     </div>
   </footer>
 </template>
+
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+const year = new Date().getFullYear()
+</script>
 
 <style scoped>
 .footer {

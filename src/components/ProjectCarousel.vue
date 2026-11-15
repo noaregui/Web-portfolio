@@ -2,13 +2,17 @@
   <section class="carousel">
     <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
       <div class="carousel-slide" v-for="(image, index) in images" :key="image">
-        <img :src="image" :alt="`${alt} – slide ${index + 1}`" />
+        <img :src="image" :alt="`${alt} – ${t('project.slide', { n: index + 1 })}`" />
       </div>
     </div>
 
     <template v-if="hasMultipleSlides">
-      <button class="carousel-btn prev" @click="prevSlide">&#10094;</button>
-      <button class="carousel-btn next" @click="nextSlide">&#10095;</button>
+      <button class="carousel-btn prev" :aria-label="t('project.previous')" @click="prevSlide">
+        &#10094;
+      </button>
+      <button class="carousel-btn next" :aria-label="t('project.next')" @click="nextSlide">
+        &#10095;
+      </button>
       <div class="carousel-dots">
         <span
           v-for="(image, index) in images"
@@ -23,6 +27,9 @@
 
 <script setup>
 import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const props = defineProps({
   images: { type: Array, required: true },

@@ -5,11 +5,11 @@
   reduced-motion support and a track outline in light mode.
 -->
 <template>
-  <label class="switch" :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+  <label class="switch" :title="isDark ? t('theme.toLight') : t('theme.toDark')">
     <input
       type="checkbox"
       role="switch"
-      aria-label="Dark mode"
+      :aria-label="t('theme.label')"
       :checked="isDark"
       @change="toggleTheme"
     />
@@ -19,8 +19,10 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useTheme } from '@/composables/useTheme'
 
+const { t } = useI18n()
 const { theme, toggleTheme } = useTheme()
 const isDark = computed(() => theme.value === 'dark')
 </script>

@@ -3,49 +3,52 @@
     <div class="card-content">
       <div class="contact-info">
         <h2 class="contact-title">
-          <span class="title-white">LET'S WORK</span>
-          <span class="title-purple">TOGETHER</span>
+          <span class="title-white">{{ t('contact.titleStart') }}</span>
+          <span class="title-purple">{{ t('contact.titleEnd') }}</span>
         </h2>
-        <p class="contact-subtitle">
-          If you have an idea, project, or just want to say hi, fill out the form and I’ll get back
-          to you as soon as possible.
-        </p>
+        <p class="contact-subtitle">{{ t('contact.subtitle') }}</p>
       </div>
 
       <form class="contact-form" @submit.prevent="sendMessage">
         <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" v-model="form.name" required placeholder="Your name" />
+          <label for="name">{{ t('contact.name') }}</label>
+          <input
+            type="text"
+            id="name"
+            v-model="form.name"
+            required
+            :placeholder="t('contact.namePlaceholder')"
+          />
         </div>
 
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">{{ t('contact.email') }}</label>
           <input
             type="email"
             id="email"
             v-model="form.email"
             required
-            placeholder="you@email.com"
+            :placeholder="t('contact.emailPlaceholder')"
           />
         </div>
 
         <div class="form-group">
-          <label for="message">Message</label>
+          <label for="message">{{ t('contact.message') }}</label>
           <textarea
             id="message"
             v-model="form.message"
             rows="4"
             required
-            placeholder="Tell me about your idea, project or just say hi 🙂"
+            :placeholder="t('contact.messagePlaceholder')"
           ></textarea>
         </div>
 
         <button type="submit" class="send-btn" :disabled="sending">
-          {{ sending ? 'Sending...' : 'Send message' }}
+          {{ sending ? t('contact.sending') : t('contact.send') }}
         </button>
 
-        <p v-if="sent" class="success-msg">✅ Message sent successfully!</p>
-        <p v-if="error" class="error-msg">❌ Something went wrong. Please try again.</p>
+        <p v-if="sent" class="success-msg">{{ t('contact.success') }}</p>
+        <p v-if="error" class="error-msg">{{ t('contact.error') }}</p>
       </form>
     </div>
   </div>
@@ -54,6 +57,9 @@
 <script setup>
 import { ref } from 'vue'
 import emailjs from '@emailjs/browser'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const form = ref({
   name: '',

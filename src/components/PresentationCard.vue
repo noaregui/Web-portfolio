@@ -4,11 +4,15 @@
       <div class="card-content">
         <div class="header-content">
           <div class="image-placeholder">
-            <img src="@/assets/Avatar_web_sin_fondo.jpg" alt="AvatarPrueba" />
+            <img src="@/assets/Avatar_web_sin_fondo.jpg" :alt="t('home.avatarAlt')" />
           </div>
           <div class="text-header">
-            <h1>Hi, I'm <span class="highlight">Ainhoa</span>✨</h1>
-            <p class="subtitle">Full Stack Developer</p>
+            <h1>
+              <i18n-t keypath="home.greeting" scope="global">
+                <template #name><span class="highlight">Ainhoa</span></template> </i18n-t
+              >✨
+            </h1>
+            <p class="subtitle">{{ t('home.role') }}</p>
             <div class="animation" @click="playAudioAndAnimate">
               <div class="loader" :class="{ playing: isPlaying }">
                 <svg width="100" height="100" viewBox="0 0 100 100">
@@ -30,11 +34,7 @@
           </div>
         </div>
 
-        <p class="description">
-          I enjoy turning ideas into efficient web solutions and creating intuitive digital
-          experiences, combining frontend and backend in a simple and effective way. I am passionate
-          about designing interfaces that are both visually appealing and user-friendly.
-        </p>
+        <p class="description">{{ t('home.description') }}</p>
 
         <div class="social-card">
           <!-- GitHub -->
@@ -105,6 +105,9 @@
 <script setup>
 import audioFile from '@/assets/audio.mp3'
 import { ref, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const isPlaying = ref(false)
 let audio = null

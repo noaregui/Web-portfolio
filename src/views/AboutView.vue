@@ -1,92 +1,44 @@
 <template>
   <section class="about">
     <div class="about-wrapper">
-      <!-- Texto rotatorio con efecto slide-up -->
+      <!-- Rotating text with slide-up effect -->
       <div class="about-text">
         <transition name="slide-up" mode="out-in">
-          <div class="about-section" :key="currentIndex">
-            <!-- Usamos v-if para mostrar solo el bloque activo -->
-            <div v-if="currentIndex === 0">
-              <h3 class="about-subtitle">
-                <span class="title-white">My</span>
-                <span class="title-purple"> Background</span>
-              </h3>
-              <p>
-                I’ve always been curious about technology, even though my career initially led me
-                into
-                <span class="highlight">psychology</span>. After completing my degree and a master’s
-                in social psychology, I worked for five years in the field. Over time, my interest
-                in <span class="highlight">programming</span> kept growing, so I made a meaningful
-                career shift and started studying software development.
-              </p>
-            </div>
-
-            <div v-else-if="currentIndex === 1">
-              <h3 class="about-subtitle">
-                <span class="title-white">My</span>
-                <span class="title-purple"> Approach</span>
-              </h3>
-              <p>
-                I enjoy combining <span class="highlight">frontend</span> and
-                <span class="highlight">backend</span> skills to create smooth experiences. I’m
-                comfortable working in agile, cross-functional teams, collaborating closely with
-                others, and seeing projects through from start to finish.
-              </p>
-            </div>
-
-            <div v-else-if="currentIndex === 2">
-              <h3 class="about-subtitle">
-                <span class="title-white">Outside</span>
-                <span class="title-purple"> Work</span>
-              </h3>
-              <p>
-                I enjoy learning <span class="highlight">new technologies</span> and exploring
-                innovative solutions. My background in psychology gives me a fresh perspective on
-                user experience, <span class="highlight">communication</span>, and how teams work
-                together.
-              </p>
-            </div>
-
-            <div v-else-if="currentIndex === 3">
-              <h3 class="about-subtitle">
-                <span class="title-white">What</span>
-                <span class="title-purple"> I Build</span>
-              </h3>
-              <p>
-                I enjoy building reliable, scalable applications across the full stack. On the
-                frontend, I work with <span class="highlight">JavaScript</span>,
-                <span class="highlight">TypeScript</span>, <span class="highlight">React</span>, and
-                <span class="highlight">Vue</span> to create clean interfaces and smooth user
-                experiences. On the backend, I focus on developing
-                <span class="highlight">custom-made REST APIs and webhooks</span>, workflow logic,
-                and
-                <span class="highlight">platform integrations</span>
-                using Node.js, Express, Flask, and MySQL. I have experience connecting systems,
-                automating processes, and designing data structures that support real business
-                needs.
-              </p>
-            </div>
+          <div class="about-section" :key="currentSection">
+            <h3 class="about-subtitle">
+              <span class="title-white">{{ t(`about.${currentSection}.titleStart`) }}</span>
+              <span class="title-purple">{{ ' ' + t(`about.${currentSection}.titleEnd`) }}</span>
+            </h3>
+            <p><HighlightedText :text="t(`about.${currentSection}.text`)" /></p>
           </div>
         </transition>
       </div>
 
       <!-- Imagen fija -->
       <div class="about-image">
-        <img src="@/assets/Avatar_programming_sin_fondo.jpg" alt="Ainhoa Avatar" />
+        <img src="@/assets/Avatar_programming_sin_fondo.jpg" :alt="t('about.avatarAlt')" />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import HighlightedText from '@/components/HighlightedText.vue'
+
+const { t } = useI18n()
+
+// Keys under `about` in src/locales/*.json, shown one after another
+const SECTIONS = ['background', 'approach', 'outside', 'build']
 
 const currentIndex = ref(0)
+const currentSection = computed(() => SECTIONS[currentIndex.value])
 let interval = null
 
 onMounted(() => {
   interval = setInterval(() => {
-    currentIndex.value = (currentIndex.value + 1) % 4
+    currentIndex.value = (currentIndex.value + 1) % SECTIONS.length
   }, 10000)
 })
 
@@ -137,8 +89,8 @@ onUnmounted(() => {
   color: var(--color-accent);
 }
 
-/* Palabras resaltadas */
-.highlight {
+/* Highlighted words (overrides HighlightedText's default style on this page) */
+.about-section p :deep(.highlight) {
   font-weight: 800;
   font-size: 1.2rem;
   color: var(--color-text-strong);
