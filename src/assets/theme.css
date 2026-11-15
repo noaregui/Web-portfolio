@@ -2,8 +2,8 @@
  * Design tokens. Every color in the app comes from here, so a theme is just a
  * different set of values for these variables.
  *
- * The site is dark-only for now; a light theme will override these under
- * [data-theme='light'].
+ * Dark is the default (:root). The light theme overrides the same variables
+ * under [data-theme='light'], which index.html / useTheme set on <html>.
  */
 
 :root {
@@ -20,6 +20,7 @@
   --color-card-gradient-end: #1e232e;
   --color-chip: #353141;
   --color-indicator: #555555;
+  --color-card-outline: transparent;
 
   /* Borders */
   --color-border: #2d3748;
@@ -67,4 +68,55 @@
   /* Typography */
   --font-display: 'Poppins', sans-serif;
   --font-body: 'Inter', sans-serif;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  /* Page and surfaces */
+  --color-bg: #f7f7fb;
+  --color-bg-gradient-start: #ffffff;
+  --color-bg-gradient-end: #f1f2f7;
+  --color-surface: #ffffff;
+  --color-surface-hover: #eef0f5;
+  --color-surface-raised: #24292f;
+  --color-card-gradient-start: #ffffff;
+  --color-card-gradient-end: #f1ecfb;
+  --color-chip: #ebe6f7;
+  --color-indicator: #c5c7d3;
+  --color-card-outline: rgba(15, 23, 42, 0.1);
+
+  /* Borders */
+  --color-border: #d5d8e0;
+  --color-border-subtle: rgba(15, 23, 42, 0.12);
+  --color-avatar-border: #e4e6ee;
+
+  /* Text */
+  --color-text-strong: #14161c;
+  --color-text: #2a2e37;
+  --color-text-soft: #3b404b;
+  --color-text-light: #4b5060;
+  --color-text-muted: #5b6170;
+  --color-text-subtle: #5f6573;
+  --color-text-faint: rgba(15, 23, 42, 0.6);
+
+  /* Brand accent: the darker soft tone keeps contrast on light backgrounds */
+  --color-accent-soft: #6b46c1;
+
+  /* Links, status */
+  --color-link: #3b5bdb;
+  --color-link-hover: #2541b2;
+  --color-success: #15803d;
+  --color-error: #dc2626;
+
+  /* Decorative */
+  --color-grid-dot: rgba(8, 126, 126, 0.18);
+  --color-grid-line-h: rgba(107, 70, 193, 0.07);
+  --color-grid-line-v: rgba(29, 78, 216, 0.07);
+
+  /* Shadows */
+  --shadow-navbar: 0 2px 8px rgba(15, 23, 42, 0.08);
+  --shadow-card: 0 8px 20px rgba(15, 23, 42, 0.08);
+  --shadow-card-hover: 0 12px 28px rgba(15, 23, 42, 0.14);
+  --shadow-project-card-hover: 0 10px 25px rgba(15, 23, 42, 0.18);
 }

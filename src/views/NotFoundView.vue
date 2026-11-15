@@ -88,6 +88,7 @@
 
 .btn-secondary {
   border: 1px solid var(--color-accent);
+  color: var(--color-text-strong);
 }
 
 .btn-secondary:hover {

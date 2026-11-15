@@ -5,6 +5,20 @@
     <link rel="icon" type="image/png" href="src/assets/Hi.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hi, I’m Ainhoa!</title>
+    <script>
+      // Apply the saved (or OS) theme before the app renders to avoid a flash.
+      // Kept in sync with src/composables/useTheme.js.
+      ;(function () {
+        var theme
+        try {
+          theme = localStorage.getItem('theme')
+        } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+        }
+        document.documentElement.dataset.theme = theme
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>
