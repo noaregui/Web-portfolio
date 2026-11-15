@@ -105,12 +105,12 @@ onBeforeUnmount(stopAutoplay)
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(107, 70, 193, 0.7);
+  background: color-mix(in srgb, var(--color-accent) 70%, transparent);
   border: none;
   width: 1.5rem;
   height: 1.5rem;
   font-size: 0.9rem;
-  color: white;
+  color: var(--color-on-accent);
   cursor: pointer;
   border-radius: 50%;
   display: flex;
@@ -121,7 +121,7 @@ onBeforeUnmount(stopAutoplay)
 }
 
 .carousel-btn:hover {
-  background: rgba(107, 70, 193, 0.9);
+  background: color-mix(in srgb, var(--color-accent) 90%, transparent);
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -146,14 +146,14 @@ onBeforeUnmount(stopAutoplay)
 .carousel-dots span {
   width: 12px;
   height: 12px;
-  background: #555;
+  background: var(--color-indicator);
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .carousel-dots span.active {
-  background: #6b46c1;
+  background: var(--color-accent);
   transform: scale(1.3);
 }
 

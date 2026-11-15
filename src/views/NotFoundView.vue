@@ -23,15 +23,15 @@
   gap: 1rem;
   padding: 4rem 1.5rem;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
-  background: #0c1016;
+  font-family: var(--font-display);
+  background: var(--color-bg);
 }
 
 .code {
   font-size: clamp(4rem, 15vw, 8rem);
   font-weight: 700;
   line-height: 1;
-  color: #6b46c1;
+  color: var(--color-accent);
 }
 
 .title {
@@ -41,16 +41,16 @@
 }
 
 .title-white {
-  color: #ffffff;
+  color: var(--color-text-strong);
 }
 
 .title-purple {
-  color: #6b46c1;
+  color: var(--color-accent);
 }
 
 .subtitle {
   max-width: 32rem;
-  color: #898888;
+  color: var(--color-text-subtle);
   font-size: 1.05rem;
   line-height: 1.6;
 }
@@ -67,7 +67,7 @@
   padding: 0.75rem 1.5rem;
   border-radius: 10px;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--color-on-accent);
   text-decoration: none;
   transition:
     background-color 0.3s ease,
@@ -79,18 +79,18 @@
 }
 
 .btn-primary {
-  background-color: #642fae;
+  background-color: var(--color-button);
 }
 
 .btn-primary:hover {
-  background-color: #7b5fd3;
+  background-color: var(--color-accent-hover);
 }
 
 .btn-secondary {
-  border: 1px solid #6b46c1;
+  border: 1px solid var(--color-accent);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(107, 70, 193, 0.2);
+  background-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
 }
 </style>

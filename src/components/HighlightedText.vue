@@ -23,11 +23,11 @@ const parts = computed(() =>
 
 <style scoped>
 .highlight {
-  color: #ffffff;
+  color: var(--color-text-strong);
   font-weight: 700;
   font-size: 1.2rem;
   text-decoration: underline;
-  text-decoration-color: #6b46c1;
+  text-decoration-color: var(--color-accent);
   text-decoration-thickness: 4px;
   text-underline-offset: 3px;
 }

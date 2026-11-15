@@ -123,7 +123,7 @@ onUnmounted(() => {
 }
 
 .about-subtitle {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: var(--font-display) !important;
   font-size: clamp(3rem, 5vw, 5rem);
   font-weight: 700;
   margin-bottom: 1rem;
@@ -131,19 +131,19 @@ onUnmounted(() => {
 }
 
 .title-white {
-  color: #ffffff;
+  color: var(--color-text-strong);
 }
 .title-purple {
-  color: #6b46c1;
+  color: var(--color-accent);
 }
 
 /* Palabras resaltadas */
 .highlight {
   font-weight: 800;
   font-size: 1.2rem;
-  color: #ffffff;
+  color: var(--color-text-strong);
   text-decoration: underline;
-  text-decoration-color: #6b46c1;
+  text-decoration-color: var(--color-accent);
   text-decoration-thickness: 3px;
   text-underline-offset: 3px;
 }
@@ -151,7 +151,7 @@ onUnmounted(() => {
 p {
   font-size: 1.1rem;
   line-height: 2;
-  color: #ffffff;
+  color: var(--color-text-strong);
 }
 
 /* Imagen */

@@ -32,14 +32,18 @@ import { RouterLink } from 'vue-router'
 
 <style scoped>
 .contact-card {
-  background: linear-gradient(135deg, #131924 0%, #1e232e 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-card-gradient-start) 0%,
+    var(--color-card-gradient-end) 100%
+  );
   padding: 3rem 2rem;
   border-radius: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 4rem auto;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-card);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -49,7 +53,7 @@ import { RouterLink } from 'vue-router'
 
 .contact-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .contact-info {
@@ -68,15 +72,15 @@ import { RouterLink } from 'vue-router'
 }
 
 .title-white {
-  color: #fff;
+  color: var(--color-text-strong);
 }
 
 .title-purple {
-  color: #a37feb;
+  color: var(--color-accent-soft);
 }
 
 .contact-subtitle {
-  color: #ccc;
+  color: var(--color-text-light);
   margin-bottom: 2rem;
   font-size: 1rem;
 }
@@ -92,11 +96,11 @@ import { RouterLink } from 'vue-router'
   text-transform: uppercase;
   border: none;
   border-radius: 12px;
-  background-color: #632abe;
+  background-color: var(--color-cta);
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  box-shadow: 0px 7px 0px #3f0fa5;
+  box-shadow: 0px 7px 0px var(--color-cta-shadow);
   transition: 31ms cubic-bezier(0.5, 0.7, 0.4, 1);
   text-decoration: none;
 }
@@ -110,7 +114,7 @@ import { RouterLink } from 'vue-router'
   justify-content: center;
   font-size: 15px;
   font-weight: bold;
-  color: white;
+  color: var(--color-on-accent);
   letter-spacing: 4px;
   opacity: 1;
 }
@@ -128,7 +132,7 @@ import { RouterLink } from 'vue-router'
 }
 
 .cta-btn i {
-  color: white;
+  color: var(--color-on-accent);
   font-size: 15px;
   font-weight: bold;
   letter-spacing: 4px;

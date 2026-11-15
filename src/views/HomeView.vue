@@ -21,8 +21,12 @@ import ContactCTA from '@/components/ContactCTA.vue'
   display: flex;
   justify-content: center;
   width: 100%;
-  background: radial-gradient(circle at top left, #0d1117, #0b0f14);
-  color: #8c8a8a;
+  background: radial-gradient(
+    circle at top left,
+    var(--color-bg-gradient-start),
+    var(--color-bg-gradient-end)
+  );
+  color: var(--color-text-subtle);
 }
 .container {
   width: 100%;

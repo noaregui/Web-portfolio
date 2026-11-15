@@ -62,29 +62,29 @@ const columns = Array.from({ length: COLUMN_COUNT }, (_, index) =>
 }
 
 .projects-title {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(2.5rem, 4vw, 3rem);
   letter-spacing: 0.5px;
-  color: #ffffff;
+  color: var(--color-text-strong);
   line-height: 1.2;
   margin: 0;
 }
 
 .title-line {
   display: block;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(2.5rem, 5vw, 4rem);
   letter-spacing: 0.5px;
-  color: #e0e0e0;
+  color: var(--color-text);
 }
 
 .projects-subtitle {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   line-height: 1.6;
-  color: #898888;
+  color: var(--color-text-subtle);
   width: 100%; /* ocupa todo el ancho del contenedor de hero */
   max-width: 100%; /* igual que el h1 */
   margin: 0;
@@ -107,7 +107,7 @@ const columns = Array.from({ length: COLUMN_COUNT }, (_, index) =>
   position: relative;
   border-radius: 12px;
   text-decoration: none;
-  color: white;
+  color: var(--color-on-accent);
   overflow: hidden;
   min-height: 300px;
   display: flex;
@@ -121,7 +121,7 @@ const columns = Array.from({ length: COLUMN_COUNT }, (_, index) =>
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-project-card-hover);
 }
 
 .project-card-bg {
