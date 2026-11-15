@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="footer px-6 py-4">
+  <footer class="footer">
     <!-- LEFT COLUMN -->
     <div class="footer-column">
       <!-- Row 1 -->
@@ -10,7 +10,7 @@
 
       <!-- Row 2 -->
       <div class="footer-row">
-        <p>Website built with Vue and Vuetify.</p>
+        <p>Website built with Vue and Vite.</p>
       </div>
 
       <!-- Row 3 -->
@@ -56,11 +56,16 @@
         </div>
       </div>
     </div>
-  </v-footer>
+  </footer>
 </template>
 
 <style scoped>
 .footer {
+  /* Layout previously provided by Vuetify's <v-footer> and px-6/py-4 utilities */
+  position: relative;
+  flex: 1 1 auto;
+  align-items: center;
+  padding: 16px 24px;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
