@@ -2,32 +2,32 @@
   <div class="slider-container">
     <div class="slider-track">
       <!-- Slides originales -->
-      <div class="slide"><img src="@/assets/javascript.jpg" alt="JS" /></div>
-      <div class="slide"><img src="@/assets/typescript.jpg" alt="TS" /></div>
-      <div class="slide"><img src="@/assets/python.jpg" alt="Python" /></div>
+      <div class="slide"><img src="@/assets/Javascript.jpg" alt="JS" /></div>
+      <div class="slide"><img src="@/assets/Typescript.jpg" alt="TS" /></div>
+      <div class="slide"><img src="@/assets/Python.jpg" alt="Python" /></div>
       <div class="slide"><img src="@/assets/Vue.jpg" alt="Vue" /></div>
-      <div class="slide"><img src="@/assets/react.jpg" alt="React" /></div>
-      <div class="slide"><img src="@/assets/css3.jpg" alt="CSS3" /></div>
+      <div class="slide"><img src="@/assets/React.jpg" alt="React" /></div>
+      <div class="slide"><img src="@/assets/CSS3.jpg" alt="CSS3" /></div>
       <div class="slide"><img src="@/assets/Node.jpg" alt="Node" /></div>
-      <div class="slide"><img src="@/assets/express.jpg" alt="Express" /></div>
-      <div class="slide"><img src="@/assets/flask.jpg" alt="Flask" /></div>
-      <div class="slide"><img src="@/assets/rest-api.jpg" alt="REST API" /></div>
-      <div class="slide"><img src="@/assets/mysql.jpg" alt="MySQL" /></div>
-      <div class="slide"><img src="@/assets/mongodb.jpg" alt="MongoDB" /></div>
+      <div class="slide"><img src="@/assets/Express.jpg" alt="Express" /></div>
+      <div class="slide"><img src="@/assets/Flask.jpg" alt="Flask" /></div>
+      <div class="slide"><img src="@/assets/REST-API.jpg" alt="REST API" /></div>
+      <div class="slide"><img src="@/assets/MySQL.jpg" alt="MySQL" /></div>
+      <div class="slide"><img src="@/assets/MongoDB.jpg" alt="MongoDB" /></div>
 
       <!-- Clon para loop infinito -->
-      <div class="slide"><img src="@/assets/javascript.jpg" alt="JS" /></div>
-      <div class="slide"><img src="@/assets/typescript.jpg" alt="TS" /></div>
-      <div class="slide"><img src="@/assets/python.jpg" alt="Python" /></div>
+      <div class="slide"><img src="@/assets/Javascript.jpg" alt="JS" /></div>
+      <div class="slide"><img src="@/assets/Typescript.jpg" alt="TS" /></div>
+      <div class="slide"><img src="@/assets/Python.jpg" alt="Python" /></div>
       <div class="slide"><img src="@/assets/Vue.jpg" alt="Vue" /></div>
-      <div class="slide"><img src="@/assets/react.jpg" alt="React" /></div>
-      <div class="slide"><img src="@/assets/css3.jpg" alt="CSS3" /></div>
+      <div class="slide"><img src="@/assets/React.jpg" alt="React" /></div>
+      <div class="slide"><img src="@/assets/CSS3.jpg" alt="CSS3" /></div>
       <div class="slide"><img src="@/assets/Node.jpg" alt="Node" /></div>
-      <div class="slide"><img src="@/assets/express.jpg" alt="Express" /></div>
-      <div class="slide"><img src="@/assets/flask.jpg" alt="Flask" /></div>
-      <div class="slide"><img src="@/assets/rest-api.jpg" alt="REST API" /></div>
-      <div class="slide"><img src="@/assets/mysql.jpg" alt="MySQL" /></div>
-      <div class="slide"><img src="@/assets/mongodb.jpg" alt="MongoDB" /></div>
+      <div class="slide"><img src="@/assets/Express.jpg" alt="Express" /></div>
+      <div class="slide"><img src="@/assets/Flask.jpg" alt="Flask" /></div>
+      <div class="slide"><img src="@/assets/REST-API.jpg" alt="REST API" /></div>
+      <div class="slide"><img src="@/assets/MySQL.jpg" alt="MySQL" /></div>
+      <div class="slide"><img src="@/assets/MongoDB.jpg" alt="MongoDB" /></div>
     </div>
   </div>
 </template>

@@ -81,7 +81,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-import landbot1 from '@/assets/landbot1.jpg'
+import landbot1 from '@/assets/Landbot1.jpg'
 import landbot2 from '@/assets/landbot2.jpg'
 import landbot3 from '@/assets/landbot3.jpg'
 import whatsapp1 from '@/assets/whatsapp1.jpg'
