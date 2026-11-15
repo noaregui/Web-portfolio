@@ -19,15 +19,16 @@
   },
   "home": {
     "greeting": "Kaixo, {name} naiz",
-    "role": "Full Stack garatzailea",
-    "description": "Ideiak web irtenbide eraginkor bihurtzea eta esperientzia digital intuitiboak sortzea gustatzen zait, frontenda eta backenda modu sinple eta eraginkorrean uztartuz. Ikusgarriak eta erabilerrazak diren interfazeak diseinatzea dut grina.",
-    "avatarAlt": "Ainhoaren avatar marraztua",
-    "playIntro": "Entzun audio-aurkezpena"
-  },
-  "skills": {
-    "titleLine1": "ESPERIENTZIA DIGITALAK",
-    "titleLine2": "ERAIKITZEN",
-    "text": "Esperientzia digitalak sortzen ditut frontenda eta backenda uztartuz. Web aplikazio osoak, eskalagarriak eta mantentzeko errazak eraikitzen ditut, datu-baseak, APIak eta automatizazioak integratuz. Ikusi zer egin dezakedan!"
+    "headline": "AA bidezko produktuak garatzen ditut, hasieratik amaierara.",
+    "lead": "Full Stack garatzailea, AA aplikatuan espezializatua: RAG sistemak, tresnadun agenteak, denbora errealeko ahotsa eta produkziorako prestatutako hodei-arkitekturak.",
+    "ctaProjects": "Ikusi proiektuak",
+    "ctaContact": "Jarri harremanetan",
+    "whatIDo": "Zer egiten dudan",
+    "moreAbout": "Niri buruz gehiago",
+    "featured": "Proiektu nabarmenak",
+    "seeAll": "Ikusi proiektu guztiak",
+    "stack": "Erabiltzen ditudan teknologiak",
+    "avatarAlt": "Ainhoaren avatar marraztua"
   },
   "cta": {
     "titleStart": "LAN EGIN DEZAGUN",

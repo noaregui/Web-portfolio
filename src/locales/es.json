@@ -19,15 +19,16 @@
   },
   "home": {
     "greeting": "Hola, soy {name}",
-    "role": "Full Stack Developer",
-    "description": "Disfruto convirtiendo ideas en soluciones web eficientes y creando experiencias digitales intuitivas, combinando frontend y backend de forma sencilla y eficaz. Me apasiona diseñar interfaces atractivas y fáciles de usar.",
-    "avatarAlt": "Avatar ilustrado de Ainhoa",
-    "playIntro": "Reproducir presentación en audio"
-  },
-  "skills": {
-    "titleLine1": "CONSTRUYENDO",
-    "titleLine2": "EXPERIENCIAS DIGITALES",
-    "text": "Creo experiencias digitales combinando frontend y backend. Desarrollo aplicaciones web completas, escalables y fáciles de mantener, integrando bases de datos, APIs y automatizaciones. ¡Echa un vistazo a lo que puedo hacer!"
+    "headline": "Desarrollo productos con IA, de principio a fin.",
+    "lead": "Full Stack Developer especializada en IA aplicada: sistemas RAG, agentes con herramientas, voz en tiempo real y arquitecturas cloud preparadas para producción.",
+    "ctaProjects": "Ver proyectos",
+    "ctaContact": "Contactar",
+    "whatIDo": "Qué hago",
+    "moreAbout": "Más sobre mí",
+    "featured": "Proyectos destacados",
+    "seeAll": "Ver todos los proyectos",
+    "stack": "Tecnologías con las que trabajo",
+    "avatarAlt": "Avatar ilustrado de Ainhoa"
   },
   "cta": {
     "titleStart": "TRABAJEMOS",
