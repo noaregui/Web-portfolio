@@ -19,15 +19,16 @@
   },
   "home": {
     "greeting": "Hi, I'm {name}",
-    "role": "Full Stack Developer",
-    "description": "I enjoy turning ideas into efficient web solutions and creating intuitive digital experiences, combining frontend and backend in a simple and effective way. I am passionate about designing interfaces that are both visually appealing and user-friendly.",
-    "avatarAlt": "Illustrated avatar of Ainhoa",
-    "playIntro": "Play audio introduction"
-  },
-  "skills": {
-    "titleLine1": "BUILDING",
-    "titleLine2": "DIGITAL EXPERIENCES",
-    "text": "I create digital experiences by combining frontend and backend. I build full-featured, scalable, and easy-to-maintain web applications, integrating databases, APIs, and automations. Check out what I can do!"
+    "headline": "I build AI-powered products, end to end.",
+    "lead": "Full Stack Developer specialised in applied AI: RAG systems, agents with tools, real-time voice and cloud architectures ready for production.",
+    "ctaProjects": "See projects",
+    "ctaContact": "Get in touch",
+    "whatIDo": "What I do",
+    "moreAbout": "More about me",
+    "featured": "Featured projects",
+    "seeAll": "See all projects",
+    "stack": "Technologies I work with",
+    "avatarAlt": "Illustrated avatar of Ainhoa"
   },
   "cta": {
     "titleStart": "LET'S WORK",
