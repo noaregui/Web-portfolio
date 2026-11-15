@@ -2,6 +2,7 @@
   <header class="navbar">
     <div class="navbar-content">
       <button class="menu-toggle" @click="isMenuOpen = !isMenuOpen">☰</button>
+      <ThemeToggle />
     </div>
 
     <nav class="menu" :class="{ open: isMenuOpen }">
@@ -15,6 +16,8 @@
 
 <script setup>
 import { ref } from 'vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
+
 const isMenuOpen = ref(false)
 </script>
 
@@ -33,7 +36,7 @@ const isMenuOpen = ref(false)
 
 .navbar-content {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
   height: var(--navbar-height);
@@ -102,6 +105,8 @@ const isMenuOpen = ref(false)
   .navbar {
     flex-direction: row;
     align-items: center;
+    /* Same left offset the links had before the toggle moved to the right */
+    padding-left: 2rem;
   }
 
   .menu {
@@ -119,6 +124,12 @@ const isMenuOpen = ref(false)
 
   .menu-toggle {
     display: none;
+  }
+
+  /* Desktop: links on the left, theme toggle on the right */
+  .navbar-content {
+    order: 2;
+    margin-left: auto;
   }
 }
 </style>
