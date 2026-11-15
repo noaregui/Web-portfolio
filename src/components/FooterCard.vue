@@ -36,14 +36,19 @@
       <!-- Row 3 -->
       <div class="footer-row">
         <div class="social-links">
-          <a href="https://github.com/noaregui" target="_blank" rel="noopener" class="footer-link">
+          <a
+            href="https://github.com/noaregui"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+          >
             GitHub
           </a>
           ·
           <a
             href="https://www.linkedin.com/in/ainhoa-leon-arrieta/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="footer-link"
           >
             LinkedIn

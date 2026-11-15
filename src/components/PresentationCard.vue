@@ -42,6 +42,7 @@
             class="socialContainer containerOne"
             href="https://github.com/noaregui"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="GitHub"
           >
             <svg viewBox="0 0 24 24" class="socialSvg">
@@ -55,6 +56,7 @@
             class="socialContainer containerTwo"
             href="https://www.linkedin.com/in/ainhoa-leon-arrieta/"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
             <svg viewBox="0 0 448 512" class="socialSvg">
@@ -68,6 +70,7 @@
             class="socialContainer containerThree"
             href="https://discord.com/users/1171855914656088157"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="Discord"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="socialSvg">
@@ -82,6 +85,7 @@
             class="socialContainer containerFour"
             href="https://mail.google.com/mail/?view=cm&fs=1&to=noareguileon@gmail.com"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="Gmail"
             style="position: relative; z-index: 10"
           >
