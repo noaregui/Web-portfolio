@@ -1,17 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
-import ProjectsView from '@/views/ProjectsView.vue'
-import ContactView from '@/views/ContactView.vue'
-import VapiView from '@/views/VapiView.vue'
-import MetaView from '@/views/MetaView.vue'
-import ChatGPTView from '@/views/ChatGPTView.vue'
-import BotpressView from '@/views/BotpressView.vue'
-import NativeAppBackView from '@/views/NativeAppBackView.vue'
-import NativeAppFrontView from '@/views/NativeAppFrontView.vue'
+import HomeView from '@/views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) return savedPosition
+    if (to.hash) return { el: to.hash, behavior: 'smooth' }
+    return { top: 0 }
+  },
   routes: [
     {
       path: '/',
@@ -21,47 +17,52 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      component: AboutView,
+      component: () => import('@/views/AboutView.vue'),
     },
     {
       path: '/projects',
       name: 'projects',
-      component: ProjectsView,
+      component: () => import('@/views/ProjectsView.vue'),
     },
     {
       path: '/contact',
       name: 'contact',
-      component: ContactView,
+      component: () => import('@/views/ContactView.vue'),
     },
     {
       path: '/vapi',
       name: 'vapi',
-      component: VapiView,
+      component: () => import('@/views/VapiView.vue'),
     },
     {
       path: '/meta',
       name: 'meta',
-      component: MetaView,
+      component: () => import('@/views/MetaView.vue'),
     },
     {
       path: '/chatgpt',
       name: 'chatgpt',
-      component: ChatGPTView,
+      component: () => import('@/views/ChatGPTView.vue'),
     },
     {
       path: '/botpress',
       name: 'botpress',
-      component: BotpressView,
+      component: () => import('@/views/BotpressView.vue'),
     },
     {
       path: '/nativeappback',
       name: 'nativeappback',
-      component: NativeAppBackView,
+      component: () => import('@/views/NativeAppBackView.vue'),
     },
     {
       path: '/nativeappfront',
       name: 'nativeappfront',
-      component: NativeAppFrontView,
+      component: () => import('@/views/NativeAppFrontView.vue'),
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('@/views/NotFoundView.vue'),
     },
   ],
 })

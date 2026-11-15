@@ -10,7 +10,7 @@
             <h1>Hi, I'm <span class="highlight">Ainhoa</span>✨</h1>
             <p class="subtitle">Full Stack Developer</p>
             <div class="animation" @click="playAudioAndAnimate">
-              <div class="loader" ref="loaderRef">
+              <div class="loader" :class="{ playing: isPlaying }">
                 <svg width="100" height="100" viewBox="0 0 100 100">
                   <defs>
                     <mask id="clipping">
@@ -42,6 +42,7 @@
             class="socialContainer containerOne"
             href="https://github.com/noaregui"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="GitHub"
           >
             <svg viewBox="0 0 24 24" class="socialSvg">
@@ -55,6 +56,7 @@
             class="socialContainer containerTwo"
             href="https://www.linkedin.com/in/ainhoa-leon-arrieta/"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
             <svg viewBox="0 0 448 512" class="socialSvg">
@@ -68,6 +70,7 @@
             class="socialContainer containerThree"
             href="https://discord.com/users/1171855914656088157"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="Discord"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="socialSvg">
@@ -82,6 +85,7 @@
             class="socialContainer containerFour"
             href="https://mail.google.com/mail/?view=cm&fs=1&to=noareguileon@gmail.com"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="Gmail"
             style="position: relative; z-index: 10"
           >
@@ -100,29 +104,47 @@
 
 <script setup>
 import audioFile from '@/assets/audio.mp3'
-import { ref } from 'vue'
+import { ref, onBeforeUnmount } from 'vue'
 
-const loaderRef = ref(null)
 const isPlaying = ref(false)
-const audio = new Audio(audioFile)
+let audio = null
 
-const playAudioAndAnimate = () => {
+const stopPlaying = () => {
+  isPlaying.value = false
+}
+
+// The Audio element is created on first click so the file isn't downloaded on page load.
+const getAudio = () => {
+  if (!audio) {
+    audio = new Audio(audioFile)
+    audio.addEventListener('ended', stopPlaying)
+    audio.addEventListener('error', stopPlaying)
+  }
+  return audio
+}
+
+const playAudioAndAnimate = async () => {
   if (isPlaying.value) return
 
+  const player = getAudio()
   isPlaying.value = true
-  audio.play()
-
-  if (loaderRef.value) {
-    loaderRef.value.classList.add('playing')
-  }
-
-  audio.onended = () => {
-    isPlaying.value = false
-    if (loaderRef.value) {
-      loaderRef.value.classList.remove('playing')
-    }
+  try {
+    player.currentTime = 0
+    await player.play()
+  } catch (err) {
+    // play() rejects if the browser blocks autoplay or the file can't be decoded.
+    console.warn('Could not play intro audio:', err)
+    stopPlaying()
   }
 }
+
+onBeforeUnmount(() => {
+  if (!audio) return
+  audio.pause()
+  audio.removeEventListener('ended', stopPlaying)
+  audio.removeEventListener('error', stopPlaying)
+  audio = null
+})
 </script>
 
 <style scoped>
