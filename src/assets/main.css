@@ -1,49 +1,35 @@
-/* ✅ Importar fuente de Google Fonts */
+/* Global base styles. Load order (see main.js): reset.css → theme.css → main.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* ✅ Estilos base del proyecto */
-@import './base.css';
-
-/* Fuente global */
+html,
 body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
+  background: var(--color-bg);
 }
 
-/* App container */
-#app {
-  width: 100%; /* full width */
-  padding: 1rem; /* opcional, evita que toque los bordes */
+body {
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+}
+
+/*
+ * Every element starts at normal weight and components set bold explicitly.
+ * Note this also applies to <span>s inside bold headings (e.g. "My Background",
+ * the name in the hero), which is part of the current look.
+ */
+*,
+*::before,
+*::after {
   font-weight: normal;
 }
 
-/* Enlaces */
-a,
-.green {
+a {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-/* Hover */
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-/* Layout general para escritorio */
-@media (min-width: 1024px) {
-  body {
-    display: block; /* ya no centramos la página */
-    place-items: unset;
-  }
-
-  #app {
-    display: flex;
-    flex-direction: column; /* full width en todo momento */
-    padding: 1rem; /* mantener un pequeño padding lateral */
-  }
+  color: inherit;
 }

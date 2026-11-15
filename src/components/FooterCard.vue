@@ -70,9 +70,9 @@
   justify-content: space-between;
   gap: 1rem;
   margin-top: 4rem;
-  background-color: #0c1015;
-  color: rgba(255, 255, 255, 0.4);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--color-bg);
+  color: var(--color-text-faint);
+  border-top: 1px solid var(--color-border-subtle);
 }
 
 /* Columns */
@@ -105,7 +105,8 @@
 /* Links – clean & elegant */
 .footer-link {
   display: inline;
-  color: #9bbcff;
+  padding: 3px;
+  color: var(--color-link);
   text-decoration: none;
   font-size: 0.9rem;
   background: none;
@@ -119,7 +120,7 @@
 
 .footer-link:hover,
 .footer-link:focus-visible {
-  color: #c3d7ff;
+  color: var(--color-link-hover);
   opacity: 0.9;
   transform: translateY(-1px);
 }

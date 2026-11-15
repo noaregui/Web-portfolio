@@ -165,11 +165,11 @@ onBeforeUnmount(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #0c1015;
+  background-color: var(--color-bg);
   background-image:
-    radial-gradient(circle at 50% 50%, rgba(8, 126, 126, 0.3) 1px, transparent 0),
-    linear-gradient(rgba(138, 43, 226, 0.15) 1px, transparent 0),
-    linear-gradient(90deg, rgba(29, 78, 216, 0.15) 1px, transparent 0);
+    radial-gradient(circle at 50% 50%, var(--color-grid-dot) 1px, transparent 0),
+    linear-gradient(var(--color-grid-line-h) 1px, transparent 0),
+    linear-gradient(90deg, var(--color-grid-line-v) 1px, transparent 0);
   background-size:
     40px 40px,
     20px 20px,
@@ -199,7 +199,7 @@ onBeforeUnmount(() => {
   height: 300px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #0e1217;
+  border: 3px solid var(--color-avatar-border);
 }
 
 .image-placeholder img {
@@ -212,14 +212,18 @@ onBeforeUnmount(() => {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: var(--color-text-strong);
   text-align: center;
   line-height: 1.2;
 }
 
 .highlight {
-  background: linear-gradient(90deg, #3b82f6, #60a5fa);
-  background-color: #4d3ee6;
+  background: linear-gradient(
+    90deg,
+    var(--color-name-gradient-start),
+    var(--color-name-gradient-end)
+  );
+  background-color: var(--color-name-fallback);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -229,14 +233,14 @@ onBeforeUnmount(() => {
   font-size: clamp(1.25rem, 3vw, 2rem);
   font-weight: 500;
   text-align: center;
-  color: #9ca3af;
+  color: var(--color-text-muted);
   margin-bottom: 1rem;
 }
 
 .description {
   font-size: 1.25rem;
   line-height: 1.6;
-  color: #d1d5db;
+  color: var(--color-text-soft);
   text-align: center;
 }
 
@@ -251,8 +255,9 @@ onBeforeUnmount(() => {
 .socialContainer {
   width: 40px;
   height: 40px;
+  padding: 3px;
   border-radius: 50%;
-  background-color: #1c1c1c;
+  background-color: var(--color-surface-raised);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -277,7 +282,7 @@ onBeforeUnmount(() => {
   height: 60%;
 }
 .socialSvg path {
-  fill: #fff;
+  fill: var(--color-on-accent);
 }
 
 .socialContainer:hover .socialSvg {
