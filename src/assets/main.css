@@ -8,6 +8,9 @@ body {
 }
 
 body {
+  /* Theme glows (none in dark) fixed behind the page while it scrolls */
+  background: var(--page-backdrop), var(--color-bg);
+  background-attachment: fixed;
   min-height: 100vh;
   font-family: var(--font-body);
   font-size: 15px;

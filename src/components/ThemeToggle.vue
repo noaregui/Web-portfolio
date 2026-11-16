@@ -57,7 +57,7 @@ const isDark = computed(() => theme.value === 'dark')
   position: absolute;
   inset: 0;
   cursor: pointer;
-  background-color: #f4f4f5;
+  background-color: var(--color-toggle-track);
   border-radius: 30px;
   box-shadow: inset 0 0 0 1px var(--color-border);
   transition: 0.4s;
