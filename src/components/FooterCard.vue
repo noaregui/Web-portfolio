@@ -1,58 +1,8 @@
 <template>
   <footer class="footer">
-    <!-- LEFT COLUMN -->
-    <div class="footer-column">
-      <!-- Row 1 -->
-      <div class="footer-row">
-        <strong>Ainhoa León</strong>
-        <span class="role">{{ t('footer.role') }}</span>
-      </div>
-
-      <!-- Row 2 -->
-      <div class="footer-row">
-        <p>{{ t('footer.builtWith') }}</p>
-      </div>
-
-      <!-- Row 3 -->
-      <div class="footer-row">
-        <span class="copyright">{{ t('footer.rights', { year }) }}</span>
-      </div>
-    </div>
-
-    <!-- RIGHT COLUMN -->
-    <div class="footer-column footer-column-right">
-      <!-- Row 1 -->
-      <div class="footer-row">
-        <p>{{ t('footer.location') }}</p>
-      </div>
-
-      <!-- Row 2 -->
-      <div class="footer-row">
-        <a href="mailto:noareguileon@gmail.com" class="footer-link"> noareguileon@gmail.com </a>
-      </div>
-
-      <!-- Row 3 -->
-      <div class="footer-row">
-        <div class="social-links">
-          <a
-            href="https://github.com/noaregui"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-link"
-          >
-            GitHub
-          </a>
-          ·
-          <a
-            href="https://www.linkedin.com/in/ainhoa-leon-arrieta/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-link"
-          >
-            LinkedIn
-          </a>
-        </div>
-      </div>
+    <div class="footer-inner">
+      <span>{{ t('footer.rights', { year }) }}</span>
+      <span>{{ t('footer.builtWith') }}</span>
     </div>
   </footer>
 </template>
@@ -65,98 +15,58 @@ const year = new Date().getFullYear()
 </script>
 
 <style scoped>
+/*
+ * No background of its own: the footer sits on the page background (and the
+ * light theme's glows), like the rest of the content.
+ */
 .footer {
-  /* Layout previously provided by Vuetify's <v-footer> and px-6/py-4 utilities */
+  margin-top: auto;
+  padding-top: 5rem;
+}
+
+/* Same width and side padding as the page content (.home, etc.) */
+.footer-inner {
   position: relative;
-  flex: 1 1 auto;
-  align-items: center;
-  padding: 16px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1rem;
-  margin-top: 4rem;
-  background-color: var(--color-bg);
-  color: var(--color-text-faint);
-  border-top: 1px solid var(--color-border-subtle);
-}
-
-/* Columns */
-.footer-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-column-right {
-  text-align: right;
-}
-
-/* Rows = aligned horizontal bands */
-.footer-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  margin-bottom: 0.9rem;
-}
-
-.footer-row:last-child {
-  margin-bottom: 0;
-}
-
-.role {
-  font-size: 0.85rem;
-}
-
-/* Links – clean & elegant */
-.footer-link {
-  display: inline;
-  padding: 3px;
-  color: var(--color-link);
-  text-decoration: none;
-  font-size: 0.9rem;
-  background: none;
-  outline: none;
-  transition:
-    color 0.2s ease,
-    opacity 0.2s ease,
-    transform 0.15s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.footer-link:hover,
-.footer-link:focus-visible {
-  color: var(--color-link-hover);
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-.footer-link:active {
-  opacity: 0.7;
-  transform: translateY(0);
-}
-
-.social-links {
-  font-size: 0.9rem;
-}
-
-.footer-column-right p {
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-.copyright {
+  gap: 0.5rem 1.5rem;
   font-size: 0.8rem;
+  color: var(--color-text-faint);
+}
+
+/* Divider that fades out at both ends, aligned with the content */
+.footer-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0 2rem auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
 }
 
 /* Mobile */
-@media (max-width: 600px) {
-  .footer {
+@media (max-width: 900px) {
+  .footer-inner {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
+}
 
-  .footer-column-right {
-    text-align: center;
+@media (max-width: 600px) {
+  .footer {
+    padding-top: 3.5rem;
+  }
+
+  .footer-inner {
+    padding: 1.25rem 0 0;
+  }
+
+  .footer-inner::before {
+    inset: 0 0 auto;
   }
 }
 </style>
