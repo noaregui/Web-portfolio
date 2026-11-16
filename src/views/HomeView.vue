@@ -70,7 +70,7 @@
     <!-- Stack -->
     <section class="block">
       <h2 class="block-title">{{ t('home.stack') }}</h2>
-      <ToolsCard />
+      <TechStack />
     </section>
 
     <ContactCTA />
@@ -84,17 +84,14 @@ import ContactCTA from '@/components/ContactCTA.vue'
 import ProjectCard from '@/components/ProjectCard.vue'
 import ProjectIcon from '@/components/ProjectIcon.vue'
 import SocialLinks from '@/components/SocialLinks.vue'
-import ToolsCard from '@/components/ToolsCard.vue'
+import TechStack from '@/components/TechStack.vue'
 import { localizeProject, projects } from '@/data/projects'
+import { skills } from '@/data/skills'
 
 const { t, locale } = useI18n()
 
 // Texts come from `about.skills` in the locale files (shared with the About page)
-const SERVICES = [
-  { id: 'ai', icon: 'sparkles', accent: '#8b5cf6' },
-  { id: 'backend', icon: 'server', accent: '#06b6d4' },
-  { id: 'frontend', icon: 'layout', accent: '#ec4899' },
-]
+const SERVICES = skills.filter((group) => group.id !== 'cloud')
 
 const featured = computed(() =>
   projects
