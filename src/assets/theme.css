@@ -36,6 +36,16 @@
   --card-accent-outline: 0%;
   --title-bar: var(--color-accent);
 
+  /*
+   * Decorated feature cards (Contact): dot grid + glows. Strengths are % of
+   * --deco-color mixed into transparent.
+   */
+  --deco-color: var(--color-accent);
+  --deco-dots: 22%;
+  --deco-glow: 28%;
+  --deco-glow-2: 12%;
+  --deco-outline: 30%;
+
   /* Borders */
   --color-border: #2d3748;
   --color-border-subtle: rgba(255, 255, 255, 0.2);
@@ -111,6 +121,13 @@
   --card-tint: 10%;
   --card-accent-outline: 28%;
   --title-bar: linear-gradient(90deg, #4f46e5, #0ea5e9);
+
+  /* Decorated cards: like dark but without the dot grid, softer indigo/sky glows */
+  --deco-color: #4f46e5;
+  --deco-dots: 0%;
+  --deco-glow: 16%;
+  --deco-glow-2: 14%;
+  --deco-outline: 16%;
 
   /* Borders */
   --color-border: #c9d0dd;
