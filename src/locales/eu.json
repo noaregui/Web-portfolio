@@ -31,8 +31,7 @@
     "avatarAlt": "Ainhoaren avatar marraztua"
   },
   "cta": {
-    "titleStart": "LAN EGIN DEZAGUN",
-    "titleEnd": "ELKARREKIN",
+    "title": "Proiekturen bat buruan duzu?",
     "subtitle": "Ideia edo proiektu bat baduzu, edo agurtu besterik ez baduzu nahi, hitz egin dezagun.",
     "button": "Idatzi iezadazu"
   },
