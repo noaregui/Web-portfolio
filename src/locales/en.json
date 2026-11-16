@@ -120,9 +120,9 @@
     "projects": "See projects"
   },
   "footer": {
-    "role": "Frontend Developer · Vue / React",
+    "role": "Full Stack & AI Engineer",
     "builtWith": "Website built with Vue and Vite.",
     "rights": "© {year} Ainhoa León. All rights reserved.",
-    "location": "Based in Barcelona"
+    "location": "Barcelona"
   }
 }

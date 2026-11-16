@@ -78,11 +78,11 @@ export default {
       card: {
         name: 'Informes médicos con IA',
         summary:
-          'Convierte el dictado por voz en informes médicos estructurados, con un asistente que cita sus fuentes.',
+          'Convierte el dictado por voz en informes médicos estructurados, apoyados por un asistente con citas verificadas.',
         highlights: [
           'Dictado en tiempo real con varios interlocutores',
           'Informes estructurados con citas verificables',
-          'Asistente para editar y consultar el informe',
+          'Asistente conversacional para edición y consulta',
         ],
       },
       flow: [

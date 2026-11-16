@@ -20,7 +20,7 @@
   "home": {
     "greeting": "Hola, soy {name}",
     "headline": "Desarrollo productos con IA, de principio a fin.",
-    "lead": "Full Stack Developer especializada en IA aplicada: sistemas RAG, agentes con herramientas, voz en tiempo real y arquitecturas cloud preparadas para producción.",
+    "lead": "Full Stack Developer especializada en el desarrollo de productos con IA y automatización de sistemas: RAG, agentes con herramientas, voz en tiempo real y arquitecturas cloud native preparadas para producción.",
     "ctaProjects": "Ver proyectos",
     "ctaContact": "Contactar",
     "whatIDo": "Qué hago",
@@ -32,7 +32,7 @@
   },
   "cta": {
     "title": "¿Tienes un proyecto en mente?",
-    "subtitle": "Si tienes una idea, un proyecto o simplemente quieres saludar, hablemos.",
+    "subtitle": "Si tienes una idea, un proyecto o simplemente te apetece saludar, escríbeme.",
     "button": "Contáctame"
   },
   "contact": {
@@ -62,7 +62,7 @@
     "skills": {
       "ai": {
         "title": "IA aplicada",
-        "text": "RAG sobre bases de conocimiento, agentes con herramientas y skills, y mecanismos para controlar y evaluar lo que generan los modelos."
+        "text": "RAG sobre bases de conocimiento, agentes con herramientas y evaluación de modelos (LLM-as-a-judge)."
       },
       "backend": {
         "title": "Backend",
@@ -120,9 +120,9 @@
     "projects": "Ver proyectos"
   },
   "footer": {
-    "role": "Frontend Developer · Vue / React",
+    "role": "Full Stack & AI Engineer",
     "builtWith": "Web hecha con Vue y Vite.",
     "rights": "© {year} Ainhoa León. Todos los derechos reservados.",
-    "location": "Vivo en Barcelona"
+    "location": "Barcelona"
   }
 }
