@@ -52,10 +52,9 @@
   },
   "about": {
     "avatarAlt": "Avatar de Ainhoa programando con un portátil",
-    "greeting": "Hola, soy {name}",
+    "title": "Full Stack Developer especializada en **IA** aplicada",
     "intro": [
-      "Soy Full Stack Developer especializada en **IA aplicada**.",
-      "Desarrollo plataformas con IA para sectores muy diversos, como la sanidad o la contratación pública, entre otros. Trabajo con **sistemas RAG** sobre bases de conocimiento, **agentes con herramientas y skills**, salidas estructuradas y mecanismos para **controlar y evaluar** lo que genera la IA, sobre arquitecturas cloud preparadas para producción. Me ocupo de todo el recorrido, desde el backend hasta la interfaz."
+      "Desarrollo plataformas con IA para diversos sectores. Trabajo con **sistemas RAG** sobre bases de conocimiento, **agentes con herramientas y skills**, salidas estructuradas y mecanismos para **controlar y evaluar** lo que genera la IA, sobre arquitecturas cloud preparadas para producción."
     ],
     "downloadCv": "Descargar CV",
     "skillsTitle": "Con qué trabajo",
