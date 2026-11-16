@@ -275,7 +275,7 @@ const featured = computed(() =>
   height: 4px;
   margin-top: 0.5rem;
   border-radius: 2px;
-  background-color: var(--color-accent);
+  background: var(--title-bar);
 }
 
 .block-link {
@@ -305,13 +305,15 @@ const featured = computed(() =>
   gap: 0.6rem;
   padding: 1.6rem;
   border-radius: 18px;
+  /* --card-tint / --card-accent-outline are 0% in dark, so this is a no-op there */
   background: linear-gradient(
     145deg,
-    var(--color-card-gradient-start),
+    color-mix(in srgb, var(--accent) var(--card-tint), var(--color-card-gradient-start)),
     var(--color-card-gradient-end)
   );
   box-shadow: var(--shadow-card);
-  outline: 1px solid var(--color-card-outline);
+  outline: 1px solid
+    color-mix(in srgb, var(--accent) var(--card-accent-outline), var(--color-card-outline));
   outline-offset: -1px;
 }
 

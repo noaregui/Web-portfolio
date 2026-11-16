@@ -213,7 +213,7 @@ const jobs = computed(() =>
   height: 4px;
   margin-top: 0.5rem;
   border-radius: 2px;
-  background-color: var(--color-accent);
+  background: var(--title-bar);
 }
 
 /* ===== Skills ===== */

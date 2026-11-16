@@ -21,6 +21,20 @@
   --color-chip: #353141;
   --color-indicator: #555555;
   --color-card-outline: transparent;
+  --color-toggle-track: #f4f4f5;
+
+  /*
+   * Theme "mood". The dark theme stands out on its own, so these are off here;
+   * the light theme turns them on to avoid a flat, washed-out page.
+   * - page-backdrop: colored glows painted behind the whole page
+   * - card-tint / card-accent-outline: how much of each card's --accent color
+   *   (service, project) bleeds into its background and outline
+   * - title-bar: the small bar under section titles
+   */
+  --page-backdrop: none;
+  --card-tint: 0%;
+  --card-accent-outline: 0%;
+  --title-bar: var(--color-accent);
 
   /* Borders */
   --color-border: #2d3748;
@@ -71,50 +85,64 @@
 [data-theme='light'] {
   color-scheme: light;
 
-  /* Page and surfaces */
-  --color-bg: #f7f7fb;
-  --color-bg-gradient-start: #ffffff;
-  --color-bg-gradient-end: #f1f2f7;
-  --color-surface: #ffffff;
-  --color-surface-hover: #eef0f5;
+  /*
+   * Page and surfaces: a cool blue-grey "paper" instead of pure white. Surfaces
+   * sit a step above the page but never reach #fff.
+   */
+  --color-bg: #e8ebf2;
+  --color-bg-gradient-start: #edf0f6;
+  --color-bg-gradient-end: #e2e6ef;
+  --color-surface: #f0f3f8;
+  --color-surface-hover: #dce2ed;
   --color-surface-raised: #24292f;
-  --color-card-gradient-start: #ffffff;
-  --color-card-gradient-end: #f1ecfb;
-  --color-chip: #ebe6f7;
-  --color-indicator: #c5c7d3;
-  --color-card-outline: rgba(15, 23, 42, 0.1);
+  --color-card-gradient-start: #f5f7fb;
+  --color-card-gradient-end: #e5eaf5;
+  --color-chip: #d9e0ef;
+  --color-indicator: #b1b9c9;
+  --color-card-outline: rgba(30, 41, 82, 0.1);
+  --color-toggle-track: #d8deea;
+
+  /* Mood: blue/indigo glows behind the page and accent-tinted cards */
+  --page-backdrop:
+    radial-gradient(55rem 38rem at 0% 0%, rgba(79, 70, 229, 0.16), transparent 65%),
+    radial-gradient(45rem 35rem at 100% 15%, rgba(14, 165, 233, 0.14), transparent 65%),
+    radial-gradient(55rem 45rem at 85% 100%, rgba(59, 130, 246, 0.13), transparent 65%),
+    radial-gradient(40rem 30rem at 10% 90%, rgba(6, 182, 212, 0.08), transparent 65%);
+  --card-tint: 10%;
+  --card-accent-outline: 28%;
+  --title-bar: linear-gradient(90deg, #4f46e5, #0ea5e9);
 
   /* Borders */
-  --color-border: #d5d8e0;
-  --color-border-subtle: rgba(15, 23, 42, 0.12);
-  --color-avatar-border: #e4e6ee;
+  --color-border: #c9d0dd;
+  --color-border-subtle: rgba(30, 41, 82, 0.14);
+  --color-avatar-border: #d8deea;
 
-  /* Text */
-  --color-text-strong: #14161c;
-  --color-text: #2a2e37;
-  --color-text-soft: #3b404b;
-  --color-text-light: #4b5060;
-  --color-text-muted: #5b6170;
-  --color-text-subtle: #5f6573;
-  --color-text-faint: rgba(15, 23, 42, 0.6);
+  /* Text: slate greys with a cool tint to match the surfaces */
+  --color-text-strong: #0f172a;
+  --color-text: #1e293b;
+  --color-text-soft: #2f3b4e;
+  --color-text-light: #3c485b;
+  --color-text-muted: #475569;
+  --color-text-subtle: #4b5567;
+  --color-text-faint: rgba(15, 23, 42, 0.62);
 
   /* Brand accent: the darker soft tone keeps contrast on light backgrounds */
   --color-accent-soft: #6b46c1;
 
   /* Links, status */
-  --color-link: #3b5bdb;
-  --color-link-hover: #2541b2;
+  --color-link: #2f4fc2;
+  --color-link-hover: #22399e;
   --color-success: #15803d;
   --color-error: #dc2626;
 
   /* Decorative */
   --color-grid-dot: rgba(8, 126, 126, 0.18);
-  --color-grid-line-h: rgba(107, 70, 193, 0.07);
+  --color-grid-line-h: rgba(79, 70, 229, 0.07);
   --color-grid-line-v: rgba(29, 78, 216, 0.07);
 
-  /* Shadows */
-  --shadow-navbar: 0 2px 8px rgba(15, 23, 42, 0.08);
-  --shadow-card: 0 8px 20px rgba(15, 23, 42, 0.08);
-  --shadow-card-hover: 0 12px 28px rgba(15, 23, 42, 0.14);
-  --shadow-project-card-hover: 0 10px 25px rgba(15, 23, 42, 0.18);
+  /* Shadows: tinted with navy instead of neutral grey */
+  --shadow-navbar: 0 2px 8px rgba(30, 41, 82, 0.1);
+  --shadow-card: 0 8px 20px rgba(30, 41, 82, 0.1);
+  --shadow-card-hover: 0 12px 28px rgba(30, 41, 82, 0.16);
+  --shadow-project-card-hover: 0 10px 25px rgba(30, 41, 82, 0.2);
 }

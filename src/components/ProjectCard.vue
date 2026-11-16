@@ -59,13 +59,15 @@ const { t } = useI18n()
   isolation: isolate;
   border-radius: 18px;
   color: var(--color-text);
+  /* --card-tint / --card-accent-outline are 0% in dark, so this is a no-op there */
   background: linear-gradient(
     145deg,
-    var(--color-card-gradient-start),
+    color-mix(in srgb, var(--accent) var(--card-tint), var(--color-card-gradient-start)),
     var(--color-card-gradient-end)
   );
   box-shadow: var(--shadow-card);
-  outline: 1px solid var(--color-card-outline);
+  outline: 1px solid
+    color-mix(in srgb, var(--accent) var(--card-accent-outline), var(--color-card-outline));
   outline-offset: -1px;
   transition:
     transform 0.25s ease,
