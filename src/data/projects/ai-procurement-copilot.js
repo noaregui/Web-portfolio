@@ -81,11 +81,11 @@ export default {
       card: {
         name: 'Copiloto de contratación pública con IA',
         summary:
-          'Ayuda a gestionar licitaciones públicas y a redactar sus documentos con un agente de IA y un motor de reglas legales.',
+          'Gestión integral de licitaciones y redacción automatizada de expedientes mediante un agente de IA y un motor de reglas legales.',
         highlights: [
-          'Agente con tool use que conoce el documento abierto',
+          'Agente con tool use contextualizado en el documento activo',
           'Procedimientos validados por un motor de reglas legales',
-          'Redacción a partir de ejemplos similares',
+          'Redacción guiada por similitud semántica y ejemplos',
         ],
       },
       flow: [
