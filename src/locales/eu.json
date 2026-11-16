@@ -52,7 +52,7 @@
   },
   "about": {
     "avatarAlt": "Ainhoaren avatarra ordenagailu eramangarrian programatzen",
-    "greeting": "Kaixo, {name} naiz",
+    "title": "Full stack ingeniaritza, **AA** erdigunean",
     "intro": [
       "Full Stack garatzailea naiz, eta **AA aplikatuan** espezializatuta nago.",
       "Hainbat sektoretarako AA plataformak garatzen ditut, hala nola osasungintzarako edo kontratazio publikorako, besteak beste. **RAG sistemekin** lan egiten dut ezagutza-baseen gainean, baita **tresna eta skilldun agenteekin**, irteera egituratuekin eta AAk sortzen duena **kontrolatu eta ebaluatzeko** mekanismoekin ere, produkziorako prestatutako hodei-arkitekturen gainean. Bide osoaz arduratzen naiz, backendetik interfazera."

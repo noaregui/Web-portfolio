@@ -52,7 +52,7 @@
   },
   "about": {
     "avatarAlt": "Avatar of Ainhoa programming at a laptop",
-    "greeting": "Hi, I'm {name}",
+    "title": "Full stack engineering with **AI** at its core",
     "intro": [
       "I'm a Full Stack Developer specialised in **applied AI**.",
       "I build AI platforms for a wide range of sectors, such as healthcare or public procurement, among others. I work with **RAG systems** over knowledge bases, **agents with tools and skills**, structured outputs and mechanisms to **control and evaluate** what AI generates, on cloud architectures built for production. I take care of the whole journey, from the backend to the interface."
