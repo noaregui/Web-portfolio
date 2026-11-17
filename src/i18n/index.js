@@ -2,7 +2,10 @@ import { watch } from 'vue'
 import { createI18n } from 'vue-i18n'
 import en from '@/locales/en.json'
 import es from '@/locales/es.json'
-import eu from '@/locales/eu.json'
+// Basque is temporarily disabled: its texts stay in the repo (src/locales/eu.json
+// and `content.eu` in the data files). To re-enable it, uncomment the three
+// lines marked "// eu" in this file.
+// import eu from '@/locales/eu.json' // eu
 
 /**
  * Languages.
@@ -17,7 +20,7 @@ import eu from '@/locales/eu.json'
 export const LOCALES = [
   { code: 'en', label: 'EN', name: 'English' },
   { code: 'es', label: 'ES', name: 'Español' },
-  { code: 'eu', label: 'EU', name: 'Euskara' },
+  // { code: 'eu', label: 'EU', name: 'Euskara' }, // eu
 ]
 
 export const DEFAULT_LOCALE = 'en'
@@ -46,7 +49,7 @@ export const i18n = createI18n({
   legacy: false,
   locale: readStoredLocale() || browserLocale() || DEFAULT_LOCALE,
   fallbackLocale: DEFAULT_LOCALE,
-  messages: { en, es, eu },
+  messages: { en, es /* , eu */ }, // eu
 })
 
 function applyToDocument(code) {
