@@ -1,5 +1,9 @@
 <template>
-  <header class="navbar" :class="{ open: isMenuOpen }">
+  <header
+    class="navbar"
+    :class="{ open: isMenuOpen, scrolled: isScrolled }"
+    :data-theme="isOverLight ? 'light' : undefined"
+  >
     <div class="navbar-bar">
       <button
         type="button"
@@ -13,92 +17,148 @@
       </button>
 
       <nav id="main-menu" class="menu">
-        <RouterLink
-          v-for="link in LINKS"
-          :key="link.name"
-          :to="{ name: link.name }"
+        <a
+          v-for="id in SECTIONS"
+          :key="id"
+          :href="hrefFor(id)"
           class="link"
-          :class="{ active: isActive(link) }"
-          :aria-current="isActive(link) ? 'page' : undefined"
+          :class="{ active: current === id }"
+          :aria-current="current === id ? 'location' : undefined"
+          @click.prevent="goTo(id)"
         >
-          {{ t(link.label) }}
-        </RouterLink>
+          {{ t(`nav.${id}`) }}
+        </a>
       </nav>
 
       <div class="actions">
         <LanguageSwitcher />
-        <ThemeToggle />
       </div>
     </div>
   </header>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
-import ThemeToggle from '@/components/ThemeToggle.vue'
+import { activeSection, scrollToSection, SECTIONS } from '@/composables/useSections'
 
 const { t } = useI18n()
 const route = useRoute()
+const router = useRouter()
 
-// `match` lists the route names that highlight each link (project pages → Projects)
-const LINKS = [
-  { name: 'home', label: 'nav.home', match: ['home'] },
-  { name: 'about', label: 'nav.about', match: ['about'] },
-  { name: 'projects', label: 'nav.projects', match: ['projects', 'project'] },
-  { name: 'contact', label: 'nav.contact', match: ['contact'] },
-]
+/*
+ * Links point to the Home sections. On the Home they scroll there; from any
+ * other page (projects, a project) they go to the Home at that section.
+ */
+const current = computed(() => {
+  if (route.name === 'home') return activeSection.value
+  if (route.name === 'projects' || route.name === 'project') return 'projects'
+  return null
+})
 
-function isActive(link) {
-  return link.match.includes(route.name)
+function hrefFor(id) {
+  return router.resolve({ name: 'home', hash: `#${id}` }).href
+}
+
+function goTo(id) {
+  isMenuOpen.value = false
+  if (route.name === 'home') scrollToSection(id)
+  else router.push({ name: 'home', hash: `#${id}` })
 }
 
 const isMenuOpen = ref(false)
 
-// Close the mobile menu after navigating
+// Once the page scrolls, the sticky bar gets a background to stay readable
+const isScrolled = ref(false)
+
+// Over a light band (see HomeView) the bar switches to the light colors too
+const isOverLight = ref(false)
+
+function onScroll() {
+  isScrolled.value = window.scrollY > 8
+  const probe = 36 // roughly the middle of the bar
+  isOverLight.value = [...document.querySelectorAll('.band[data-theme="light"]')].some((band) => {
+    const rect = band.getBoundingClientRect()
+    return rect.top <= probe && rect.bottom >= probe
+  })
+}
+
+onMounted(() => {
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
+
+// After navigating: close the mobile menu
 watch(
   () => route.fullPath,
   () => {
     isMenuOpen.value = false
+    // The new page may have no bands (or be at another position): re-check
+    nextTick(onScroll)
   },
 )
 </script>
 
 <style scoped>
 /*
- * No background of its own: like the footer, the navbar sits on the page
- * background and lines up with the content (.home: max 1200px minus 2rem
- * side padding). A fading line underneath separates it from the page.
+ * Sticky bar. At the top of the page it has no background of its own (it sits
+ * on the page background, like the footer); once you scroll it gets a blurred
+ * background so it stays readable over the content. It spans the full width
+ * (cancelling .app-layout's 2rem padding) while its content lines up with the
+ * page content (.home: max 1200px minus 2rem side padding).
  */
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: 0 -2rem;
+  padding: 0 2rem;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.navbar.scrolled,
+.navbar.open {
+  background-color: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 1px 0 var(--color-border-subtle);
+}
+
+.navbar-bar {
   position: relative;
-  z-index: 10;
-  width: min(100% - 4rem, 1200px - 4rem);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: min(100%, 1200px - 4rem);
+  min-height: 72px;
   margin: 0 auto;
 }
 
-.navbar::after {
+/* Fading line under the bar while at the top of the page */
+.navbar-bar::after {
   content: '';
   position: absolute;
   inset: auto 0 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  transition: opacity 0.3s ease;
 }
 
-.navbar-bar {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  min-height: 72px;
+.scrolled .navbar-bar::after {
+  opacity: 0;
 }
 
 /* Links */
 .menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.6rem;
 }
 
 .link {
@@ -222,7 +282,8 @@ watch(
 }
 
 /* Mobile: links collapse into a list under the bar */
-@media (max-width: 768px) {
+/* Six links need room: collapse them into the burger menu below 1024px */
+@media (max-width: 1024px) {
   .navbar-bar {
     flex-wrap: wrap;
     gap: 0 1rem;
@@ -250,7 +311,7 @@ watch(
   }
 
   .open .menu {
-    max-height: 320px;
+    max-height: 420px;
     padding: 0.25rem 0 1rem;
     visibility: visible;
   }
@@ -262,12 +323,6 @@ watch(
   .link::after {
     bottom: 0.3rem;
     width: 1.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .navbar {
-    width: 100%;
   }
 }
 

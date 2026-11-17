@@ -7,8 +7,8 @@
     </h1>
     <p class="subtitle">{{ t('notFound.subtitle') }}</p>
     <div class="actions">
-      <RouterLink to="/" class="btn btn-primary">{{ t('notFound.home') }}</RouterLink>
-      <RouterLink to="/projects" class="btn btn-secondary">{{ t('notFound.projects') }}</RouterLink>
+      <RouterLink to="/" class="btn">{{ t('notFound.home') }}</RouterLink>
+      <RouterLink to="/projects" class="btn btn-quiet">{{ t('notFound.projects') }}</RouterLink>
     </div>
   </section>
 </template>
@@ -67,37 +67,5 @@ const { t } = useI18n()
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
-}
-
-.btn {
-  padding: 0.75rem 1.5rem;
-  border-radius: 10px;
-  font-weight: 600;
-  color: var(--color-on-accent);
-  text-decoration: none;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn-primary {
-  background-color: var(--color-button);
-}
-
-.btn-primary:hover {
-  background-color: var(--color-accent-hover);
-}
-
-.btn-secondary {
-  border: 1px solid var(--color-accent);
-  color: var(--color-text-strong);
-}
-
-.btn-secondary:hover {
-  background-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
 }
 </style>

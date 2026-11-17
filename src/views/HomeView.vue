@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- Hero -->
-    <section class="hero">
+    <section id="home" class="hero">
       <div class="hero-text">
         <p class="greeting">
           <i18n-t keypath="home.greeting" scope="global">
@@ -11,12 +11,12 @@
         <h1 class="headline">{{ t('home.headline') }}</h1>
         <p class="lead">{{ t('home.lead') }}</p>
         <div class="actions">
-          <RouterLink :to="{ name: 'projects' }" class="btn btn-primary">
-            {{ t('home.ctaProjects') }} <span aria-hidden="true">→</span>
-          </RouterLink>
-          <RouterLink :to="{ name: 'contact' }" class="btn btn-secondary">
-            {{ t('home.ctaContact') }}
-          </RouterLink>
+          <a href="#contact" class="btn" @click.prevent="scrollToSection('contact')">
+            {{ t('home.ctaContact') }} <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="#projects" class="btn btn-quiet" @click.prevent="scrollToSection('projects')">
+            {{ t('home.ctaProjects') }}
+          </a>
         </div>
         <SocialLinks class="hero-social" />
       </div>
@@ -27,76 +27,63 @@
       </div>
     </section>
 
-    <!-- What I do -->
-    <section class="block">
-      <div class="block-head">
-        <h2 class="block-title">{{ t('home.whatIDo') }}</h2>
-        <RouterLink :to="{ name: 'about' }" class="block-link">
-          {{ t('home.moreAbout') }} <span aria-hidden="true">→</span>
-        </RouterLink>
-      </div>
-      <div class="services">
-        <article
-          v-for="service in SERVICES"
-          :key="service.id"
-          class="service"
-          :style="{ '--accent': service.accent }"
-        >
-          <span class="service-icon"><ProjectIcon :name="service.icon" /></span>
-          <h3>{{ t(`about.skills.${service.id}.title`) }}</h3>
-          <p>{{ t(`about.skills.${service.id}.text`) }}</p>
-        </article>
-      </div>
-    </section>
+    <!--
+      Light bands: data-theme swaps every color token inside (theme.css).
+      Services and How I work are both for clients, so they share one band.
+    -->
+    <div class="band band-group" data-theme="light">
+      <section id="services" class="section">
+        <ServicesSection />
+      </section>
 
-    <!-- Featured projects -->
-    <section class="block">
+      <section id="process" class="section">
+        <ProcessSection />
+      </section>
+    </div>
+
+    <section id="projects" class="section">
       <div class="block-head">
         <h2 class="block-title">{{ t('home.featured') }}</h2>
         <RouterLink :to="{ name: 'projects' }" class="block-link">
           {{ t('home.seeAll') }} <span aria-hidden="true">→</span>
         </RouterLink>
       </div>
-      <div class="featured-grid">
-        <ProjectCard
-          v-for="(project, index) in featured"
-          :key="project.slug"
-          :project="project"
-          :index="index"
-        />
+      <!-- Every project, compact; each opens its own page -->
+      <div class="project-grid">
+        <ProjectTile v-for="project in allProjects" :key="project.slug" :project="project" />
       </div>
     </section>
 
-    <!-- Stack -->
-    <section class="block">
-      <h2 class="block-title">{{ t('home.stack') }}</h2>
-      <TechStack />
+    <section id="about" class="section band" data-theme="light">
+      <AboutSection />
     </section>
 
-    <ContactCTA />
+    <section id="contact" class="section">
+      <ContactCard />
+    </section>
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import ContactCTA from '@/components/ContactCTA.vue'
-import ProjectCard from '@/components/ProjectCard.vue'
-import ProjectIcon from '@/components/ProjectIcon.vue'
+import ContactCard from '@/components/ContactCard.vue'
+import ProjectTile from '@/components/ProjectTile.vue'
+import AboutSection from '@/components/sections/AboutSection.vue'
+import ProcessSection from '@/components/sections/ProcessSection.vue'
+import ServicesSection from '@/components/sections/ServicesSection.vue'
 import SocialLinks from '@/components/SocialLinks.vue'
-import TechStack from '@/components/TechStack.vue'
+import { scrollToSection, useSectionSpy } from '@/composables/useSections'
 import { localizeProject, projects } from '@/data/projects'
-import { skills } from '@/data/skills'
 
 const { t, locale } = useI18n()
 
-// Texts come from `about.skills` in the locale files (shared with the About page)
-const SERVICES = skills.filter((group) => group.id !== 'cloud')
+// One-page Home: the navbar highlights the section in view
+useSectionSpy()
 
-const featured = computed(() =>
-  projects
-    .filter((project) => project.featured)
-    .map((project) => localizeProject(project, locale.value)),
+// Same order as the Projects page (src/data/projects/index.js)
+const allProjects = computed(() =>
+  projects.map((project) => localizeProject(project, locale.value)),
 )
 </script>
 
@@ -109,6 +96,33 @@ const featured = computed(() =>
   display: flex;
   flex-direction: column;
   gap: 5rem;
+}
+
+/*
+ * Light bands. The section keeps the content width; its background spans the
+ * whole viewport (left/right reach the screen edges; body clips the overflow).
+ * Colors come from the light tokens because of data-theme="light".
+ */
+.band {
+  position: relative;
+  isolation: isolate;
+  padding-block: 5rem;
+  color: var(--color-text);
+}
+
+/* Two sections in one band: same spacing as between sections */
+.band-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.band::before {
+  content: '';
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  background: var(--page-backdrop), var(--color-bg);
 }
 
 /* ===== Hero ===== */
@@ -180,43 +194,6 @@ const featured = computed(() =>
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 0.5rem;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.8rem 1.4rem;
-  border-radius: 12px;
-  font-weight: 600;
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn-primary {
-  color: var(--color-on-accent);
-  background-color: var(--color-button);
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--color-accent) 35%, transparent);
-}
-
-.btn-primary:hover {
-  background-color: var(--color-accent-hover);
-}
-
-.btn-secondary {
-  color: var(--color-text-strong);
-  outline: 1px solid var(--color-accent);
-  outline-offset: -1px;
-}
-
-.btn-secondary:hover {
-  background-color: color-mix(in srgb, var(--color-accent) 15%, transparent);
 }
 
 .hero-social {
@@ -292,67 +269,11 @@ const featured = computed(() =>
   transform: translateX(4px);
 }
 
-/* What I do */
-.services {
+/* Projects: compact grid with all of them */
+.project-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-}
-
-.service {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  padding: 1.6rem;
-  border-radius: 18px;
-  /* --card-tint / --card-accent-outline are 0% in dark, so this is a no-op there */
-  background: linear-gradient(
-    145deg,
-    color-mix(in srgb, var(--accent) var(--card-tint), var(--color-card-gradient-start)),
-    var(--color-card-gradient-end)
-  );
-  box-shadow: var(--shadow-card);
-  outline: 1px solid
-    color-mix(in srgb, var(--accent) var(--card-accent-outline), var(--color-card-outline));
-  outline-offset: -1px;
-}
-
-.service-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 0.4rem;
-  border-radius: 14px;
-  color: var(--accent);
-  background-color: color-mix(in srgb, var(--accent) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-}
-
-.service-icon svg {
-  width: 26px;
-  height: 26px;
-}
-
-.service h3 {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--color-text-strong);
-}
-
-.service p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--color-text-muted);
-}
-
-/* Featured projects */
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 /* ===== Responsive ===== */
@@ -372,8 +293,13 @@ const featured = computed(() =>
     width: 160px;
   }
 
-  .services,
-  .featured-grid {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .project-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -381,6 +307,14 @@ const featured = computed(() =>
 @media (max-width: 600px) {
   .home {
     padding: 1rem 0 0;
+    gap: 3.5rem;
+  }
+
+  .band {
+    padding-block: 3.5rem;
+  }
+
+  .band-group {
     gap: 3.5rem;
   }
 

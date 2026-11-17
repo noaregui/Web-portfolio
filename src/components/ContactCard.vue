@@ -3,10 +3,10 @@
     <!-- Info -->
     <header class="contact-info">
       <p class="eyebrow">{{ t('nav.contact') }}</p>
-      <h1 class="contact-title">
+      <h2 class="contact-title">
         {{ t('contact.titleStart') }}
         <span class="accent">{{ t('contact.titleEnd') }}</span>
-      </h1>
+      </h2>
       <p class="contact-subtitle">{{ t('contact.subtitle') }}</p>
 
       <ul class="channels">
@@ -32,6 +32,28 @@
 
     <!-- Form -->
     <form class="contact-form" @submit.prevent="sendMessage">
+      <!-- What it's about: guides the visitor and tells me the context up front -->
+      <fieldset class="topics">
+        <legend>{{ t('contact.topicLabel') }}</legend>
+        <p class="topics-hint">{{ t('contact.topicHint') }}</p>
+        <div class="topic-list">
+          <label
+            v-for="topic in TOPICS"
+            :key="topic"
+            class="topic"
+            :class="{ checked: form.topics.includes(topic) }"
+          >
+            <input
+              type="checkbox"
+              :value="topic"
+              :checked="form.topics.includes(topic)"
+              @change="toggleTopic(topic)"
+            />
+            {{ t(`contact.topics.${topic}`) }}
+          </label>
+        </div>
+      </fieldset>
+
       <div class="form-row">
         <div class="form-group">
           <label for="name">{{ t('contact.name') }}</label>
@@ -69,7 +91,7 @@
         ></textarea>
       </div>
 
-      <button type="submit" class="send-btn" :disabled="sending">
+      <button type="submit" class="btn send-btn" :disabled="sending">
         <span v-if="sending" class="spinner" aria-hidden="true"></span>
         {{ sending ? t('contact.sending') : t('contact.send') }}
         <svg v-if="!sending" class="send-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -84,25 +106,55 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import emailjs from '@emailjs/browser'
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
+import { services } from '@/data/services'
 import { socialLinks } from '@/data/social'
 
 const { t } = useI18n()
+const route = useRoute()
+
+// One per service, plus recruiters and the "I don't know yet" way out.
+// Labels: `contact.topics.<id>` in src/locales/*.json
+const UNSURE = 'unsure'
+const TOPICS = [...services.map((service) => service.id), 'job', 'other', UNSURE]
 
 // Email first: it's the most direct channel
 const CHANNELS = [...socialLinks].sort((a, b) => (b.name === 'Email') - (a.name === 'Email'))
 
-const form = ref({
-  name: '',
-  email: '',
-  message: '',
-})
+const emptyForm = () => ({ topics: [], name: '', email: '', message: '' })
+const form = ref(emptyForm())
+
+// "Not sure yet" can't be combined with a concrete topic, and vice versa
+function toggleTopic(topic) {
+  const topics = form.value.topics
+  if (topics.includes(topic)) {
+    form.value.topics = topics.filter((item) => item !== topic)
+  } else if (topic === UNSURE) {
+    form.value.topics = [UNSURE]
+  } else {
+    form.value.topics = [...topics.filter((item) => item !== UNSURE), topic]
+  }
+}
+
+// "I'm interested" on a service links here with ?topic=<id>: tick it
+watch(
+  () => route.query.topic,
+  (topic) => {
+    if (TOPICS.includes(topic) && !form.value.topics.includes(topic)) toggleTopic(topic)
+  },
+  { immediate: true },
+)
 
 const sending = ref(false)
 const sent = ref(false)
 const error = ref(false)
+
+function topicsText() {
+  return form.value.topics.map((topic) => t(`contact.topics.${topic}`)).join(', ')
+}
 
 const sendMessage = async () => {
   sending.value = true
@@ -116,12 +168,17 @@ const sendMessage = async () => {
       {
         name: form.value.name,
         email: form.value.email,
-        message: form.value.message,
+        topics: topicsText(),
+        // Topics also go at the top of the message, so they show up even if
+        // the EmailJS template doesn't use {{topics}}
+        message: form.value.topics.length
+          ? `${t('contact.topicsPrefix')}: ${topicsText()}\n\n${form.value.message}`
+          : form.value.message,
       },
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
     )
     sent.value = true
-    form.value = { name: '', email: '', message: '' }
+    form.value = emptyForm()
   } catch (err) {
     console.error(err)
     error.value = true
@@ -331,6 +388,86 @@ const sendMessage = async () => {
   flex: 1;
 }
 
+/* Topic chips: real checkboxes, visually hidden, inside pill labels */
+.topics {
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-width: 0;
+}
+
+.topics legend {
+  padding: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.topics-hint {
+  margin: 0.25rem 0 0.8rem;
+  font-size: 0.85rem;
+  color: var(--color-text-subtle);
+}
+
+.topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Overrides the small-caps field label style below */
+.topic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.topic input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.topic:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 60%, var(--color-border));
+}
+
+.topic.checked {
+  color: var(--color-text-strong);
+  border-color: var(--color-accent-soft);
+  background-color: color-mix(in srgb, var(--color-accent) 16%, transparent);
+}
+
+.topic.checked::before {
+  content: '✓';
+  margin-right: 0.4rem;
+  font-weight: 700;
+  color: var(--color-accent-soft);
+}
+
+.topic:has(input:focus-visible) {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 /* Small caps label that turns purple while its field is focused */
 label {
   font-size: 0.75rem;
@@ -392,29 +529,6 @@ textarea:focus {
 
 .send-btn {
   align-self: flex-end;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.75rem 1.35rem;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.2px;
-  color: var(--color-accent-soft);
-  border: 1.5px solid var(--color-accent-soft);
-  /* Outline button; on hover a purple fill sweeps in from the left */
-  background: linear-gradient(var(--color-button), var(--color-button)) left / 0 100% no-repeat;
-  cursor: pointer;
-  transition:
-    background-size 0.35s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.send-btn:hover:not(:disabled) {
-  color: var(--color-on-accent);
-  border-color: var(--color-button);
-  background-size: 100% 100%;
 }
 
 .send-icon {
@@ -430,16 +544,6 @@ textarea:focus {
 
 .send-btn:hover:not(:disabled) .send-icon {
   transform: translateX(2px);
-}
-
-.send-btn:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-}
-
-.send-btn:disabled {
-  opacity: 0.7;
-  cursor: progress;
 }
 
 .spinner {

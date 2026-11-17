@@ -8,6 +8,8 @@ body {
 }
 
 body {
+  /* Full-width section bands reach past the content box; clip, don't scroll */
+  overflow-x: clip;
   /* Theme glows (none in dark) fixed behind the page while it scrolls */
   background: var(--page-backdrop), var(--color-bg);
   background-attachment: fixed;
@@ -35,4 +37,135 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/*
+ * Shared by the Home sections (src/components/sections/): title with the
+ * accent bar underneath, an optional lead paragraph, and the icon badge.
+ */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-strong);
+  text-wrap: balance;
+  margin-bottom: 1.5rem;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 4px;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  background: var(--title-bar);
+}
+
+.section-lead {
+  max-width: 62ch;
+  margin: -0.5rem 0 1.75rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  color: var(--color-accent-soft);
+  background-color: color-mix(in srgb, var(--color-accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+.icon-badge svg {
+  width: 24px;
+  height: 24px;
+}
+
+/*
+ * Site-wide button: strong outline with a solid offset shadow in the brand
+ * color; on hover it lifts and the shadow grows (no color fill). Add
+ * .btn-quiet for a secondary action next to it. An arrow/icon inside with
+ * .btn-arrow nudges right on hover.
+ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: var(--color-text-strong);
+  background-color: var(--color-card-gradient-start);
+  border: 1.5px solid var(--color-text-strong);
+  box-shadow: 4px 4px 0 var(--color-accent);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-accent);
+}
+
+.btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--color-accent);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.btn-arrow {
+  display: inline-block;
+  color: var(--color-accent-soft);
+  transition: transform 0.2s ease;
+}
+
+.btn:hover:not(:disabled) .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* Secondary: no shadow, neutral border */
+.btn-quiet {
+  background-color: transparent;
+  border-color: var(--color-border);
+  box-shadow: none;
+}
+
+.btn-quiet:hover:not(:disabled) {
+  border-color: var(--color-text-muted);
+  box-shadow: none;
+}
+
+.btn-quiet:active:not(:disabled) {
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn-arrow {
+    transition: none;
+  }
 }

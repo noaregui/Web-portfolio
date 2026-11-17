@@ -9,11 +9,6 @@
     "contact": "Kontaktua",
     "menu": "Menua"
   },
-  "theme": {
-    "label": "Modu iluna",
-    "toLight": "Aldatu modu argira",
-    "toDark": "Aldatu modu ilunera"
-  },
   "language": {
     "label": "Hizkuntza"
   },
@@ -75,27 +70,6 @@
       "cloud": {
         "title": "Hodeia eta lan-modua",
         "text": "Hodeiko azpiegitura, CI eta zehaztapenek gidatutako lan-modua, AA agenteak lan-fluxuan integratuta."
-      }
-    },
-    "experienceTitle": "Esperientzia",
-    "projectsLabel": "Proiektuak",
-    "languagesTitle": "Hizkuntzak",
-    "languages": {
-      "spanish": {
-        "name": "Gaztelania",
-        "level": "Ama-hizkuntza"
-      },
-      "basque": {
-        "name": "Euskara",
-        "level": "Ama-hizkuntza"
-      },
-      "english": {
-        "name": "Ingelesa",
-        "level": "Erdi-maila"
-      },
-      "catalan": {
-        "name": "Katalana",
-        "level": "Oinarrizkoa"
       }
     }
   },
