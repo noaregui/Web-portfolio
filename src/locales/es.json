@@ -4,41 +4,30 @@
   },
   "nav": {
     "home": "Inicio",
-    "about": "Sobre mí",
+    "services": "Servicios",
     "projects": "Proyectos",
+    "process": "Cómo trabajo",
+    "about": "Sobre mí",
     "contact": "Contacto",
     "menu": "Menú"
-  },
-  "theme": {
-    "label": "Modo oscuro",
-    "toLight": "Cambiar a modo claro",
-    "toDark": "Cambiar a modo oscuro"
   },
   "language": {
     "label": "Idioma"
   },
   "home": {
     "greeting": "Hola, soy {name}",
-    "headline": "Desarrollo productos con IA, de principio a fin.",
-    "lead": "Full Stack Developer especializada en el desarrollo de productos con IA y automatización de sistemas: RAG, agentes con herramientas, voz en tiempo real y arquitecturas cloud native preparadas para producción.",
+    "headline": "Tú pones la idea. Yo la convierto en un producto con IA.",
+    "lead": "Soy Full Stack Developer especializada en IA aplicada. Construyo asistentes, agentes de voz, automatizaciones y aplicaciones a medida, y me ocupo de todo: del backend y la IA a la interfaz, hasta que funciona en producción.",
     "ctaProjects": "Ver proyectos",
-    "ctaContact": "Contactar",
-    "whatIDo": "Qué hago",
-    "moreAbout": "Más sobre mí",
-    "featured": "Proyectos destacados",
+    "ctaContact": "Cuéntame qué necesitas",
+    "featured": "Proyectos que he construido",
     "seeAll": "Ver todos los proyectos",
-    "stack": "Tecnologías con las que trabajo",
     "avatarAlt": "Avatar ilustrado de Ainhoa"
   },
-  "cta": {
-    "title": "¿Tienes un proyecto en mente?",
-    "subtitle": "Si tienes una idea, un proyecto o simplemente te apetece saludar, escríbeme.",
-    "button": "Contáctame"
-  },
   "contact": {
-    "titleStart": "TRABAJEMOS",
-    "titleEnd": "JUNTOS",
-    "subtitle": "Si tienes una idea, un proyecto o simplemente quieres saludar, rellena el formulario y te responderé lo antes posible.",
+    "titleStart": "Hablemos de",
+    "titleEnd": "tu proyecto",
+    "subtitle": "Cuéntame qué necesitas y te responderé lo antes posible. Si todavía no lo tienes claro, no pasa nada: lo vemos juntos.",
     "name": "Nombre",
     "namePlaceholder": "Tu nombre",
     "email": "Email",
@@ -48,7 +37,20 @@
     "send": "Enviar mensaje",
     "sending": "Enviando...",
     "success": "✅ ¡Mensaje enviado correctamente!",
-    "error": "❌ Algo ha ido mal. Inténtalo de nuevo."
+    "error": "❌ Algo ha ido mal. Inténtalo de nuevo.",
+    "topicLabel": "¿De qué quieres hablar?",
+    "topicHint": "Puedes marcar varias opciones.",
+    "topicsPrefix": "Temas",
+    "topics": {
+      "web": "Página web",
+      "apps": "Aplicación web",
+      "assistants": "Asistente de IA",
+      "automation": "Automatización",
+      "voice": "Agente de voz o chatbot",
+      "job": "Oferta de empleo",
+      "other": "Otra cosa",
+      "unsure": "Aún no lo sé"
+    }
   },
   "about": {
     "avatarAlt": "Avatar de Ainhoa programando con un portátil",
@@ -75,26 +77,105 @@
         "title": "Cloud y forma de trabajar",
         "text": "Infraestructura cloud, CI y una forma de trabajar guiada por especificaciones, con agentes de IA integrados en el flujo."
       }
+    }
+  },
+  "services": {
+    "title": "¿En qué te puedo ayudar?",
+    "lead": "Cinco tipos de proyecto que conozco bien. Elige el tuyo.",
+    "projectsLabel": "Lo he hecho en",
+    "interested": "Me interesa",
+    "pause": "Pausar",
+    "play": "Reanudar",
+    "notListed": "¿No encaja ninguno? Cuéntame tu caso y vemos cómo puedo ayudarte.",
+    "notListedLink": "Escríbeme",
+    "items": {
+      "web": {
+        "short": "Webs",
+        "title": "Webs que te representan",
+        "problem": "Mis clientes me buscan en internet y lo que encuentran no transmite lo que hago.",
+        "solutions": [
+          "Web corporativa o landing page",
+          "Rápida y adaptada a móvil",
+          "Fácil de encontrar en Google",
+          "Contacto y reservas conectados a tus herramientas"
+        ]
+      },
+      "apps": {
+        "short": "Apps a medida",
+        "title": "Aplicaciones web a medida",
+        "problem": "Necesito una herramienta que se adapte a cómo trabajamos, y no al revés.",
+        "solutions": [
+          "Aplicaciones web y paneles de gestión",
+          "Backends preparados para crecer",
+          "Modernizo apps existentes",
+          "Despliegue en la nube (AWS)"
+        ]
+      },
+      "assistants": {
+        "short": "Asistentes de IA",
+        "title": "Asistentes de IA con tu información",
+        "problem": "Mi equipo pierde horas buscando información en documentos, manuales o expedientes.",
+        "solutions": [
+          "Responden con tus documentos y citan la fuente",
+          "Redactan y revisan documentos por ti",
+          "Consultan tus sistemas y hacen tareas",
+          "Respuestas revisadas y fiables"
+        ]
+      },
+      "automation": {
+        "short": "Automatizaciones",
+        "title": "Automatizaciones e integraciones",
+        "problem": "Hacemos a mano tareas repetitivas y copiamos datos de una herramienta a otra.",
+        "solutions": [
+          "Conecta CRM, WhatsApp, email y calendario",
+          "Adiós a las tareas repetitivas",
+          "Contenido generado con IA",
+          "Integración con cualquier API"
+        ]
+      },
+      "voice": {
+        "short": "Voz y chatbots",
+        "title": "Agentes de voz y chatbots",
+        "problem": "No llego a atender todas las llamadas y mensajes, y pierdo clientes fuera de horario.",
+        "solutions": [
+          "Atienden llamadas 24/7",
+          "Chat en tu web o WhatsApp",
+          "Citas y reservas automáticas",
+          "Pasan a una persona si hace falta"
+        ]
+      }
+    }
+  },
+  "process": {
+    "title": "Cómo trabajo",
+    "lead": "Cada proyecto es distinto y lo adapto a ti. Lo que no cambia:",
+    "principles": {
+      "direct": {
+        "title": "Trato directo",
+        "text": "Hablas conmigo de principio a fin, sin intermediarios ni tecnicismos innecesarios."
+      },
+      "business": {
+        "title": "Primero, entender tu negocio",
+        "text": "Antes de escribir código, entiendo cómo trabajas y te propongo la solución más sencilla que funcione."
+      },
+      "grow": {
+        "title": "Empezar pequeño, crecer después",
+        "text": "Arrancamos con lo que necesitas hoy y lo ampliamos cuando haga falta, sin rehacerlo todo."
+      }
     },
-    "experienceTitle": "Experiencia",
-    "projectsLabel": "Proyectos",
-    "languagesTitle": "Idiomas",
-    "languages": {
-      "spanish": {
-        "name": "Español",
-        "level": "Nativo"
+    "modelsTitle": "Formas de colaborar",
+    "models": {
+      "fixed": {
+        "title": "Proyecto cerrado",
+        "text": "Alcance y precio acordados desde el principio."
       },
-      "basque": {
-        "name": "Euskera",
-        "level": "Nativo"
+      "hourly": {
+        "title": "Por horas",
+        "text": "Con estimación previa y avance por fases."
       },
-      "english": {
-        "name": "Inglés",
-        "level": "Intermedio"
-      },
-      "catalan": {
-        "name": "Catalán",
-        "level": "Básico"
+      "support": {
+        "title": "Soporte mensual",
+        "text": "Mantenimiento y mejoras continuas."
       }
     }
   },

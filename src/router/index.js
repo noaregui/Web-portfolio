@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
+import { NAV_OFFSET } from '@/composables/useSections'
 import { getProject, projects } from '@/data/projects'
 
 // Old top-level project URLs (e.g. /vapi) keep working by redirecting to /projects/:slug.
@@ -12,7 +13,8 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) return savedPosition
-    if (to.hash) return { el: to.hash, behavior: 'smooth' }
+    // Home sections: leave room for the sticky navbar
+    if (to.hash) return { el: to.hash, top: NAV_OFFSET, behavior: 'smooth' }
     return { top: 0 }
   },
   routes: [
@@ -21,10 +23,11 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
+    // Old page, now a section of the Home
     {
       path: '/about',
       name: 'about',
-      component: () => import('@/views/AboutView.vue'),
+      redirect: (to) => ({ name: 'home', query: to.query, hash: '#about' }),
     },
     {
       path: '/projects',
@@ -36,10 +39,17 @@ const router = createRouter({
       name: 'project',
       component: () => import('@/views/ProjectDetailView.vue'),
     },
+    // Old page, now a section of the Home
+    {
+      path: '/services',
+      name: 'services',
+      redirect: (to) => ({ name: 'home', query: to.query, hash: '#services' }),
+    },
+    // Old page, now a section of the Home
     {
       path: '/contact',
       name: 'contact',
-      component: () => import('@/views/ContactView.vue'),
+      redirect: (to) => ({ name: 'home', query: to.query, hash: '#contact' }),
     },
     ...legacyProjectRedirects,
     {

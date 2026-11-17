@@ -4,41 +4,30 @@
   },
   "nav": {
     "home": "Home",
-    "about": "About me",
+    "services": "Services",
     "projects": "Projects",
+    "process": "How I work",
+    "about": "About me",
     "contact": "Contact",
     "menu": "Menu"
-  },
-  "theme": {
-    "label": "Dark mode",
-    "toLight": "Switch to light mode",
-    "toDark": "Switch to dark mode"
   },
   "language": {
     "label": "Language"
   },
   "home": {
     "greeting": "Hi, I'm {name}",
-    "headline": "I build AI-powered products, end to end.",
-    "lead": "Full Stack Developer specialised in applied AI: RAG systems, agents with tools, real-time voice and cloud architectures ready for production.",
+    "headline": "You bring the idea. I turn it into an AI product.",
+    "lead": "I'm a Full Stack Developer specialising in applied AI. I build assistants, voice agents, automations and custom apps, and I take care of everything: backend, AI and interface, until it runs in production.",
     "ctaProjects": "See projects",
-    "ctaContact": "Get in touch",
-    "whatIDo": "What I do",
-    "moreAbout": "More about me",
-    "featured": "Featured projects",
+    "ctaContact": "Tell me what you need",
+    "featured": "Projects I've built",
     "seeAll": "See all projects",
-    "stack": "Technologies I work with",
     "avatarAlt": "Illustrated avatar of Ainhoa"
   },
-  "cta": {
-    "title": "Got a project in mind?",
-    "subtitle": "If you have an idea, project, or just want to say hi, let’s talk.",
-    "button": "Contact me"
-  },
   "contact": {
-    "titleStart": "LET'S WORK",
-    "titleEnd": "TOGETHER",
-    "subtitle": "If you have an idea, project, or just want to say hi, fill out the form and I’ll get back to you as soon as possible.",
+    "titleStart": "Let's talk about",
+    "titleEnd": "your project",
+    "subtitle": "Tell me what you need and I'll get back to you as soon as possible. If you're not sure yet, that's fine: we'll figure it out together.",
     "name": "Name",
     "namePlaceholder": "Your name",
     "email": "Email",
@@ -48,7 +37,20 @@
     "send": "Send message",
     "sending": "Sending...",
     "success": "✅ Message sent successfully!",
-    "error": "❌ Something went wrong. Please try again."
+    "error": "❌ Something went wrong. Please try again.",
+    "topicLabel": "What would you like to talk about?",
+    "topicHint": "You can pick more than one.",
+    "topicsPrefix": "Topics",
+    "topics": {
+      "web": "Website",
+      "apps": "Web app",
+      "assistants": "AI assistant",
+      "automation": "Automation",
+      "voice": "Voice agent or chatbot",
+      "job": "Job opportunity",
+      "other": "Something else",
+      "unsure": "Not sure yet"
+    }
   },
   "about": {
     "avatarAlt": "Avatar of Ainhoa programming at a laptop",
@@ -76,26 +78,105 @@
         "title": "Cloud & workflow",
         "text": "Cloud infrastructure, CI and a spec-driven way of working, with AI agents as part of the workflow."
       }
+    }
+  },
+  "services": {
+    "title": "How can I help you?",
+    "lead": "Five kinds of project I know well. Pick yours.",
+    "projectsLabel": "Where I've done it",
+    "interested": "I'm interested",
+    "pause": "Pause",
+    "play": "Resume",
+    "notListed": "None of these fits? Tell me about your case and we'll see how I can help.",
+    "notListedLink": "Write to me",
+    "items": {
+      "web": {
+        "short": "Websites",
+        "title": "Websites that represent you",
+        "problem": "My clients look me up online and what they find doesn't show what I do.",
+        "solutions": [
+          "Company website or landing page",
+          "Fast and mobile-friendly",
+          "Easy to find on Google",
+          "Contact and bookings connected to your tools"
+        ]
+      },
+      "apps": {
+        "short": "Custom apps",
+        "title": "Custom web applications",
+        "problem": "I need a tool that fits the way we work, not the other way around.",
+        "solutions": [
+          "Web apps and admin dashboards",
+          "Backends built to grow",
+          "Modernise existing apps",
+          "Cloud deployment (AWS)"
+        ]
+      },
+      "assistants": {
+        "short": "AI assistants",
+        "title": "AI assistants that know your business",
+        "problem": "My team wastes hours searching for information in documents, manuals or files.",
+        "solutions": [
+          "Answer from your documents and cite the source",
+          "Draft and review documents for you",
+          "Query your systems and do tasks",
+          "Checked, reliable answers"
+        ]
+      },
+      "automation": {
+        "short": "Automations",
+        "title": "Automations and integrations",
+        "problem": "We do repetitive tasks by hand and copy data from one tool to another.",
+        "solutions": [
+          "Connect CRM, WhatsApp, email and calendar",
+          "No more repetitive tasks",
+          "AI-generated content",
+          "Integration with any API"
+        ]
+      },
+      "voice": {
+        "short": "Voice & chatbots",
+        "title": "Voice agents and chatbots",
+        "problem": "I can't answer every call and message, and I lose customers outside business hours.",
+        "solutions": [
+          "Answer calls 24/7",
+          "Chat on your website or WhatsApp",
+          "Automatic appointments and bookings",
+          "Hand over to a person when needed"
+        ]
+      }
+    }
+  },
+  "process": {
+    "title": "How I work",
+    "lead": "Every project is different, so I adapt to you. What doesn't change:",
+    "principles": {
+      "direct": {
+        "title": "Direct contact",
+        "text": "You talk to me from start to finish, with no middlemen and no unnecessary jargon."
+      },
+      "business": {
+        "title": "Your business first",
+        "text": "Before writing any code, I learn how you work and propose the simplest solution that does the job."
+      },
+      "grow": {
+        "title": "Start small, grow later",
+        "text": "We start with what you need today and extend it when you need to, without rebuilding everything."
+      }
     },
-    "experienceTitle": "Experience",
-    "projectsLabel": "Projects",
-    "languagesTitle": "Languages",
-    "languages": {
-      "spanish": {
-        "name": "Spanish",
-        "level": "Native"
+    "modelsTitle": "Ways to work together",
+    "models": {
+      "fixed": {
+        "title": "Fixed-price project",
+        "text": "Scope and price agreed up front."
       },
-      "basque": {
-        "name": "Basque",
-        "level": "Native"
+      "hourly": {
+        "title": "Hourly",
+        "text": "With an upfront estimate, in phases."
       },
-      "english": {
-        "name": "English",
-        "level": "Intermediate"
-      },
-      "catalan": {
-        "name": "Catalan",
-        "level": "Basic"
+      "support": {
+        "title": "Monthly support",
+        "text": "Ongoing maintenance and improvements."
       }
     }
   },

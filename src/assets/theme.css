@@ -2,11 +2,14 @@
  * Design tokens. Every color in the app comes from here, so a theme is just a
  * different set of values for these variables.
  *
- * Dark is the default (:root). The light theme overrides the same variables
- * under [data-theme='light'], which index.html / useTheme set on <html>.
+ * The site is dark (:root). The light palette overrides the same variables
+ * under [data-theme='light'] and is applied per section: a Home section with
+ * data-theme="light" (a "band") renders everything inside it in light colors.
  */
 
-:root {
+/* [data-theme='dark'] lets an element go back to dark inside a light band */
+:root,
+[data-theme='dark'] {
   color-scheme: dark;
 
   /* Page and surfaces */
