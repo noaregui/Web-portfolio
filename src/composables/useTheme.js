@@ -7,17 +7,14 @@ import { readonly, ref } from 'vue'
  * before the app loads (to avoid a flash of the wrong theme); this composable
  * keeps it in sync afterwards.
  *
- * - With no saved choice, the theme follows the OS setting, live.
- * - Once the visitor toggles it, the choice is saved and the OS is ignored.
+ * - Dark by default, whatever the OS setting.
+ * - Once the visitor toggles it, the choice is saved and reused on later visits.
  */
 
 const STORAGE_KEY = 'theme'
 const THEMES = ['light', 'dark']
 
-const systemQuery =
-  typeof window !== 'undefined' && window.matchMedia
-    ? window.matchMedia('(prefers-color-scheme: light)')
-    : null
+const DEFAULT_THEME = 'dark'
 
 function readStoredTheme() {
   try {
@@ -28,22 +25,12 @@ function readStoredTheme() {
   }
 }
 
-function systemTheme() {
-  return systemQuery?.matches ? 'light' : 'dark'
-}
-
 function applyTheme(value) {
   document.documentElement.dataset.theme = value
 }
 
-const theme = ref(document.documentElement.dataset.theme || readStoredTheme() || systemTheme())
+const theme = ref(document.documentElement.dataset.theme || readStoredTheme() || DEFAULT_THEME)
 applyTheme(theme.value)
-
-systemQuery?.addEventListener('change', () => {
-  if (readStoredTheme()) return
-  theme.value = systemTheme()
-  applyTheme(theme.value)
-})
 
 function setTheme(value) {
   if (!THEMES.includes(value)) return
