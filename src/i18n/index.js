@@ -55,6 +55,9 @@ export const i18n = createI18n({
 function applyToDocument(code) {
   document.documentElement.lang = code
   document.title = i18n.global.t('meta.title')
+  document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute('content', i18n.global.t('meta.description'))
 }
 
 applyToDocument(i18n.global.locale.value)

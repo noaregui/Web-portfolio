@@ -1,6 +1,7 @@
 {
   "meta": {
-    "title": "¡Hola, soy Ainhoa!"
+    "title": "Ainhoa León · Full Stack Developer especializada en IA",
+    "description": "Portfolio de Ainhoa León, Full Stack Developer especializada en IA aplicada: modelos de lenguaje, sistemas RAG, agentes con herramientas y aplicaciones web completas."
   },
   "nav": {
     "home": "Inicio",
@@ -16,10 +17,12 @@
   },
   "home": {
     "greeting": "Hola, soy {name}",
-    "headline": "Tú pones la idea. Yo la convierto en un producto con IA.",
-    "lead": "Soy Full Stack Developer especializada en IA aplicada. Construyo asistentes, agentes de voz, automatizaciones y aplicaciones a medida, y me ocupo de todo: del backend y la IA a la interfaz, hasta que funciona en producción.",
+    "headline": "Desarrollo software con IA.",
+    "lead": "Soy Full Stack Developer especializada en IA aplicada. Trabajo con modelos de lenguaje, sistemas RAG, agentes con herramientas y bases de datos vectoriales.",
+    "tech": ["Python", "FastAPI", "Node.js", "Vue", "React", "PostgreSQL", "AWS"],
+    "techLabel": "Tecnologías principales",
     "ctaProjects": "Ver proyectos",
-    "ctaContact": "Cuéntame qué necesitas",
+    "ctaContact": "Contactar",
     "featured": "Proyectos que he construido",
     "seeAll": "Ver todos los proyectos",
     "avatarAlt": "Avatar ilustrado de Ainhoa"
@@ -200,9 +203,7 @@
     "projects": "Ver proyectos"
   },
   "footer": {
-    "role": "Full Stack & AI Engineer",
     "builtWith": "Web hecha con Vue y Vite.",
-    "rights": "© {year} Ainhoa León. Todos los derechos reservados.",
-    "location": "Barcelona"
+    "rights": "© {year} Ainhoa León. Todos los derechos reservados."
   }
 }

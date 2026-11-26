@@ -1,6 +1,7 @@
 {
   "meta": {
-    "title": "Hi, I’m Ainhoa!"
+    "title": "Ainhoa León · Full Stack Developer specialising in AI",
+    "description": "Portfolio of Ainhoa León, Full Stack Developer specialising in applied AI: language models, RAG systems, tool-using agents and full stack web applications."
   },
   "nav": {
     "home": "Home",
@@ -16,10 +17,12 @@
   },
   "home": {
     "greeting": "Hi, I'm {name}",
-    "headline": "You bring the idea. I turn it into an AI product.",
-    "lead": "I'm a Full Stack Developer specialising in applied AI. I build assistants, voice agents, automations and custom apps, and I take care of everything: backend, AI and interface, until it runs in production.",
+    "headline": "I build software with AI.",
+    "lead": "I'm a Full Stack Developer specialising in applied AI. I work with language models, RAG systems, tool-using agents and vector databases.",
+    "tech": ["Python", "FastAPI", "Node.js", "Vue", "React", "PostgreSQL", "AWS"],
+    "techLabel": "Main technologies",
     "ctaProjects": "See projects",
-    "ctaContact": "Tell me what you need",
+    "ctaContact": "Get in touch",
     "featured": "Projects I've built",
     "seeAll": "See all projects",
     "avatarAlt": "Illustrated avatar of Ainhoa"
@@ -201,9 +204,7 @@
     "projects": "See projects"
   },
   "footer": {
-    "role": "Full Stack & AI Engineer",
     "builtWith": "Website built with Vue and Vite.",
-    "rights": "© {year} Ainhoa León. All rights reserved.",
-    "location": "Barcelona"
+    "rights": "© {year} Ainhoa León. All rights reserved."
   }
 }
