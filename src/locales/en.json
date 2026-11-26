@@ -5,7 +5,7 @@
   },
   "nav": {
     "home": "Home",
-    "services": "Services",
+    "services": "What I build",
     "projects": "Projects",
     "process": "How I work",
     "about": "About me",
@@ -84,68 +84,72 @@
     }
   },
   "services": {
-    "title": "How can I help you?",
-    "lead": "Five kinds of project I know well. Pick yours.",
-    "projectsLabel": "Where I've done it",
-    "interested": "I'm interested",
+    "title": "What I build",
+    "lead": "From websites and complete applications to artificial intelligence solutions.",
+    "projectsLabel": "Related projects",
+    "interested": "Get in touch",
     "pause": "Pause",
     "play": "Resume",
-    "notListed": "None of these fits? Tell me about your case and we'll see how I can help.",
-    "notListedLink": "Write to me",
+    "notListed": "If you have a different kind of project in mind, you can also write to me.",
+    "notListedLink": "Contact",
     "items": {
       "web": {
         "short": "Websites",
-        "title": "Websites that represent you",
-        "problem": "My clients look me up online and what they find doesn't show what I do.",
+        "title": "Company websites",
+        "description": "Websites and landing pages that present a company or a project.",
         "solutions": [
-          "Company website or landing page",
-          "Fast and mobile-friendly",
-          "Easy to find on Google",
-          "Contact and bookings connected to your tools"
+          "Custom, mobile-friendly design",
+          "Fast loading",
+          "Content in several languages",
+          "Contact and booking forms",
+          "Connected to email, CRM and calendar",
+          "Easy to maintain and update"
         ]
       },
       "apps": {
-        "short": "Custom apps",
+        "short": "Web applications",
         "title": "Custom web applications",
-        "problem": "I need a tool that fits the way we work, not the other way around.",
+        "description": "Internal tools, admin dashboards and complete applications, from the database to the interface.",
         "solutions": [
-          "Web apps and admin dashboards",
-          "Backends built to grow",
-          "Modernise existing apps",
+          "Frontend and backend",
+          "APIs and databases",
+          "Modernising existing applications",
           "Cloud deployment (AWS)"
         ]
       },
       "assistants": {
         "short": "AI assistants",
-        "title": "AI assistants that know your business",
-        "problem": "My team wastes hours searching for information in documents, manuals or files.",
+        "title": "AI assistants and agents",
+        "description": "Assistants and agents that work with documents, databases, regulations and other sources to answer, draft or carry out tasks.",
         "solutions": [
-          "Answer from your documents and cite the source",
-          "Draft and review documents for you",
-          "Query your systems and do tasks",
-          "Checked, reliable answers"
+          "Answers that cite their source (RAG)",
+          "Natural-language database queries",
+          "Search across laws, regulations and other data",
+          "Response agents with tools and APIs",
+          "Drafting and reviewing documents",
+          "Checking and evaluating the answers"
         ]
       },
       "automation": {
         "short": "Automations",
         "title": "Automations and integrations",
-        "problem": "We do repetitive tasks by hand and copy data from one tool to another.",
+        "description": "Workflows that connect tools with each other and replace repetitive manual tasks.",
         "solutions": [
-          "Connect CRM, WhatsApp, email and calendar",
-          "No more repetitive tasks",
+          "CRM, WhatsApp, email and calendar integration",
+          "Processes that run automatically",
           "AI-generated content",
-          "Integration with any API"
+          "Third-party API integration"
         ]
       },
       "voice": {
         "short": "Voice & chatbots",
         "title": "Voice agents and chatbots",
-        "problem": "I can't answer every call and message, and I lose customers outside business hours.",
+        "description": "Conversational agents that answer calls and messages automatically.",
         "solutions": [
-          "Answer calls 24/7",
-          "Chat on your website or WhatsApp",
-          "Automatic appointments and bookings",
-          "Hand over to a person when needed"
+          "24/7 phone answering",
+          "Chat on the website or WhatsApp",
+          "Appointment and booking management",
+          "Hand-over to a person when needed"
         ]
       }
     }

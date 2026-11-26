@@ -52,23 +52,31 @@
         </button>
       </div>
 
-      <!-- Selected service -->
-      <Transition name="panel" mode="out-in">
+      <!--
+        Every panel is rendered, stacked in the same grid cell, and only the
+        selected one is visible: the stage always takes the tallest panel's
+        height, so the card keeps one size while the services change.
+      -->
+      <div class="stage">
         <article
-          :id="`service-panel-${selected.id}`"
-          :key="selected.id"
+          v-for="(item, index) in items"
+          :id="`service-panel-${item.id}`"
+          :key="item.id"
           class="panel"
+          :class="{ active: index === current }"
           role="tabpanel"
           data-theme="dark"
-          :aria-labelledby="`service-tab-${selected.id}`"
+          :aria-labelledby="`service-tab-${item.id}`"
+          :aria-hidden="index !== current"
+          :inert="index !== current"
         >
           <!-- Big faded icon of the service, as a backdrop -->
-          <span class="panel-mark" aria-hidden="true"><ProjectIcon :name="selected.icon" /></span>
-          <h3>{{ t(`services.items.${selected.id}.title`) }}</h3>
-          <p class="problem">{{ t(`services.items.${selected.id}.problem`) }}</p>
+          <span class="panel-mark" aria-hidden="true"><ProjectIcon :name="item.icon" /></span>
+          <h3>{{ t(`services.items.${item.id}.title`) }}</h3>
+          <p class="description">{{ t(`services.items.${item.id}.description`) }}</p>
 
           <ul class="solutions">
-            <li v-for="(solution, index) in selected.solutions" :key="index">
+            <li v-for="(solution, i) in item.solutions" :key="i">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
               {{ solution }}
             </li>
@@ -77,16 +85,16 @@
           <div class="panel-foot">
             <!-- Jumps to the contact form with this service already ticked -->
             <RouterLink
-              :to="{ name: 'home', query: { topic: selected.id }, hash: '#contact' }"
+              :to="{ name: 'home', query: { topic: item.id }, hash: '#contact' }"
               class="btn"
             >
               {{ t('services.interested') }} <span class="btn-arrow" aria-hidden="true">→</span>
             </RouterLink>
 
-            <p v-if="selected.projects.length" class="related">
+            <p v-if="item.projects.length" class="related">
               <span>{{ t('services.projectsLabel') }}:</span>
               <RouterLink
-                v-for="project in selected.projects"
+                v-for="project in item.projects"
                 :key="project.slug"
                 :to="{ name: 'project', params: { slug: project.slug } }"
                 class="project-link"
@@ -96,7 +104,7 @@
             </p>
           </div>
         </article>
-      </Transition>
+      </div>
     </div>
 
     <p class="not-listed">
@@ -121,17 +129,16 @@ const root = ref(null)
 const tabRefs = ref([])
 const current = ref(0)
 
-const selected = computed(() => {
-  const service = services[current.value]
-  return {
+const items = computed(() =>
+  services.map((service) => ({
     ...service,
     solutions: tm(`services.items.${service.id}.solutions`).map((item) => rt(item)),
     projects: service.projects
       .map((slug) => getProject(slug))
       .filter(Boolean)
       .map((project) => localizeProject(project, locale.value)),
-  }
-})
+  })),
+)
 
 /*
  * Autoplay. An invisible timer in the current service runs a CSS animation
@@ -194,7 +201,6 @@ onBeforeUnmount(() => {
   display: grid;
   grid-template-columns: minmax(220px, 0.8fr) minmax(0, 2fr);
   gap: 1.5rem;
-  align-items: start;
 }
 
 /* ===== List ===== */
@@ -361,6 +367,31 @@ onBeforeUnmount(() => {
 }
 
 /* ===== Panel ===== */
+.stage {
+  display: grid;
+}
+
+/* All panels share one cell; only the active one is shown */
+.stage > .panel {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0s linear 0.25s;
+}
+
+.stage > .panel.active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 0.25s ease 0.05s,
+    transform 0.25s ease 0.05s;
+}
+
 /*
  * Dark panel inside the light band (data-theme="dark" brings the dark tokens
  * back): same dot grid + glow as the hero, so it pops against the band.
@@ -372,7 +403,6 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-  min-height: 100%;
   padding: 2.25rem 2.5rem;
   border-radius: 22px;
   color: var(--color-text);
@@ -417,22 +447,11 @@ onBeforeUnmount(() => {
   color: var(--color-text-strong);
 }
 
-/* The client's pain point, in their own words */
-.problem {
-  padding-left: 1rem;
-  border-left: 3px solid color-mix(in srgb, var(--color-accent) 60%, transparent);
+/* What this kind of project is, in one line */
+.description {
   font-size: 1.02rem;
-  font-style: italic;
   line-height: 1.6;
   color: var(--color-text);
-}
-
-.problem::before {
-  content: '“';
-}
-
-.problem::after {
-  content: '”';
 }
 
 .solutions {
@@ -505,32 +524,44 @@ onBeforeUnmount(() => {
   border-radius: 4px;
 }
 
+/* Closing line: plain text, set off by a short accent rule above */
 .not-listed {
-  margin-top: 1.5rem;
-  color: var(--color-text-muted);
+  margin-top: 2rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-text-strong);
 }
 
+.not-listed::before {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin-bottom: 0.85rem;
+  border-radius: 2px;
+  background: var(--color-accent);
+}
+
+/* Link underlined like the project links in the panel */
 .not-listed a {
-  font-weight: 600;
+  margin-left: 0.4rem;
+  font-weight: 700;
   white-space: nowrap;
-  color: var(--color-accent-soft);
+  color: var(--color-text-strong);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
 }
 
-/* Panel swap */
-.panel-enter-active,
-.panel-leave-active {
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
+.not-listed a span {
+  display: inline-block;
+  transition: transform 0.2s ease;
 }
 
-.panel-enter-from {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
-.panel-leave-to {
-  opacity: 0;
+.not-listed a:hover span {
+  transform: translateX(4px);
 }
 
 /* ===== Responsive: list on top as a 2-column grid, panel below ===== */
@@ -570,8 +601,8 @@ onBeforeUnmount(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .panel-enter-active,
-  .panel-leave-active {
+  .stage > .panel,
+  .stage > .panel.active {
     transition: none;
   }
 }

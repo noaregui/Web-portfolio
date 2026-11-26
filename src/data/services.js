@@ -3,7 +3,7 @@
  * work (Home "process" section).
  *
  * Texts are translated in src/locales/*.json under `services.items.<id>`
- * (title, problem, solutions[]). `icon` is a ProjectIcon name. `projects` lists
+ * (short, title, description, solutions[]). `icon` is a ProjectIcon name. `projects` lists
  * project slugs (src/data/projects/) that prove the service; they render as
  * links to the project pages.
  */

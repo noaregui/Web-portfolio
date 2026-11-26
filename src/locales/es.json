@@ -5,7 +5,7 @@
   },
   "nav": {
     "home": "Inicio",
-    "services": "Servicios",
+    "services": "Lo que desarrollo",
     "projects": "Proyectos",
     "process": "Cómo trabajo",
     "about": "Sobre mí",
@@ -83,68 +83,72 @@
     }
   },
   "services": {
-    "title": "¿En qué te puedo ayudar?",
-    "lead": "Cinco tipos de proyecto que conozco bien. Elige el tuyo.",
-    "projectsLabel": "Lo he hecho en",
-    "interested": "Me interesa",
+    "title": "Lo que desarrollo",
+    "lead": "De webs y aplicaciones completas a soluciones con inteligencia artificial.",
+    "projectsLabel": "Proyectos relacionados",
+    "interested": "Contactar",
     "pause": "Pausar",
     "play": "Reanudar",
-    "notListed": "¿No encaja ninguno? Cuéntame tu caso y vemos cómo puedo ayudarte.",
-    "notListedLink": "Escríbeme",
+    "notListed": "Si tienes en mente otro tipo de proyecto, también puedes escribirme.",
+    "notListedLink": "Contacto",
     "items": {
       "web": {
         "short": "Webs",
-        "title": "Webs que te representan",
-        "problem": "Mis clientes me buscan en internet y lo que encuentran no transmite lo que hago.",
+        "title": "Webs corporativas",
+        "description": "Webs y landing pages para presentar una empresa o un proyecto.",
         "solutions": [
-          "Web corporativa o landing page",
-          "Rápida y adaptada a móvil",
-          "Fácil de encontrar en Google",
-          "Contacto y reservas conectados a tus herramientas"
+          "Diseño a medida y adaptado a móvil",
+          "Carga rápida",
+          "Contenido en varios idiomas",
+          "Formularios de contacto y reservas",
+          "Conexión con email, CRM y calendario",
+          "Fáciles de mantener y actualizar"
         ]
       },
       "apps": {
-        "short": "Apps a medida",
+        "short": "Aplicaciones web",
         "title": "Aplicaciones web a medida",
-        "problem": "Necesito una herramienta que se adapte a cómo trabajamos, y no al revés.",
+        "description": "Herramientas internas, paneles de gestión y aplicaciones completas, de la base de datos a la interfaz.",
         "solutions": [
-          "Aplicaciones web y paneles de gestión",
-          "Backends preparados para crecer",
-          "Modernizo apps existentes",
+          "Frontend y backend",
+          "APIs y bases de datos",
+          "Modernización de aplicaciones existentes",
           "Despliegue en la nube (AWS)"
         ]
       },
       "assistants": {
         "short": "Asistentes de IA",
-        "title": "Asistentes de IA con tu información",
-        "problem": "Mi equipo pierde horas buscando información en documentos, manuales o expedientes.",
+        "title": "Asistentes y agentes de IA",
+        "description": "Asistentes y agentes que trabajan con documentos, bases de datos, normativa y otras fuentes para responder, redactar o realizar tareas.",
         "solutions": [
-          "Responden con tus documentos y citan la fuente",
-          "Redactan y revisan documentos por ti",
-          "Consultan tus sistemas y hacen tareas",
-          "Respuestas revisadas y fiables"
+          "Respuestas que citan la fuente (RAG)",
+          "Consultas a bases de datos en lenguaje natural",
+          "Búsqueda en leyes, normativa y otros datos",
+          "Agentes de respuesta con herramientas y APIs",
+          "Redacción y revisión de documentos",
+          "Control y evaluación de las respuestas"
         ]
       },
       "automation": {
         "short": "Automatizaciones",
         "title": "Automatizaciones e integraciones",
-        "problem": "Hacemos a mano tareas repetitivas y copiamos datos de una herramienta a otra.",
+        "description": "Flujos que conectan herramientas entre sí y sustituyen tareas manuales repetitivas.",
         "solutions": [
-          "Conecta CRM, WhatsApp, email y calendario",
-          "Adiós a las tareas repetitivas",
-          "Contenido generado con IA",
-          "Integración con cualquier API"
+          "Integración de CRM, WhatsApp, email y calendario",
+          "Procesos que se ejecutan de forma automática",
+          "Generación de contenido con IA",
+          "Conexión con APIs de terceros"
         ]
       },
       "voice": {
         "short": "Voz y chatbots",
         "title": "Agentes de voz y chatbots",
-        "problem": "No llego a atender todas las llamadas y mensajes, y pierdo clientes fuera de horario.",
+        "description": "Agentes conversacionales que atienden llamadas y mensajes de forma automática.",
         "solutions": [
-          "Atienden llamadas 24/7",
-          "Chat en tu web o WhatsApp",
-          "Citas y reservas automáticas",
-          "Pasan a una persona si hace falta"
+          "Atención telefónica 24/7",
+          "Chat en la web o en WhatsApp",
+          "Gestión de citas y reservas",
+          "Traspaso a una persona cuando hace falta"
         ]
       }
     }
