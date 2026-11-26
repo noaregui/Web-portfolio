@@ -10,12 +10,22 @@
         </p>
         <h1 class="headline">{{ t('home.headline') }}</h1>
         <p class="lead">{{ t('home.lead') }}</p>
+        <!-- Technical detail line: quick to skip, useful for engineers -->
+        <ul class="tech" :aria-label="t('home.techLabel')">
+          <li v-for="item in tech" :key="item">{{ item }}</li>
+        </ul>
         <div class="actions">
-          <a href="#contact" class="btn" @click.prevent="scrollToSection('contact')">
-            {{ t('home.ctaContact') }} <span class="btn-arrow" aria-hidden="true">→</span>
+          <a href="#projects" class="btn" @click.prevent="scrollToSection('projects')">
+            {{ t('home.ctaProjects') }} <span class="btn-arrow" aria-hidden="true">→</span>
           </a>
-          <a href="#projects" class="btn btn-quiet" @click.prevent="scrollToSection('projects')">
-            {{ t('home.ctaProjects') }}
+          <a href="#contact" class="btn btn-quiet" @click.prevent="scrollToSection('contact')">
+            {{ t('home.ctaContact') }}
+          </a>
+          <a v-if="cv" :href="cv" class="btn btn-quiet cv-button" download>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14" />
+            </svg>
+            {{ t('about.downloadCv') }}
           </a>
         </div>
         <SocialLinks class="hero-social" />
@@ -74,9 +84,14 @@ import ProcessSection from '@/components/sections/ProcessSection.vue'
 import ServicesSection from '@/components/sections/ServicesSection.vue'
 import SocialLinks from '@/components/SocialLinks.vue'
 import { scrollToSection, useSectionSpy } from '@/composables/useSections'
+import { cvUrl } from '@/data/cv'
 import { localizeProject, projects } from '@/data/projects'
 
-const { t, locale } = useI18n()
+const { t, tm, rt, locale } = useI18n()
+
+const cv = computed(() => cvUrl(locale.value))
+
+const tech = computed(() => tm('home.tech').map((item) => rt(item)))
 
 // One-page Home: the navbar highlights the section in view
 useSectionSpy()
@@ -189,11 +204,39 @@ const allProjects = computed(() =>
   color: var(--color-text-muted);
 }
 
+.tech {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-subtle);
+}
+
+/* Middle dot between items */
+.tech li:not(:last-child)::after {
+  content: '·';
+  margin: 0 0.6rem;
+  color: var(--color-accent-soft);
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 0.5rem;
+}
+
+.cv-button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .hero-social {
